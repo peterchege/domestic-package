@@ -1,0 +1,147 @@
+@font-face {
+    src: url(../font/trebuchetms.ttf);
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    src: url(../font/trebuc.ttf);
+    font-family: trebuchet;
+    src: url(../font/trebuchetms.ttf);
+    font-family: trebuchet;
+    src: url(../font/trebuchetms.ttf);
+    font-family: trebuchet;
+    src: url(../font/trebuchetms.ttf);
+    font-family: trebuchet;
+}
+
+
+
+.app-theme-white .header-color  {
+    background-color: #0D345F;
+    color: #fff;
+    height: 70px;
+}
+
+.app-header__logo {
+    background-color: #fff;
+    margin: 0 auto;
+}
+
+.app-header__logo .logo-src1 {
+    width: 100%;
+    height: 50px;
+    background-image: url(../img/logo.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.app-header-left .search-wrapper .input-holder {
+    background-color: #fff;
+    border-radius: 20px; 
+}
+
+.icon-build{
+    color: #0C4DA2;
+}
+
+.build-head h2{
+    color: #0C4DA2;
+    font-family: 'Oswald',
+    sans-serif;
+}
+
+.build-h5 h5{
+    color: #0C4DA2;
+    font-family: 'Oswald',
+    sans-serif;
+    font-size: 18px;
+}
+
+/* NAVBAR LEFT */
+.app-sidebar__inner .app-sidebar__heading {
+    color: #0C4DA2;
+    font-family: 'Oswald',
+    sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.vertical-nav-menu li{
+    color: #0D345F;
+    font-family: 'Trebuchet MS',
+    'Lucida Sans Unicode',
+    'Lucida Grande',
+    'Lucida Sans',
+    Arial,
+    sans-serif;
+}
+
+/* END OF NAVBAR */
+
+.cont-li li{
+    font-size: 16px;
+    padding: 10px 15px;
+    color: #0D345F;
+    font-family: 'Trebuchet MS',
+    'Lucida Sans Unicode',
+    'Lucida Grande',
+    'Lucida Sans',
+    Arial,
+    sans-serif;
+}
+
+.btn-mine{
+    border-radius: 20px;
+    font-family: 'Oswald', sans-serif;
+    padding: 10px 25px;
+    font-size: 14px;
+    margin-bottom: 2%;
+    background-color: #0C4DA2;
+    -webkit-box-shadow: 7px 7px 10px -2px rgba(95, 99, 104, 0.6);
+    -moz-box-shadow: 7px 7px 10px -2px rgba(95, 99, 104, 0.6);
+    box-shadow: 7px 7px 10px -2px rgba(95, 99, 104, 0.6);
+}
+
+/* BUILDING COVER */
+
+.cont-val{
+    margin: 5% auto 0 auto;
+}
+
+.cont-val label{
+    color: #0C4DA2;
+    font-family: 'Oswald',
+    sans-serif;
+    padding-bottom: 20px;
+    font-size: 18px;
+}
+
+.cal-up{
+    padding-bottom: 5%;
+}
+
+.cont-row{
+    margin: 5% auto;
+}
+
+.cont-row label {
+    color: #0C4DA2;
+    font-family: 'Oswald',
+        sans-serif;
+    padding-bottom: 10px;
+    font-size: 18px;
+}
+
+.space-bt{
+    border-radius: 20px;
+    font-family: 'Oswald',
+    sans-serif;
+    padding: 10px 25px;
+    font-size: 12px;
+    margin-top: 40px;
+    background-color: rgb(110, 110, 110);
+    -webkit-box-shadow: 7px 7px 10px -2px rgba(95, 99, 104, 0.6);
+    -moz-box-shadow: 7px 7px 10px -2px rgba(95, 99, 104, 0.6);
+    box-shadow: 7px 7px 10px -2px rgba(95, 99, 104, 0.6);
+}
+
+.table-alg{
+    margin: 0 auto;
+}
