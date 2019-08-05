@@ -24,7 +24,7 @@ class MainController extends Controller
      */
     public function index()
     {
-        return view('building_content');
+        return view('premises');
     }
 
     /**
