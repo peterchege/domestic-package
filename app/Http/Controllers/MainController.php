@@ -75,8 +75,29 @@ class MainController extends Controller
      */
     public function general_information()
     {
-        return view('general_information');
+        return view('product_general_information');
     }
+
+    /**
+     * Display general_information form.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function billing_details()
+    {
+        return view('billing_details');
+    }
+
+    /**
+     * Display general_information form.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function invoice()
+    {
+        return view('invoice');
+    }
+
 
 
 
