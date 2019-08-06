@@ -14,6 +14,12 @@ return [
     |
     */
 
+    'facebook' => [
+        'client_id' => '2272858242987536',
+        'client_secret' => '16cd03224983930ddf53ea94b03da302',
+        'redirect' => 'http://apatest.dev/callback/facebook',
+    ],
+
     'mailgun' => [
         'domain' => env('MAILGUN_DOMAIN'),
         'secret' => env('MAILGUN_SECRET'),
