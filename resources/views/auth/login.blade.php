@@ -114,8 +114,21 @@
         </div>
 
     </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="{{ asset('customer/assets/scripts/main.js') }}"></script>
     <script type="text/javascript" src="./assets/scripts/main.js"></script>
+    <script>
+        let data = localStorage;
+        console.log(data);
+        alert(data);
+
+        // $(document).ready(function () {
+        //     var email = localStorage.getItem('email');
+        //     alert(email);
+        //     $('#email').val(email);
+        // });
+
+    </script>
 </body>
 
 </html>
