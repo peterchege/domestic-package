@@ -404,9 +404,11 @@
 
                 <div class="row text-center">
                     <div class="col-12 btn-red">
-                        <button id="buy_now" class="btn">
-                            BUY NOW
-                        </button>
+                        <a href="{{ route('login') }}">
+                            <button id="buy_now" class="btn">
+                                BUY NOW
+                            </button>
+                        </a>
                     </div>
                 </div>
                 <br>

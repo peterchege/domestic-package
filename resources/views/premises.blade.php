@@ -286,11 +286,12 @@
                                     </div>
                                 </div>
                             </li>
-
-
                         </ol>
                     </div>
-
+                    <input type="text" name="building_amount" id="building_amount" value="">
+                    <input type="hidden" name="content_amount" id="content_amount" value="">
+                    <input type="hidden" name="domestic_amount" id="domestic_amount" value="">
+                    <input type="hidden" name="risk_amount" id="risk_amount" value="">
                     <div class="row">
                         <div class="col-12 text-center">
                             <a href="product_risk.html">
@@ -299,6 +300,7 @@
 
                         </div>
                     </div>
+
                 </form>
 
                 <script>
@@ -320,6 +322,19 @@
                             });
                         }, false);
                     })();
+
+                </script>
+                <script>
+                    $(document).ready(function () {
+                        var building_amount = sessionStorage.getItem('building_amount');
+                        $('#building_amount').val(building_amount);
+                        var content_amount = sessionStorage.getItem('content_amount');
+                        $('#content_amount').val(content_amount);
+                        var domestic_amount = sessionStorage.getItem('domestic_amount');
+                        $('#domestic_amount').val(domestic_amount);
+                        var risk_amount = sessionStorage.getItem('risk_amount');
+                        $('#risk_amount').val(risk_amount);
+                    });
 
                 </script>
             </div>

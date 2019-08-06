@@ -118,15 +118,11 @@
     <script src="{{ asset('customer/assets/scripts/main.js') }}"></script>
     <script type="text/javascript" src="./assets/scripts/main.js"></script>
     <script>
-        let data = localStorage;
-        console.log(data);
-        alert(data);
-
-        // $(document).ready(function () {
-        //     var email = localStorage.getItem('email');
-        //     alert(email);
-        //     $('#email').val(email);
-        // });
+        $(document).ready(function () {
+            var email = sessionStorage.getItem('email');
+            alert(email);
+            $('#email').val(email);
+        });
 
     </script>
 </body>

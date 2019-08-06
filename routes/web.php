@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -34,3 +36,5 @@ Route::get('/general_information', 'MainController@general_information')->name('
 Route::get('/billing_details', 'MainController@billing_details')->name('billing_details');
 
 Route::get('/invoice', 'MainController@invoice')->name('invoice');
+
+Route::get('/calculator', 'CalculatorController@calculator')->name('calculator');

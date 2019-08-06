@@ -123,7 +123,7 @@ $(document).ready(function () {
         });
     });
 
-    //adding to cache
+    //adding to session storage
     $('#save_quote, #buy_now').click(function () {
         // get values
         var name = $('#name').val();
@@ -141,12 +141,11 @@ $(document).ready(function () {
         var liability_amount = numeral($('#liability_amount').val()).value();
 
 
-
-
         //store to cache
+        sessionStorage.clear();
         sessionStorage.setItem('name', name);
         sessionStorage.setItem('phone', phone);
-        window.localStorage.setItem('email', email);
+        sessionStorage.setItem('email', email);
         sessionStorage.setItem('location', location);
         sessionStorage.setItem('property', property);
         sessionStorage.setItem('building_amount', building_amount);
@@ -155,9 +154,7 @@ $(document).ready(function () {
         sessionStorage.setItem('domestic_amount', domestic_amount);
         sessionStorage.setItem('liability_amount', liability_amount);
         sessionStorage.setItem('property', property);
-
-        alert(localStorage.getItem('email'));
-        console.log(localStorage);
+        console.log(sessionStorage);
     });
 
 });
