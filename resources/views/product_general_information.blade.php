@@ -1,4 +1,4 @@
-@extends('layout.customer')
+@extends('layouts.customer')
 @section('content')
 <!-- MAIN CONTENT -->
 <div class="app-main__outer">

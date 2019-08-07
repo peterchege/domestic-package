@@ -61,7 +61,8 @@
         <div class="main-card mb-3 card">
             <div class="card-body build-h5">
                 <h5 class="card-title">Kindly fill the following information</h5><br>
-                <form class="needs-validation" novalidate>
+                <form action="{{ route('premisesSubmit') }}" method="POST" class="needs-validation" novalidate>
+                    @csrf
                     <div class="form-row">
 
                         <ol class="cont-li">
@@ -74,7 +75,7 @@
                                                 Wall :
                                             </label>
                                             <div class="col-md-12 col-sm-12 mb-3"><br>
-                                                <input type="Text" class="form-control" id="validationCustom01"
+                                                <input name="" type="Text" class="form-control" id="validationCustom01"
                                                     placeholder="e.g. bricks..." required>
                                             </div>
                                         </div>
@@ -294,7 +295,7 @@
                     <input type="hidden" name="risk_amount" id="risk_amount" value="">
                     <div class="row">
                         <div class="col-12 text-center">
-                            <a href="product_risk.html">
+                            <a href="{{ route('premisesSubmit') }}">
                                 <button class="btn btn-primary btn-mine" type="submit">NEXT</button>
                             </a>
 

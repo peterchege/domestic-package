@@ -103,7 +103,8 @@
                                     <a href="#" class="btn btn-gmail"><i class="fab fa-google-plus-g"></i> Google</a>
                                 </div>
                                 <div class="col-md-6 ">
-                                    <a href="#" class="btn btn-fb"><i class="fab fa-facebook-f"></i> Facebook</a>
+                                    <a href="{{url('/redirect')}}" class="btn btn-fb"><i class="fab fa-facebook-f"></i>
+                                        Facebook</a>
                                 </div>
                             </div>
                         </div>

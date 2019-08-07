@@ -38,3 +38,10 @@ Route::get('/billing_details', 'MainController@billing_details')->name('billing_
 Route::get('/invoice', 'MainController@invoice')->name('invoice');
 
 Route::get('/calculator', 'CalculatorController@calculator')->name('calculator');
+
+Route::post('/premisesSubmit', 'PremisesController@start')->name('premisesSubmit');
+
+// facebook
+Route::get('/redirect', 'SocialAuthFacebookController@redirect');
+
+Route::get('/callback', 'SocialAuthFacebookController@callback');
