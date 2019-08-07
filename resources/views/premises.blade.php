@@ -64,10 +64,8 @@
                 <form action="{{ route('premisesSubmit') }}" method="POST" class="needs-validation" novalidate>
                     @csrf
                     <div class="form-row">
-
                         <ol class="cont-li">
                             <li>Of what materials is the dwelling constructed?
-
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="position-relative form-check">
@@ -75,8 +73,15 @@
                                                 Wall :
                                             </label>
                                             <div class="col-md-12 col-sm-12 mb-3"><br>
-                                                <input name="" type="Text" class="form-control" id="validationCustom01"
-                                                    placeholder="e.g. bricks..." required>
+                                                <input name="wall_material" type="text"
+                                                    class="form-control @error('wall_material') is-invalid @enderror"
+                                                    id="validationCustom01" placeholder="e.g. bricks..." required
+                                                    value="{{ old('wall_material') }}">
+                                                @error('wall_material')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                                @enderror
                                             </div>
                                         </div>
                                     </div>
@@ -87,8 +92,15 @@
                                                 Roof :
                                             </label>
                                             <div class="col-md-12 col-sm-12 mb-3"><br>
-                                                <input type="Text" class="form-control" id="validationCustom01"
-                                                    placeholder="e.g. bricks..." required>
+                                                <input name="roof_material" type="Text"
+                                                    class="form-control @error('roof_material') is-invalid @enderror"
+                                                    id="validationCustom01" placeholder="e.g. bricks..." required
+                                                    value="{{ old('roof_material') }}">
+                                                @error('roof_material')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                                @enderror
                                             </div>
                                         </div>
                                     </div>
@@ -98,8 +110,15 @@
 
                             <li>Height of the building (Storey / Floors).
                                 <div class="col-md-5 col-sm-12 mb-3"><br>
-                                    <input type="Number" class="form-control" id="validationCustom01"
-                                        placeholder="e.g. 2" required>
+                                    <input name="building_height" type="Number"
+                                        class="form-control @error('building_height') is-invalid @enderror "
+                                        id="validationCustom01" placeholder="e.g. 2" required
+                                        value="{{ old('building_height') }}">
+                                    @error('building_height')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
                                     <div class="valid-feedback">
                                         Looks good!
                                     </div>
@@ -114,8 +133,15 @@
                                                 Wall :
                                             </label>
                                             <div class="col-md-12 col-sm-12 mb-3"><br>
-                                                <input type="Text" class="form-control" id="validationCustom01"
-                                                    placeholder="e.g. bricks..." required>
+                                                <input name="outbuilding_wall" type="Text"
+                                                    class="form-control @error('outbuilding_wall') is-invalid @enderror "
+                                                    id="validationCustom01" placeholder="e.g. bricks..." required
+                                                    value="{{ old('outbuilding_wall') }}">
+                                                @error('outbuilding_wall')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                                @enderror
                                             </div>
                                         </div>
                                     </div>
@@ -126,31 +152,45 @@
                                                 Roof :
                                             </label>
                                             <div class="col-md-12 col-sm-12 mb-3"><br>
-                                                <input type="Text" class="form-control" id="validationCustom01"
-                                                    placeholder="e.g. bricks..." required>
+                                                <input name="outbuilding_roof" type="Text"
+                                                    class="form-control @error('outbuilding_roof') is-invalid @enderror "
+                                                    id="validationCustom01" placeholder="e.g. bricks..." required
+                                                    value="{{ old('outbuilding_roof') }}">
+                                                @error('outbuilding_roof')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                                @enderror
                                             </div>
                                         </div>
                                     </div>
-
                                 </div>
                             </li>
-
                             <li>Is any business, profession or trade carried on in any portion of the premises of which
                                 the dwelling forms a part?<br>
-
                                 <div class="position-relative form-check">
                                     <label class="form-check-label"><br>
-                                        <input name="rad" type="radio" class="form-check-input" value="yes"> Yes
+                                        <input name="rad" type="radio"
+                                            class="form-check-input @error('rad') is-invalid @enderror " value="1"
+                                            {{(old('rad') == '1') ? 'checked' : ''}}> Yes
                                     </label>
                                     <div class="col-md-12 col-sm-12 mb-3" style="display: none;" id="textboxes"><br>
                                         <label>If so, give particulars.</label>
-                                        <textarea class="form-control" id="display_field" rows="3"></textarea>
+                                        <textarea name="rad_details" class="form-control" id="display_field"
+                                            rows="3"></textarea>
                                     </div>
                                 </div>
 
                                 <div class="position-relative form-check">
                                     <label class="form-check-label">
-                                        <input name="rad" type="radio" class="form-check-input" value="No">No
+                                        <input name="rad" type="radio"
+                                            class="form-check-input @error('rad') is-invalid @enderror" value="0"
+                                            {{(old('rad') == '0') ? 'checked' : ''}}>No
+                                        @error('rad')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                        @enderror
                                     </label>
                                 </div>
                             </li>
@@ -159,21 +199,34 @@
 
                                 <div class="position-relative form-check">
                                     <label class="form-check-label"><br>
-                                        <input name="radio" type="radio" class="form-check-input">
+                                        <input name="dwelling" type="radio"
+                                            class="form-check-input @error('dwelling') is-invalid @enderror "
+                                            value="private" {{(old('dwelling') == 'private') ? 'checked' : ''}}>
                                         A private dwelling house
                                     </label>
                                 </div>
                                 <div class="position-relative form-check">
                                     <label class="form-check-label">
-                                        <input name="radio" type="radio" class="form-check-input">
+                                        <input name="dwelling" type="radio"
+                                            class="form-check-input @error('dwelling') is-invalid @enderror"
+                                            value="self-contained"
+                                            {{(old('dwelling') == 'self-contained') ? 'checked' : ''}}>
                                         A self contained flat with separate entrance exclusively under
                                         your control
                                     </label>
                                 </div>
                                 <div class="position-relative form-check">
                                     <label class="form-check-label">
-                                        <input name="radio" type="radio" class="form-check-input">
+                                        <input name="dwelling" type="radio"
+                                            class="form-check-input @error('dwelling') is-invalid @enderror"
+                                            value="room-not-self-contained"
+                                            {{(old('dwelling') == 'room-not-self-contained') ? 'checked' : ''}}>
                                         Rooms not self contained
+                                        @error('dwelling')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                        @enderror
                                     </label>
                                 </div>
 
@@ -183,12 +236,23 @@
                                 (including your family and any servants)
                                 <div class="position-relative form-check">
                                     <label class="form-check-label"><br>
-                                        <input name="radio_dwell" type="radio" class="form-check-input"> Yes
+                                        <input name="dwelling_occupation" type="radio"
+                                            class="form-check-input @error('dwelling_occupation') is-invalid @enderror"
+                                            value="1" {{(old('dwelling_occupation') == '1') ? 'checked' : ''}}>
+                                        Yes
                                     </label>
                                 </div>
                                 <div class="position-relative form-check">
                                     <label class="form-check-label">
-                                        <input name="radio_dwell" type="radio" class="form-check-input" value="no"> No
+                                        <input name="dwelling_occupation" type="radio"
+                                            class="form-check-input @error('dwelling_occupation') is-invalid @enderror"
+                                            value="0" {{(old('dwelling_occupation') == '0') ? 'checked' : ''}}>
+                                        No
+                                        @error('dwelling_occupation')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                        @enderror
                                     </label>
                                 </div>
                             </li>
@@ -197,12 +261,22 @@
                                 apartments or receive boarders?
                                 <div class="position-relative form-check">
                                     <label class="form-check-label"><br>
-                                        <input name="radio1" type="radio" class="form-check-input"> Yes
+                                        <input name="let" type="radio"
+                                            class="form-check-input @error('let') is-invalid @enderror " value="1"
+                                            {{(old('let') == '1') ? 'checked' : ''}}> Yes
                                     </label>
                                 </div>
                                 <div class="position-relative form-check">
                                     <label class="form-check-label">
-                                        <input name="radio1" type="radio" class="form-check-input" value="no"> No
+                                        <input name="let" type="radio"
+                                            class="form-check-input  @error('let') is-invalid @enderror " value="0"
+                                            value="0" {{(old('let') == '0') ? 'checked' : ''}}>
+                                        No
+                                        @error('let')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                        @enderror
                                     </label>
                                 </div>
                             </li>
@@ -210,19 +284,29 @@
                             <li>Will the dwelling be left without any inhabitants for more than 30 consecutive days?
                                 <div class="position-relative form-check">
                                     <label class="form-check-label"><br>
-                                        <input name="radio_30" type="radio" class="form-check-input" value="yes"> Yes
+                                        <input name="thirty_day" type="radio"
+                                            class="form-check-input @error('thirty_day') is-invalid @enderror" value="1"
+                                            {{(old('thirty_day') == '1') ? 'checked' : ''}}> Yes
                                     </label>
 
                                     <!-- textbox display -->
                                     <div class="col-md-12 col-sm-12 mb-3" style="display:none;" id="textboxes1"><br>
                                         <label>If so, give particulars.</label>
-                                        <textarea class="form-control" id="display_field" rows="3"></textarea>
+                                        <textarea name="thirty_day_details" class="form-control" id="display_field"
+                                            rows="3">{{ old('thirty_day_details') }}</textarea>
                                     </div>
                                 </div>
 
                                 <div class="position-relative form-check">
                                     <label class="form-check-label">
-                                        <input name="radio_30" type="radio" class="form-check-input" value="no"> No
+                                        <input name="thirty_day" type="radio"
+                                            class="form-check-input @error('thirty_day') is-invalid @enderror" value="0"
+                                            {{(old('thirty_day') == '0') ? 'checked' : ''}}> No
+                                        @error('thirty_day')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                        @enderror
                                     </label>
                                 </div>
                             </li>
@@ -236,7 +320,8 @@
                                     <!-- textbox display -->
                                     <div class="col-md-12 col-sm-12 mb-3" style="display: none;" id="textboxes2"><br>
                                         <label>If so, give particulars.</label>
-                                        <textarea class="form-control" id="display_field" rows="3"></textarea>
+                                        <textarea name="seven_day" class="form-control" id="display_field"
+                                            rows="3">{{ old('seven_day') }}</textarea>
                                     </div>
                                 </div>
                                 <div class="position-relative form-check">
@@ -250,12 +335,22 @@
                             <li>Are the buildings in a good state of repair and will they be so maintained?
                                 <div class="position-relative form-check"><br>
                                     <label class="form-check-label">
-                                        <input name="radio_maintain" type="radio" class="form-check-input"> Yes
+                                        <input name="repair_state" type="radio"
+                                            class="form-check-input @error('repair_state') is-invalid @enderror"
+                                            value="1" {{(old('repair_state') == '1') ? 'checked' : ''}}>
+                                        Yes
                                     </label>
                                 </div>
                                 <div class="position-relative form-check">
                                     <label class="form-check-label">
-                                        <input name="radio_maintain" type="radio" class="form-check-input"> No
+                                        <input name="repair_state" type="radio"
+                                            class="form-check-input @error('repair_state') is-invalid @enderror"
+                                            value="0" {{(old('repair_state') == '0') ? 'checked' : ''}}> No
+                                        @error('repair_state')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                        @enderror
                                     </label>
                                 </div>
                             </li>
@@ -263,25 +358,36 @@
                             <li>Do you have burglar-proof doors and windows?
                                 <div class="position-relative form-check">
                                     <label class="form-check-label"><br>
-                                        <input name="radio_proof" type="radio" class="form-check-input" value="yes"> Yes
+                                        <input name="burglar_proof" type="radio"
+                                            class="form-check-input @error('burglar_proof') is-invalid @enderror "
+                                            value="1" {{(old('burglar_proof') == '1') ? 'checked' : ''}}> Yes
                                     </label>
                                     <!-- textbox display -->
                                     <div class="col-md-12 col-sm-12 mb-3" style="display: none;" id="textboxes3"><br>
                                         <label> If so give details</label>
-                                        <textarea class="form-control" id="display_field" rows="3"></textarea>
+                                        <textarea name="burglar_proof_details" class="form-control" id="display_field"
+                                            rows="3">{{ old('burglar_proof_details') }}</textarea>
                                     </div>
                                 </div>
                                 <div class="position-relative form-check">
                                     <label class="form-check-label">
-                                        <input name="radio_proof" type="radio" class="form-check-input">
+                                        <input name="burglar_proof" type="radio"
+                                            class="form-check-input @error('burglar_proof') is-invalid @enderror "
+                                            value="0" {{(old('burglar_proof') == '0') ? 'checked' : ''}}>
                                         No
+                                        @error('burglar_proof')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                        @enderror
                                     </label>
                                 </div>
                             </li>
 
                             <li>What other security arrangements do you have in place (e.g Guards, alarm, etc)?
                                 <div class="col-md-9 col-sm-12 mb-3"><br>
-                                    <textarea class="form-control" id="display_field" rows="3"></textarea>
+                                    <textarea class="form-control" id="display_field" rows="3"
+                                        name="other_security">{{ old('other_security') }}</textarea>
                                     <div class="valid-feedback">
                                         Looks good!
                                     </div>
@@ -296,7 +402,8 @@
                     <div class="row">
                         <div class="col-12 text-center">
                             <a href="{{ route('premisesSubmit') }}">
-                                <button class="btn btn-primary btn-mine" type="submit">NEXT</button>
+                                <button name="submitPremisesInfo" class="btn btn-primary btn-mine"
+                                    type="submit">NEXT</button>
                             </a>
 
                         </div>
@@ -305,24 +412,24 @@
                 </form>
 
                 <script>
-                    // Example starter JavaScript for disabling form submissions if there are invalid fields
-                    (function () {
-                        'use strict';
-                        window.addEventListener('load', function () {
-                            // Fetch all the forms we want to apply custom Bootstrap validation styles to
-                            var forms = document.getElementsByClassName('needs-validation');
-                            // Loop over them and prevent submission
-                            var validation = Array.prototype.filter.call(forms, function (form) {
-                                form.addEventListener('submit', function (event) {
-                                    if (form.checkValidity() === false) {
-                                        event.preventDefault();
-                                        event.stopPropagation();
-                                    }
-                                    form.classList.add('was-validated');
-                                }, false);
-                            });
-                        }, false);
-                    })();
+                    // // Example starter JavaScript for disabling form submissions if there are invalid fields
+                    // (function () {
+                    //     'use strict';
+                    //     window.addEventListener('load', function () {
+                    //         // Fetch all the forms we want to apply custom Bootstrap validation styles to
+                    //         var forms = document.getElementsByClassName('needs-validation');
+                    //         // Loop over them and prevent submission
+                    //         var validation = Array.prototype.filter.call(forms, function (form) {
+                    //             form.addEventListener('submit', function (event) {
+                    //                 if (form.checkValidity() === false) {
+                    //                     event.preventDefault();
+                    //                     event.stopPropagation();
+                    //                 }
+                    //                 form.classList.add('was-validated');
+                    //             }, false);
+                    //         });
+                    //     }, false);
+                    // })();
 
                 </script>
                 <script>

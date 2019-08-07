@@ -24,10 +24,28 @@ class PremisesController extends Controller
      */
     public function start(Request $request)
     {
+        //storing premises form data
+        $this->validate($request, [
+            'wall_material' => 'required',
+            'roof_material' => 'required',
+            'building_height' => 'required',
+            'wall_material' => 'required',
+            'rad' => 'required|in:1,0',
+            'dwelling' => 'required|in:private,self-contained,room-not-self-contained',
+            'dwelling_occupation' => 'required|in:1,0',
+            'thirty_day' => 'required|in:1,0',
+            // 'let' => 'required|in:1,0'
+            'repair_state' => 'required|in:1,0',
+            'thirty_day' => 'required|in:1,0',
+            'burglar_proof' => 'required|in:1,0'
+        ]);
+
         $building_amount = $request->input('building_amount');
         $content_amount = $request->input('content_amount');
         $domestic_amount = $request->input('domestic_amount');
         $risk_amount = $request->input('risk_amount');
+
+
 
         if ($building_amount !== 'null' && $content_amount !== 'null' &&  $risk_amount !== 'null' && $domestic_amount !== 'null') {
             return redirect()->route('product_content');
@@ -73,12 +91,7 @@ class PremisesController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function premisesStore(Request $request)
-    {
-        //storing premises form data
-        $this->validate($request, [
-            '' => 'required',
-        ]);
-    }
+    { }
 
     /**
      * Display the specified resource.

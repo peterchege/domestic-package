@@ -39,6 +39,7 @@ Route::get('/invoice', 'MainController@invoice')->name('invoice');
 
 Route::get('/calculator', 'CalculatorController@calculator')->name('calculator');
 
+//dictates the path to be taken
 Route::post('/premisesSubmit', 'PremisesController@start')->name('premisesSubmit');
 
 // facebook

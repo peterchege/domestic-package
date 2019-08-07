@@ -38,7 +38,7 @@
                         <div class=" row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="first_name">Fist Name</label>
+                                    <label for="first_name">First Name</label>
                                     <input type="text" class="form-control  @error('first_name') is-invalid @enderror"
                                         id="first_name" name="first_name" value="{{ old('first_name') }}"
                                         aria-describedby="emailHelp" placeholder="e.g John">
