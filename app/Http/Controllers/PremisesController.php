@@ -10,7 +10,8 @@ use App\Pr_dp_premise;
 use App\Ref_roof_material;
 use App\Ref_wall_material;
 use App\SocialFacebookAccount;
-
+//use Illuminate\Support\Facades\Auth;
+use Auth;
 
 class PremisesController extends Controller
 {
@@ -37,7 +38,6 @@ class PremisesController extends Controller
             'wall_material' => 'required',
             'roof_material' => 'required',
             'building_height' => 'required',
-            'wall_material' => 'required',
             'rad' => 'required|in:1,0',
             'dwelling' => 'required|in:private,self-contained,room-not-self-contained',
             'dwelling_occupation' => 'required|in:1,0',
@@ -52,18 +52,34 @@ class PremisesController extends Controller
         $content_amount = $request->input('content_amount');
         $domestic_amount = $request->input('domestic_amount');
         $risk_amount = $request->input('risk_amount');
-
-        //echo Str::random(32);
-        $y = Str::random(32);
-        // ob_start();
-        // var_dump('soethin');
-        echo Str::random(32);
-        // print_r('hjd');
-        die();
+        $user_id = Auth::user()->user_id;
 
         if ($building_amount !== 'null' && $content_amount !== 'null' &&  $risk_amount !== 'null' && $domestic_amount !== 'null') {
-            return redirect()->route('product_content');
+
+            try {
+                $feed = new Pr_dp_premise;
+                $feed->user_id = $user_id;
+                $feed->floors = $request->input('building_height');
+                $feed->business = $request->input('rad');
+                $feed->business_description = $request->input('rad_details');
+                $feed->dwelling  = $request->input('dwelling');
+                $feed->sole_occupation = $request->input('dwelling_occupation');
+                $feed->for_hire = $request->input('let');
+                $feed->thirty_day_inoccupancy = $request->input('thirty_day');
+                $feed->thirty_day_inoccupancy_details =  $request->input('thirty_day_details');
+                $feed->good_state_of_repair = $request->input('repair_state');
+                $feed->burglar_proof = $request->input('burglar_proof');
+                $feed->burglar_proof_details = $request->input('burglar_proof_details');
+                $feed->other_sec_arrangement = $request->input('other_security');
+                $feed->premises_value = $request->input('building_amount');
+                $feed->save();
+                return redirect()->route('product_content');
+            } catch (\Exception $th) {
+                //throw $th;
+                return back();
+            }
         } elseif ($building_amount !== 'null' && $content_amount == 'null' && $risk_amount == 'null' && $domestic_amount == 'null') {
+
             return redirect()->route('general_information');
         } elseif ($building_amount !== 'null' && $content_amount !== 'null' && $risk_amount == 'null' && $domestic_amount == 'null') {
             return redirect()->route('product_content');
