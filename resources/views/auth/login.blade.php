@@ -121,7 +121,6 @@
     <script>
         $(document).ready(function () {
             var email = sessionStorage.getItem('email');
-            alert(email);
             $('#email').val(email);
         });
 

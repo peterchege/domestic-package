@@ -3,6 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
+
+use App\User;
+use App\Pr_dp_premise;
+use App\Ref_roof_material;
+use App\Ref_wall_material;
+use App\SocialFacebookAccount;
+
 
 class PremisesController extends Controller
 {
@@ -45,7 +53,13 @@ class PremisesController extends Controller
         $domestic_amount = $request->input('domestic_amount');
         $risk_amount = $request->input('risk_amount');
 
-
+        //echo Str::random(32);
+        $y = Str::random(32);
+        // ob_start();
+        // var_dump('soethin');
+        echo Str::random(32);
+        // print_r('hjd');
+        die();
 
         if ($building_amount !== 'null' && $content_amount !== 'null' &&  $risk_amount !== 'null' && $domestic_amount !== 'null') {
             return redirect()->route('product_content');

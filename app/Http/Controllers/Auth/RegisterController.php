@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Support\Str;
 
 class RegisterController extends Controller
 {
@@ -68,7 +69,14 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        do {
+            // $code =  Str::random(32);
+            $code = random_int(1000000, 2147483647);
+            $user_code = User::where('user_id', $code)->get();
+        } while (!$user_code->isEmpty());
+
         return User::create([
+            'user_id' => $code,
             'first_name' => $data['first_name'],
             'last_name' => $data['last_name'],
             'email' => $data['email'],
