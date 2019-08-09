@@ -98,7 +98,7 @@
                                             <input type="text" class="form-control" id="validationCustom02"
                                                 placeholder="" value="" required>
                                             <div class="invalid-feedback">
-                                                Please provide your Phone Number
+                                                Please provide item description
                                             </div>
                                         </div>
 
@@ -107,7 +107,7 @@
                                             <input type="number" class="form-control" id="validationCustom02"
                                                 placeholder="" value="" required>
                                             <div class="invalid-feedback">
-                                                Please provide your Phone Number
+                                                Please provide value of item
                                             </div>
                                         </div>
 

@@ -79,7 +79,28 @@ class PremisesController extends Controller
                 return back();
             }
         } elseif ($building_amount !== 'null' && $content_amount == 'null' && $risk_amount == 'null' && $domestic_amount == 'null') {
-
+            try {
+                $feed = new Pr_dp_premise;
+                $feed->user_id = $user_id;
+                $feed->floors = $request->input('building_height');
+                $feed->business = $request->input('rad');
+                $feed->business_description = $request->input('rad_details');
+                $feed->dwelling  = $request->input('dwelling');
+                $feed->sole_occupation = $request->input('dwelling_occupation');
+                $feed->for_hire = $request->input('let');
+                $feed->thirty_day_inoccupancy = $request->input('thirty_day');
+                $feed->thirty_day_inoccupancy_details =  $request->input('thirty_day_details');
+                $feed->good_state_of_repair = $request->input('repair_state');
+                $feed->burglar_proof = $request->input('burglar_proof');
+                $feed->burglar_proof_details = $request->input('burglar_proof_details');
+                $feed->other_sec_arrangement = $request->input('other_security');
+                $feed->premises_value = $request->input('building_amount');
+                $feed->save();
+                return redirect()->route('product_content');
+            } catch (\Exception $th) {
+                //throw $th;
+                return back();
+            }
             return redirect()->route('general_information');
         } elseif ($building_amount !== 'null' && $content_amount !== 'null' && $risk_amount == 'null' && $domestic_amount == 'null') {
             return redirect()->route('product_content');
