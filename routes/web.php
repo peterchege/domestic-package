@@ -42,6 +42,9 @@ Route::get('/calculator', 'CalculatorController@calculator')->name('calculator')
 //dictates the path to be taken
 Route::post('/premisesSubmit', 'PremisesController@start')->name('premisesSubmit');
 
+// content submit
+Route::post('/contentSubmit', 'PremisesController@contentSubmit')->name('contentSubmit');
+
 // facebook
 Route::get('/redirect', 'SocialAuthFacebookController@redirect');
 

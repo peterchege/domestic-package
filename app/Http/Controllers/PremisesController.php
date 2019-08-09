@@ -7,6 +7,7 @@ use Illuminate\Support\Str;
 
 use App\User;
 use App\Pr_dp_premise;
+use App\Pr_dp_content;
 use App\Ref_roof_material;
 use App\Ref_wall_material;
 use App\SocialFacebookAccount;
@@ -124,6 +125,45 @@ class PremisesController extends Controller
             return redirect()->route('product_content');
         }
     }
+
+
+    /**
+     * Feeding content data to db.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function contentSubmit(Request $request)
+    {
+
+        //
+
+        for ($i = 1; $i < count($request->item_description); $i++) {
+            // $description = [
+            //     'item_description' => $request->item_description[$i],
+            //     'item_value' => $request->item_value[$i],
+            //     'section_id' => 2,
+            //     'customer_role' => 'owner',
+            //     'premises_id' => 3,
+            // ];
+            $description = new Pr_dp_content;
+            $description->item_description = $request->item_description[$i];
+            $description->item_value = $request->item_value[$i];
+            $description->section_id = 2;
+            $description->customer_role = 'owner';
+            $description->premises_id = 3;
+
+            $description->save();
+        }
+
+        // $description->item_description = $request->item_description;
+        // $description->item_value = $request->item_value;
+
+
+
+        //Pr_dp_content::insert($description);
+        return redirect('product_allrisk');
+    }
+
 
     /**
      * Show the form for creating a new resource.

@@ -90,7 +90,8 @@
                     </p>
                 </div>
 
-                <form class="needs-validation" novalidate>
+                <form action="{{ route('contentSubmit') }}" method="POST" class="needs-validation" novalidate>
+                    @csrf
                     <div class="form-row container">
                         <div class="col-3 cont-row">
                             <label>Item Description </label>
