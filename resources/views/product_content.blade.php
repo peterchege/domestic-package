@@ -148,7 +148,7 @@
                                             </tr>
                                         </thead>
                                         <tbody id="table_body">
-                                            <tr>
+                                            {{-- <tr>
                                                 <th scope="row">1</th>
                                                 <td>Sofaset</td>
                                                 <input type="hidden" name="description[]" value="">
@@ -157,7 +157,7 @@
                                                 <td>
                                                     <button class="btn btn-focus" type="submit">Delete</button>
                                                 </td>
-                                            </tr>
+                                            </tr> --}}
                                             {{-- <tr>
                                                 <th scope="row">2</th>
                                                 <td>Dinning Table</td>
@@ -178,7 +178,7 @@
 
                     <div class="row">
                         <div class="col-12 text-center">
-                            <button class="btn btn-primary btn-mine" type="submit">NEXT</button>
+                            <button class="btn btn-primary btn-mine" type="submit" id="next">NEXT</button>
                         </div>
                     </div>
                 </form>
@@ -215,22 +215,44 @@
 
                     $(document).ready(function () {
                         var i = 1;
+                        var j = 1;
                         $('#add_content').click(function (e) {
                             e.preventDefault();
                             var item_description = $('#item_description').val();
                             var item_value = $('#item_value').val();
+
+
                             if (item_description == '' || item_value == '') {
                                 alert('Please fill all the input fields!');
                             } else {
-                                $('#table_body').append('<tr id="' + i + '"><th scope="row">' + i++ +
+                                $('#table_body').append('<tr id="' + i +
+                                    '"  class="item-row"  ><th scope="row">' + i +
                                     '</th><td>' + item_description +
-                                    '</td><input type="hidden" name="description[]" value=""><td>' +
+                                    '</td><input type="hidden" name="item_description[]" value="' +
+                                    item_description + '"><td>' + item_value +
+                                    '</td><input type="hidden" name="item_value[]" value="' +
                                     item_value +
-                                    '</td><input type="hidden" name="value[]" value=""><td> <button class="btn btn-focus" type="submit">Delete</button></td></tr>'
+                                    '"> <td> <button name="remove" class = "btn btn-focus remove" id = "' +
+                                    i + '"> Remove </button></td></tr>'
                                 );
-
+                                i++;
                             }
                         });
+
+                        $(document).on('click', '.remove', function (e) {
+                            e.preventDefault();
+                            var id = $(this).attr('id');
+                            $('#' + id + '').remove();
+                        })
+
+                        $(document).on('click', '#next', function (e) {
+                            e.preventDefault();
+                            if ($('.item-row').length < 1) {
+                                alert('Please fill and add all the input fields!');
+                            } else {
+                                $('form').unbind('submit').submit();
+                            }
+                        })
                     });
 
                 </script>
