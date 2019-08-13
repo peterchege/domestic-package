@@ -134,17 +134,9 @@ class PremisesController extends Controller
      */
     public function contentSubmit(Request $request)
     {
-
         //
 
         for ($i = 1; $i < count($request->item_description); $i++) {
-            // $description = [
-            //     'item_description' => $request->item_description[$i],
-            //     'item_value' => $request->item_value[$i],
-            //     'section_id' => 2,
-            //     'customer_role' => 'owner',
-            //     'premises_id' => 3,
-            // ];
             $description = new Pr_dp_content;
             $description->item_description = $request->item_description[$i];
             $description->item_value = $request->item_value[$i];
@@ -154,13 +146,6 @@ class PremisesController extends Controller
 
             $description->save();
         }
-
-        // $description->item_description = $request->item_description;
-        // $description->item_value = $request->item_value;
-
-
-
-        //Pr_dp_content::insert($description);
         return redirect('product_allrisk');
     }
 
