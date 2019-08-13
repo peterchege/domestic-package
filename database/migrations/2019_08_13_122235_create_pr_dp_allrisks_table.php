@@ -15,6 +15,13 @@ class CreatePrDpAllrisksTable extends Migration
     {
         Schema::create('pr_dp_allrisks', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->integer('section_id');
+            $table->integer('content_id');
+            $table->string('serial_number');
+            $table->string('make_model');
+            $table->string('item_description');
+            $table->integer('value');
+            $table->enum('customer_role', ['owner', 'tenant']);
             $table->timestamps();
         });
     }
