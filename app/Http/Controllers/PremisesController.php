@@ -149,6 +149,28 @@ class PremisesController extends Controller
         return redirect('product_allrisk');
     }
 
+    /**
+     * Feeding all risk data to db.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function allriskSubmit(Request $request)
+    {
+        //
+
+        for ($i = 1; $i < count($request->item_description); $i++) {
+            $description = new Pr_dp_content;
+            $description->item_description = $request->item_description[$i];
+            $description->item_value = $request->item_value[$i];
+            $description->section_id = 2;
+            $description->customer_role = 'owner';
+            $description->premises_id = 3;
+
+            $description->save();
+        }
+        return redirect('product_allrisk');
+    }
+
 
     /**
      * Show the form for creating a new resource.

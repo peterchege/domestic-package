@@ -45,6 +45,9 @@ Route::post('/premisesSubmit', 'PremisesController@start')->name('premisesSubmit
 // content submit
 Route::post('/contentSubmit', 'PremisesController@contentSubmit')->name('contentSubmit');
 
+//all risk submit
+Route::post('/allriskSubmit', 'PremisesController@allriskSubmit')->name('allriskSubmit');
+
 // facebook
 Route::get('/redirect', 'SocialAuthFacebookController@redirect');
 

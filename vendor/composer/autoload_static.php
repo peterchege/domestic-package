@@ -439,6 +439,7 @@ class ComposerStaticInitcef082f58b00cf7bae9398842a0588ad
         'App\\Http\\Middleware\\TrustProxies' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustProxies.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
         'App\\ModelPremises' => __DIR__ . '/../..' . '/app/ModelPremises.php',
+        'App\\Pr_dp_allrisk' => __DIR__ . '/../..' . '/app/Pr_dp_allrisk.php',
         'App\\Pr_dp_content' => __DIR__ . '/../..' . '/app/Pr_dp_content.php',
         'App\\Pr_dp_premise' => __DIR__ . '/../..' . '/app/Pr_dp_premise.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',

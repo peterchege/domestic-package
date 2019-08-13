@@ -28,6 +28,7 @@ return array(
     'App\\Http\\Middleware\\TrustProxies' => $baseDir . '/app/Http/Middleware/TrustProxies.php',
     'App\\Http\\Middleware\\VerifyCsrfToken' => $baseDir . '/app/Http/Middleware/VerifyCsrfToken.php',
     'App\\ModelPremises' => $baseDir . '/app/ModelPremises.php',
+    'App\\Pr_dp_allrisk' => $baseDir . '/app/Pr_dp_allrisk.php',
     'App\\Pr_dp_content' => $baseDir . '/app/Pr_dp_content.php',
     'App\\Pr_dp_premise' => $baseDir . '/app/Pr_dp_premise.php',
     'App\\Providers\\AppServiceProvider' => $baseDir . '/app/Providers/AppServiceProvider.php',
