@@ -177,8 +177,8 @@ class PremisesController extends Controller
 
                 $description->save();
             }
-        } catch (\Exception $th) {
-            throw $th;
+        } catch (\PDOException $e) {
+            echo $e->getMessage();
         }
         //exit('reached');
     }
