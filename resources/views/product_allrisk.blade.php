@@ -168,7 +168,7 @@
                             var value = $('#value').val();
                             if (item_description == '' || make_model == '' || serial_number == '' ||
                                 value == '') {
-                                alert('Please fill all the input fields!');
+                                swal.fire('Please fill all the input fields!', '', 'info');
                             } else {
                                 $('#table_body').append('<tr id="' + i +
                                     '"  class="item-row"  ><th scope="row">' + i +
@@ -203,7 +203,7 @@
                         $(document).on('click', '#next', function (e) {
                             e.preventDefault();
                             if ($('.item-row').length < 1) {
-                                alert('Please fill and add all the input fields!');
+                                swal.fire('Please fill and add all the input fields!', '', 'info');
                             } else {
                                 $('form').unbind('submit').submit();
                             }

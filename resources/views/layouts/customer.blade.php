@@ -22,7 +22,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript" src="{{ asset('customer/assets/scripts/main.js' ) }}"></script>
     <script type="text/javascript" src="{{ asset('customer/js/mine.js' ) }}"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
 
 </head>
 
