@@ -246,6 +246,11 @@
                             e.preventDefault();
                             var id = $(this).attr('id');
                             $('#' + id + '').remove();
+
+                            if ($('.item-row').length < 1) {
+                                var no_entry = '<td class="no-entry">Please add your item(s).</td>';
+                                $('#table_body').append(no_entry);
+                            }
                         });
 
                         $(document).on('click', '#next', function (e) {
@@ -256,6 +261,11 @@
                                 $('form').unbind('submit').submit();
                             }
                         });
+
+                        if ($('.item-row').length < 1) {
+                            var no_entry = '<td class="no-entry">Please add your item(s).</td>';
+                            $('#table_body').append(no_entry);
+                        }
                     });
 
                 </script>
