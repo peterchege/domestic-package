@@ -137,17 +137,21 @@ class PremisesController extends Controller
     public function contentSubmit(Request $request)
     {
         //
-
-        for ($i = 1; $i < count($request->item_description); $i++) {
-            $description = new Pr_dp_content;
-            $description->item_description = $request->item_description[$i];
-            $description->item_value = $request->item_value[$i];
-            $description->section_id = 2;
-            $description->customer_role = 'owner';
-            $description->premises_id = 3;
-            $description->save();
+        try {
+            for ($i = 0; $i < count($request->item_description); $i++) {
+                $description = new Pr_dp_content;
+                $description->item_description = $request->item_description[$i];
+                $description->item_value = $request->item_value[$i];
+                $description->section_id = 2;
+                $description->customer_role = 'owner';
+                $description->premises_id = 3;
+                $description->save();
+            }
+            return redirect('product_allrisk');
+        } catch (\Exception $th) {
+            return back();
         }
-        return redirect('product_allrisk');
+
     }
 
     /**
@@ -159,7 +163,7 @@ class PremisesController extends Controller
     {
         //
         try {
-            for ($i = 1; $i < count($request->item_description); $i++) {
+            for ($i = 0; $i < count($request->item_description); $i++) {
                 $description = new Pr_dp_allrisk;
                 //from product content
                 $description->content_id = 1;
@@ -177,8 +181,9 @@ class PremisesController extends Controller
 
                 $description->save();
             }
-        } catch (\PDOException $e) {
-            echo $e->getMessage();
+        } catch (\Exception $e) {
+            // echo $e->getMessage();
+            return back();
         }
         //exit('reached');
     }
