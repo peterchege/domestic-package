@@ -14,6 +14,7 @@ use App\Ref_wall_material;
 use App\SocialFacebookAccount;
 //use Illuminate\Support\Facades\Auth;
 use Auth;
+use PhpParser\Node\Stmt\Catch_;
 
 class PremisesController extends Controller
 {
@@ -157,26 +158,29 @@ class PremisesController extends Controller
     public function allriskSubmit(Request $request)
     {
         //
+        try {
+            for ($i = 1; $i < count($request->item_description); $i++) {
+                $description = new Pr_dp_allrisk;
+                //from product content
+                $description->content_id = 1;
+                //from form
+                $description->serial_number = $request->serial_number[$i];
+                $description->make_model = $request->make_model[$i];
+                $description->item_description = $request->item_description[$i];
+                $description->value = $request->value[$i];
+                //product section info
+                $description->section_id = 3;
+                //customer info
+                $description->customer_role = 'owner';
+                //premises info
+                $description->premises_id = 3;
 
-        for ($i = 1; $i < count($request->item_description); $i++) {
-            $description = new Pr_dp_allrisk;
-            //from product content
-            $description->content_id = 1;
-            //from form
-            $description->serial_number = $request->serial_number[$i];
-            $description->make_model = $request->make_model[$i];
-            $description->item_description = $request->item_description[$i];
-            $description->value = $request->value[$i];
-            //product section info
-            $description->section_id = 3;
-            //customer info
-            $description->customer_role = 'owner';
-            //premises info
-            $description->premises_id = 3;
-
-            $description->save();
+                $description->save();
+            }
+        } catch (\Exception $th) {
+            throw $th;
         }
-        return redirect('');
+        //exit('reached');
     }
 
 
