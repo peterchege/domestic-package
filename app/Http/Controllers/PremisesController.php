@@ -8,6 +8,7 @@ use Illuminate\Support\Str;
 use App\User;
 use App\Pr_dp_premise;
 use App\Pr_dp_content;
+use App\Pr_dp_allrisk;
 use App\Ref_roof_material;
 use App\Ref_wall_material;
 use App\SocialFacebookAccount;
@@ -97,7 +98,7 @@ class PremisesController extends Controller
                 $feed->other_sec_arrangement = $request->input('other_security');
                 $feed->premises_value = $request->input('building_amount');
                 $feed->save();
-                return redirect()->route('product_content');
+                //return redirect()->route('product_content');
             } catch (\Exception $th) {
                 //throw $th;
                 return back();
@@ -143,7 +144,6 @@ class PremisesController extends Controller
             $description->section_id = 2;
             $description->customer_role = 'owner';
             $description->premises_id = 3;
-
             $description->save();
         }
         return redirect('product_allrisk');
@@ -159,7 +159,7 @@ class PremisesController extends Controller
         //
 
         for ($i = 1; $i < count($request->item_description); $i++) {
-            $description = new Pr_dp_content;
+            $description = new Pr_dp_allrisk;
             $description->item_description = $request->item_description[$i];
             $description->item_value = $request->item_value[$i];
             $description->section_id = 2;
