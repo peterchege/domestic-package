@@ -69,6 +69,7 @@
 
                 <form class="needs-validation" id="form_allrisk" novalidate action="{{ route('allriskSubmit') }}"
                     method="POST">
+                    @csrf
                     <div class="form-row container">
                         <div class="col-3 cont-row">
                             <label>Item Description</label>

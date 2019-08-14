@@ -160,10 +160,18 @@ class PremisesController extends Controller
 
         for ($i = 1; $i < count($request->item_description); $i++) {
             $description = new Pr_dp_allrisk;
+            //from product content
+            $description->content_id = 1;
+            //from form
+            $description->serial_number = $request->serial_number[$i];
+            $description->make_model = $request->make_model[$i];
             $description->item_description = $request->item_description[$i];
-            $description->item_value = $request->item_value[$i];
-            $description->section_id = 2;
+            $description->value = $request->value[$i];
+            //product section info
+            $description->section_id = 3;
+            //customer info
             $description->customer_role = 'owner';
+            //premises info
             $description->premises_id = 3;
 
             $description->save();
