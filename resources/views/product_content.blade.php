@@ -90,7 +90,8 @@
                     </p>
                 </div>
 
-                <form action="{{ route('contentSubmit') }}" method="POST" class="needs-validation" novalidate>
+                <form action="{{ route('contentSubmit') }}" method="POST" class="needs-validation" id="form_content"
+                    novalidate>
                     @csrf
                     <div class="form-row container">
                         <div class="col-3 cont-row">
@@ -221,6 +222,8 @@
                             e.preventDefault();
                             var item_description = $('#item_description').val();
                             var item_value = $('#item_value').val();
+
+
                             if (item_description == '' || item_value == '') {
                                 alert('Please fill all the input fields!');
                             } else {
@@ -235,6 +238,7 @@
                                     i + '"> Remove </button></td></tr>'
                                 );
                                 i++;
+                                $('#form_content').trigger('reset');
                             }
                         });
 
@@ -242,7 +246,7 @@
                             e.preventDefault();
                             var id = $(this).attr('id');
                             $('#' + id + '').remove();
-                        })
+                        });
 
                         $(document).on('click', '#next', function (e) {
                             e.preventDefault();
@@ -251,7 +255,7 @@
                             } else {
                                 $('form').unbind('submit').submit();
                             }
-                        })
+                        });
                     });
 
                 </script>

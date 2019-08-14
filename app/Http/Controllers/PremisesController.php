@@ -168,7 +168,7 @@ class PremisesController extends Controller
 
             $description->save();
         }
-        return redirect('product_allrisk');
+        return redirect('');
     }
 
 

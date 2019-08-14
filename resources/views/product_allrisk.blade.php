@@ -67,21 +67,19 @@
                     </p>
                 </div>
 
-                <form class="needs-validation" novalidate>
+                <form class="needs-validation" id="form_allrisk" novalidate action="{{ route('allriskSubmit') }}"
+                    method="POST">
                     <div class="form-row container">
                         <div class="col-3 cont-row">
                             <label>Item Description</label>
-                            <input type="text" class="form-control" id="validationCustom02" placeholder="" value=""
-                                required>
+                            <input type="text" class="form-control" id="item_description" placeholder="" required>
                             <div class="invalid-feedback">
                                 Please provide a description of the item
                             </div>
                         </div>
-
                         <div class="col-2 cont-row">
                             <label>Make & Model </label>
-                            <input type="text" class="form-control" id="validationCustom02" placeholder="" value=""
-                                required>
+                            <input type="text" class="form-control" id="make_model" placeholder="" value="" required>
                             <div class="invalid-feedback">
                                 Please provide the model of the item
                             </div>
@@ -89,8 +87,7 @@
 
                         <div class="col-2 cont-row">
                             <label>Serial Number </label>
-                            <input type="text" class="form-control" id="validationCustom02" placeholder="" value=""
-                                required>
+                            <input type="text" class="form-control" id="serial_number" placeholder="" value="" required>
                             <div class="invalid-feedback">
                                 Please provide the serial Number of the item
                             </div>
@@ -98,15 +95,14 @@
 
                         <div class="col-2 cont-row">
                             <label>Value (KShs)</label>
-                            <input type="number" class="form-control" id="validationCustom02" placeholder="" value=""
-                                required>
+                            <input type="number" class="form-control" id="value" placeholder="" value="" required>
                             <div class="invalid-feedback">
                                 Please provide the value of the item
                             </div>
                         </div>
 
                         <div class="col-1 cont-row">
-                            <button class="btn btn-primary btn-mine space-bt" type="submit">Add</button>
+                            <button class="btn btn-primary btn-mine space-bt" id="add_item" type="submit">Add</button>
                         </div>
 
                     </div>
@@ -140,33 +136,11 @@
                                                 <th>Make & Model</th>
                                                 <th>Serial Number</th>
                                                 <th>Value(KShs)</th>
-                                                <th>Date</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
-                                        <tbody>
-                                            <tr>
-                                                <th scope="row">1</th>
-                                                <td>Television</td>
-                                                <td>Samsung</td>
-                                                <td>Sm4503QR</td>
-                                                <td>70,000</td>
-                                                <td>27/09/2019</td>
-                                                <td>
-                                                    <button class="btn btn-focus" type="submit">Delete</button>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">2</th>
-                                                <td>Home theater</td>
-                                                <td>Lg</td>
-                                                <td>Sm4503QR</td>
-                                                <td>70,000</td>
-                                                <td>27/09/2019</td>
-                                                <td>
-                                                    <button class="btn btn-focus" type="submit">Delete</button>
-                                                </td>
-                                            </tr>
+                                        <tbody id="table_body">
+
                                         </tbody>
                                     </table>
                                 </div>
@@ -177,30 +151,68 @@
 
                     <div class="row">
                         <div class="col-12 text-center">
-                            <button class="btn btn-primary btn-mine" type="submit">NEXT</button>
+                            <button class="btn btn-primary btn-mine" id="next" type="submit">NEXT</button>
                         </div>
                     </div>
                 </form>
 
                 <script>
-                    // // Example starter JavaScript for disabling form submissions if there are invalid fields
-                    // (function () {
-                    //     'use strict';
-                    //     window.addEventListener('load', function () {
-                    //         // Fetch all the forms we want to apply custom Bootstrap validation styles to
-                    //         var forms = document.getElementsByClassName('needs-validation');
-                    //         // Loop over them and prevent submission
-                    //         var validation = Array.prototype.filter.call(forms, function (form) {
-                    //             form.addEventListener('submit', function (event) {
-                    //                 if (form.checkValidity() === false) {
-                    //                     event.preventDefault();
-                    //                     event.stopPropagation();
-                    //                 }
-                    //                 form.classList.add('was-validated');
-                    //             }, false);
-                    //         });
-                    //     }, false);
-                    // })();
+                    $(document).ready(function () {
+                        var i = 1;
+                        $('#add_item').click(function (e) {
+                            e.preventDefault();
+                            var item_description = $('#item_description').val();
+                            var make_model = $('#make_model').val();
+                            var serial_number = $('#serial_number').val();
+                            var value = $('#value').val();
+                            if (item_description == '' || make_model == '' || serial_number == '' ||
+                                value == '') {
+                                alert('Please fill all the input fields!');
+                            } else {
+                                $('#table_body').append('<tr id="' + i +
+                                    '"  class="item-row"  ><th scope="row">' + i +
+                                    '</th><td>' + item_description +
+                                    '</td><input type="hidden" name="item_description[]" value="' +
+                                    item_description + '"><td>' + make_model +
+                                    '</td><input type="hidden" name="make_model[]" value="' +
+                                    make_model + '"><td>' + serial_number +
+                                    '</td><input type="hidden" name="serial_number[]" value="' +
+                                    serial_number +
+                                    '"> <td>' + value +
+                                    '</td><input type="hidden" name="value[]" value="' +
+                                    value +
+                                    '"> <td> <button name="remove" class = "btn btn-focus remove" id = "' +
+                                    i + '"> Remove </button></td></tr>'
+                                );
+                                $('.no-entry').remove();
+                                i++;
+                                $('#form_allrisk').trigger('reset');
+                            }
+                        });
+                        $(document).on('click', '.remove', function (e) {
+                            e.preventDefault();
+                            var id = $(this).attr('id');
+                            $('#' + id + '').remove();
+                            if ($('.item-row').length < 1) {
+                                var no_entry = '<td class="no-entry">Please add your item(s).</td>';
+                                $('#table_body').append(no_entry);
+                            }
+                        });
+
+                        $(document).on('click', '#next', function (e) {
+                            e.preventDefault();
+                            if ($('.item-row').length < 1) {
+                                alert('Please fill and add all the input fields!');
+                            } else {
+                                $('form').unbind('submit').submit();
+                            }
+                        });
+
+                        if ($('.item-row').length < 1) {
+                            var no_entry = '<td class="no-entry">Please add your item(s).</td>';
+                            $('#table_body').append(no_entry);
+                        }
+                    });
 
                 </script>
             </div>
