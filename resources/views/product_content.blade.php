@@ -221,8 +221,6 @@
                             e.preventDefault();
                             var item_description = $('#item_description').val();
                             var item_value = $('#item_value').val();
-
-
                             if (item_description == '' || item_value == '') {
                                 alert('Please fill all the input fields!');
                             } else {
