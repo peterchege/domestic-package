@@ -237,6 +237,7 @@
                                     '"> <td> <button name="remove" class = "btn btn-focus remove" id = "' +
                                     i + '"> Remove </button></td></tr>'
                                 );
+                                $('.no-entry').remove();
                                 i++;
                                 $('#form_content').trigger('reset');
                             }
