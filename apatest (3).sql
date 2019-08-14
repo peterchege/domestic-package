@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 14, 2019 at 11:14 AM
+-- Generation Time: Aug 14, 2019 at 07:29 PM
 -- Server version: 10.1.34-MariaDB
 -- PHP Version: 7.2.7
 
@@ -46,7 +46,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (16, '2019_08_07_090428_create_ref_roof_materials_table', 3),
 (17, '2019_08_07_091849_create_ref_wall_materials_table', 3),
 (18, '2019_08_09_131738_create_pr_dp_contents_table', 4),
-(19, '2019_08_13_122235_create_pr_dp_allrisks_table', 5);
+(19, '2019_08_13_122235_create_pr_dp_allrisks_table', 5),
+(20, '2019_08_14_201427_add_premises_id_to_allrisk_table', 6);
 
 -- --------------------------------------------------------
 
@@ -70,6 +71,7 @@ CREATE TABLE `pr_dp_allrisks` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `section_id` int(11) NOT NULL,
   `content_id` int(11) NOT NULL,
+  `premises_id` int(11) NOT NULL,
   `serial_number` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `make_model` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `item_description` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -78,6 +80,15 @@ CREATE TABLE `pr_dp_allrisks` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `pr_dp_allrisks`
+--
+
+INSERT INTO `pr_dp_allrisks` (`id`, `section_id`, `content_id`, `premises_id`, `serial_number`, `make_model`, `item_description`, `value`, `customer_role`, `created_at`, `updated_at`) VALUES
+(1, 3, 1, 3, 'serial', 'make', 'name', 12055, 'owner', '2019-08-14 17:28:10', '2019-08-14 17:28:10'),
+(2, 3, 1, 3, '12358', 'samsung', 'tv', 50000, 'owner', '2019-08-14 17:28:57', '2019-08-14 17:28:57'),
+(3, 3, 1, 3, '12358', 'jvc', 'radio', 50000, 'owner', '2019-08-14 17:28:57', '2019-08-14 17:28:57');
 
 -- --------------------------------------------------------
 
@@ -105,7 +116,8 @@ INSERT INTO `pr_dp_contents` (`id`, `item_description`, `item_value`, `section_i
 (2, 'nmae', 1321231, 2, 'owner', 3, '2019-08-09 11:51:46', '2019-08-09 11:51:46'),
 (3, 'Cupboard', 100000, 2, 'owner', 3, '2019-08-13 10:01:07', '2019-08-13 10:01:07'),
 (4, 'Bed', 1500000, 2, 'owner', 3, '2019-08-13 10:01:07', '2019-08-13 10:01:07'),
-(5, 'Furniture', 5000, 2, 'owner', 3, '2019-08-13 10:01:07', '2019-08-13 10:01:07');
+(5, 'Furniture', 5000, 2, 'owner', 3, '2019-08-13 10:01:07', '2019-08-13 10:01:07'),
+(6, 'recent', 80000, 2, 'owner', 3, '2019-08-14 14:03:30', '2019-08-14 14:03:30');
 
 -- --------------------------------------------------------
 
@@ -292,19 +304,19 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `pr_dp_allrisks`
 --
 ALTER TABLE `pr_dp_allrisks`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `pr_dp_contents`
 --
 ALTER TABLE `pr_dp_contents`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `pr_dp_premises`
