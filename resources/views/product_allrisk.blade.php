@@ -180,7 +180,7 @@
                                     '</td><input type="hidden" name="serial_number[]" value="' +
                                     serial_number +
                                     '"> <td>' + value +
-                                    '</td><input type="hidden" name="value[]" value="' +
+                                    '</td><input class="hidden-input-number" type="hidden" name="value[]" value="' +
                                     value +
                                     '"> <td> <button name="remove" class = "btn btn-focus remove" id = "' +
                                     i + '"> Remove </button></td></tr>'
