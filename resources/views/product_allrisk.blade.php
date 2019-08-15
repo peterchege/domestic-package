@@ -121,7 +121,7 @@
                                         </div>
                                         <div class="widget-content-right">
                                             <div class="widget-numbers text-white">
-                                                <span>350,000</span></div>
+                                                <span id="span_total_amount"></span></div>
                                         </div>
                                     </div>
                                 </div>
@@ -188,6 +188,7 @@
                                 $('.no-entry').remove();
                                 i++;
                                 $('#form_allrisk').trigger('reset');
+                                $('#span_total_amount').html(add());
                             }
                         });
                         $(document).on('click', '.remove', function (e) {
@@ -198,6 +199,7 @@
                                 var no_entry = '<td class="no-entry">Please add your item(s).</td>';
                                 $('#table_body').append(no_entry);
                             }
+                            $('#span_total_amount').html(add());
                         });
 
                         $(document).on('click', '#next', function (e) {
@@ -212,6 +214,14 @@
                         if ($('.item-row').length < 1) {
                             var no_entry = '<td class="no-entry">Please add your item(s).</td>';
                             $('#table_body').append(no_entry);
+                        }
+
+                        function add() {
+                            var sum = 0;
+                            $(".hidden-input-number").each(function () {
+                                sum += +this.value;
+                            });
+                            return sum; // an add function shouldn't really "alert"
                         }
                     });
 
