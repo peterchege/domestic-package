@@ -171,7 +171,7 @@
                                 swal.fire('Please fill all the input fields!', '', 'info');
                             } else {
                                 $('#table_body').append('<tr id="' + i +
-                                    '"  class="item-row"  ><th scope="row">' + i +
+                                    '"  class="item-row"  ><th scope="row">' + '<li></li>' +
                                     '</th><td>' + item_description +
                                     '</td><input type="hidden" name="item_description[]" value="' +
                                     item_description + '"><td>' + make_model +
