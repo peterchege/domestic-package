@@ -105,7 +105,8 @@
 
                         <div class="col-3 cont-row">
                             <label>Value (KShs)</label>
-                            <input type="number" class="form-control" id="item_value" placeholder="" value="" required>
+                            <input type="number" class="form-control" id="item_value" placeholder="" value="" min="1"
+                                required>
                             <div class="invalid-feedback">
                                 Please provide value of item
                             </div>
@@ -131,7 +132,7 @@
                                         </div>
                                         <div class="widget-content-right">
                                             <div class="widget-numbers text-white">
-                                                <span>350,000</span>
+                                                <span id="span_total_amount"></span>
                                             </div>
                                         </div>
                                     </div>
@@ -218,11 +219,12 @@
                     $(document).ready(function () {
                         var i = 1;
                         var j = 1;
+                        var total_amount = sessionStorage.getItem('content_amount'); //from calculator
                         $('#add_content').click(function (e) {
                             e.preventDefault();
                             var item_description = $('#item_description').val();
                             var item_value = $('#item_value').val();
-
+                            var items_value = 0;
 
                             if (item_description == '' || item_value == '') {
                                 swal.fire('Please fill all the input fields!', '', 'info');
@@ -230,9 +232,9 @@
                                 $('#table_body').append('<tr id="' + i +
                                     '"  class="item-row"  ><th scope="row">' + i +
                                     '</th><td>' + item_description +
-                                    '</td><input type="hidden" name="item_description[]" value="' +
+                                    '</td><input type="hidden" class="hidden-input-text" name="item_description[]" value="' +
                                     item_description + '"><td>' + item_value +
-                                    '</td><input type="hidden" name="item_value[]" value="' +
+                                    '</td><input type="hidden" class="hidden-input-number" name="item_value[]" value="' +
                                     item_value +
                                     '"> <td> <button name="remove" class = "btn btn-focus remove" id = "' +
                                     i + '"> Remove </button></td></tr>'
@@ -240,6 +242,7 @@
                                 $('.no-entry').remove();
                                 i++;
                                 $('#form_content').trigger('reset');
+                                $('#span_total_amount').replaceWith(add());
                             }
                         });
 
@@ -252,6 +255,7 @@
                                 var no_entry = '<td class="no-entry">Please add your item(s).</td>';
                                 $('#table_body').append(no_entry);
                             }
+                            alert(add());
                         });
 
                         $(document).on('click', '#next', function (e) {
@@ -267,6 +271,15 @@
                             var no_entry = '<td class="no-entry">Please add your item(s).</td>';
                             $('#table_body').append(no_entry);
                         }
+
+                        function add() {
+                            var sum = 0;
+                            $(".hidden-input-number").each(function () {
+                                sum += +this.value;
+                            });
+                            return sum; // an add function shouldn't really "alert"
+                        }
+
                     });
 
                 </script>
