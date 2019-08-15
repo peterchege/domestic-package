@@ -151,7 +151,6 @@ class PremisesController extends Controller
         } catch (\Exception $th) {
             return back();
         }
-
     }
 
     /**
