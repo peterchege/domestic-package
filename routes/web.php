@@ -39,7 +39,6 @@ Route::get('/invoice', 'MainController@invoice')->name('invoice');
 
 Route::get('/calculator', 'CalculatorController@calculator')->name('calculator');
 
-//add vickyavicky23@gmail.com
 //dictates the path to be taken
 Route::post('/premisesSubmit', 'PremisesController@start')->name('premisesSubmit');
 
