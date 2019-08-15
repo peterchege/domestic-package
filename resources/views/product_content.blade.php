@@ -242,7 +242,7 @@
                                 $('.no-entry').remove();
                                 i++;
                                 $('#form_content').trigger('reset');
-                                $('#span_total_amount').replaceWith(add());
+                                $('#span_total_amount').html(add());
                             }
                         });
 
@@ -255,7 +255,7 @@
                                 var no_entry = '<td class="no-entry">Please add your item(s).</td>';
                                 $('#table_body').append(no_entry);
                             }
-                            alert(add());
+                            $('#span_total_amount').html(add());
                         });
 
                         $(document).on('click', '#next', function (e) {
