@@ -151,25 +151,7 @@
                                             </tr>
                                         </thead>
                                         <tbody id="table_body">
-                                            {{-- <tr>
-                                                <th scope="row">1</th>
-                                                <td>Sofaset</td>
-                                                <input type="hidden" name="description[]" value="">
-                                                <td>45,000</td>
-                                                <input type="hidden" name="value[]" value="">
-                                                <td>
-                                                    <button class="btn btn-focus" type="submit">Delete</button>
-                                                </td>
-                                            </tr> --}}
-                                            {{-- <tr>
-                                                <th scope="row">2</th>
-                                                <td>Dinning Table</td>
-                                                <td>50,000</td>
-                                                <td>29/07/2019</td>
-                                                <td>
-                                                    <button class="btn btn-focus" type="submit">Delete</button>
-                                                </td>
-                                            </tr> --}}
+
                                         </tbody>
                                     </table>
                                 </div>
