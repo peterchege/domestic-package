@@ -48,7 +48,5 @@ Route::post('/contentSubmit', 'PremisesController@contentSubmit')->name('content
 //all risk submit
 Route::post('/allriskSubmit', 'PremisesController@allriskSubmit')->name('allriskSubmit');
 
-// facebook
-Route::get('/redirect', 'SocialAuthFacebookController@redirect');
-
-Route::get('/callback', 'SocialAuthFacebookController@callback');
+//domestic submit
+Route::post('/domesticSubmit', 'PremisesController@domesticSubmit')->name('domesticSubmit');

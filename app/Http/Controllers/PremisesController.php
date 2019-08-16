@@ -9,6 +9,7 @@ use App\User;
 use App\Pr_dp_premise;
 use App\Pr_dp_content;
 use App\Pr_dp_allrisk;
+use App\Pr_dp_domestic;
 use App\Ref_roof_material;
 use App\Ref_wall_material;
 use App\SocialFacebookAccount;
@@ -180,6 +181,27 @@ class PremisesController extends Controller
 
                 $description->save();
             }
+        } catch (\Exception $e) {
+            // echo $e->getMessage();
+            return back();
+        }
+        //exit('reached');
+    }
+
+
+    /**
+     * Feeding domestic data to db.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function domesticSubmit(Request $request)
+    {
+        //
+        try {
+            //submit data
+            $domestic = new Pr_dp_domestic;
+
+            exit('success');
         } catch (\Exception $e) {
             // echo $e->getMessage();
             return back();

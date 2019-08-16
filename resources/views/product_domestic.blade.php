@@ -66,28 +66,30 @@
                     </p>
                 </div>
 
-                <form class="needs-validation" novalidate>
+                <form class="needs-validation" id="form_domestic" method="POST" action="{{ route('domesticSubmit') }}"
+                    novalidate>
+                    @csrf
                     <div class="row cont-row container">
                         <div class="col-md-2 offset-2">
                             <label>Employee</label><br>
-                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                            <input type="checkbox" class="form-check-input check indoor_staff" id="indoor_staff">
                             <p>Indoor Staff</p>
                             <br>
-                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                            <input type="checkbox" class="form-check-input check gardener" id="exampleCheck1">
                             <p>Gardener</p>
                             <br>
-                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                            <input type="checkbox" class="form-check-input check stablemen" id="exampleCheck1">
                             <p>Stablemen</p>
                             <br>
-                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                            <input type="checkbox" class="form-check-input check chauffeurs" id="exampleCheck1">
                             <p>Chauffeurs</p>
                             <br>
-                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                            <input type="checkbox" class="form-check-input check watchmen" id="exampleCheck1">
                             <p>Watchmen</p>
                         </div>
-                        <div class="col-md-2">
+                        <div class="col-md-2 number_column">
                             <label>No. </label>
-                            <input type="number" class="form-control" id="validationCustom02" placeholder="" value=""
+                            <input type="number" class="form-control" id="indoor_staff" placeholder="" value=""
                                 required>
                             <br>
                             <input type="number" class="form-control" id="validationCustom02" placeholder="" value=""
@@ -146,24 +148,18 @@
                 </form>
 
                 <script>
-                    // Example starter JavaScript for disabling form submissions if there are invalid fields
-                    (function () {
-                        'use strict';
-                        window.addEventListener('load', function () {
-                            // Fetch all the forms we want to apply custom Bootstrap validation styles to
-                            var forms = document.getElementsByClassName('needs-validation');
-                            // Loop over them and prevent submission
-                            var validation = Array.prototype.filter.call(forms, function (form) {
-                                form.addEventListener('submit', function (event) {
-                                    if (form.checkValidity() === false) {
-                                        event.preventDefault();
-                                        event.stopPropagation();
-                                    }
-                                    form.classList.add('was-validated');
-                                }, false);
-                            });
-                        }, false);
-                    })();
+                    $(document).ready(function () {
+                        $('.check').click(function () {
+                            if ($(this).prop('checked') == true) {
+                                var id_name = $(this).attr('id');
+                                $('.number_column #' + id_name + '').prop('disabled', false);
+                            } else if ($(this).prop('checked') == false) {
+                                var id_name = $(this).attr('id');
+                                $('.number_column #' + id_name + '').prop('disabled', true);
+
+                            }
+                        });
+                    });
 
                 </script>
             </div>
