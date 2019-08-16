@@ -141,6 +141,7 @@
 
                 <script>
                     $(document).ready(function () {
+                        //checkbox reveal and hide
                         $('.check').click(function () {
                             if ($(this).prop('checked') == true) {
                                 var id_name = $(this).attr('id');
