@@ -209,13 +209,12 @@ class PremisesController extends Controller
                 $domestic->customer_role = 'owner';
                 $domestic->premises_id = 3;
                 $domestic->save();
-            } ///this
+            }
         } catch (\Exception $e) {
             // echo $e->getMessage();
             return back();
         }
-        //exit('reached');
-
+        return redirect('product_general_information');
     }
 
 
