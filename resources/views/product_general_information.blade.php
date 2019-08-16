@@ -61,6 +61,7 @@
             <div class="card-body build-h5">
                 <h5 class="card-title">Kindly fill the following information</h5><br>
                 <form class="needs-validation" novalidate>
+                    @csrf
                     <div class="form-row  ">
                         <ol class="cont-li ">
                             <li>Has any insurer:
@@ -68,7 +69,7 @@
                                     <li>Declined to insure you?
                                         <div class="position-relative form-check">
                                             <label class="form-check-label">
-                                                <input name="radio_decline" type="radio" class="form-check-input"
+                                                <input name="insurer_decline" type="radio" class="form-check-input"
                                                     value="yes"> Yes
                                             </label>
                                             <!-- textbox display -->
@@ -81,7 +82,7 @@
                                         </div>
                                         <div class="position-relative form-check">
                                             <label class="form-check-label">
-                                                <input name="radio_decline" type="radio" class="form-check-input">
+                                                <input name="insurer_decline" type="radio" class="form-check-input">
                                                 No
                                             </label>
                                         </div>
@@ -90,7 +91,7 @@
                                     <li>Required special terms to insure you?
                                         <div class="position-relative form-check">
                                             <label class="form-check-label">
-                                                <input name="radio_special" type="radio" class="form-check-input"
+                                                <input name="special_terms" type="radio" class="form-check-input"
                                                     value="yes"> Yes
                                             </label>
                                             <!-- textbox display -->
@@ -103,7 +104,7 @@
                                         </div>
                                         <div class="position-relative form-check">
                                             <label class="form-check-label">
-                                                <input name="radio_special" type="radio" class="form-check-input">
+                                                <input name="special_terms" type="radio" class="form-check-input">
                                                 No
                                             </label>
                                         </div>
@@ -112,7 +113,7 @@
                                     <li>Cancellled or refused to renew your insurance?
                                         <div class="position-relative form-check">
                                             <label class="form-check-label">
-                                                <input name="radio_cancelled" type="radio" class="form-check-input"
+                                                <input name="cancelled_refused_cover" type="radio" class="form-check-input"
                                                     value="yes"> Yes
                                             </label>
                                             <!-- textbox display -->
@@ -125,7 +126,7 @@
                                         </div>
                                         <div class="position-relative form-check">
                                             <label class="form-check-label">
-                                                <input name="radio_cancelled" type="radio" class="form-check-input"> No
+                                                <input name="cancelled_refused_cover" type="radio" class="form-check-input"> No
                                             </label>
                                         </div>
                                     </li>
@@ -133,7 +134,7 @@
                                     <li>Increased your premium on renewal?
                                         <div class="position-relative form-check">
                                             <label class="form-check-label">
-                                                <input name="radio_increase" type="radio" class="form-check-input"
+                                                <input name="increased_premium" type="radio" class="form-check-input"
                                                     value="yes"> Yes
                                             </label>
                                             <!-- textbox display -->
@@ -146,7 +147,7 @@
                                         </div>
                                         <div class="position-relative form-check">
                                             <label class="form-check-label">
-                                                <input name="radio_increase" type="radio" class="form-check-input">
+                                                <input name="increased_premium" type="radio" class="form-check-input">
                                                 No
                                             </label>
                                         </div>
@@ -157,7 +158,7 @@
                             <li>Have you ever sustained loss from any of the herein mentioned perils?
                                 <div class="position-relative form-check">
                                     <label class="form-check-label">
-                                        <input name="radio_loss" type="radio" class="form-check-input" value="yes">
+                                        <input name="sustained_loss_from_mentioned_perils" type="radio" class="form-check-input" value="yes">
                                         Yes
                                     </label>
                                     <!-- textbox display -->
@@ -170,7 +171,7 @@
                                 </div>
                                 <div class="position-relative form-check">
                                     <label class="form-check-label">
-                                        <input name="radio_loss" type="radio" class="form-check-input">
+                                        <input name="sustained_loss_from_mentioned_perils" type="radio" class="form-check-input">
                                         No
                                     </label>
                                 </div>

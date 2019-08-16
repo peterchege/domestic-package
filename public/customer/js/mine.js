@@ -74,12 +74,12 @@ $(function () {
 });
 
 
-// GENERAL INFORMAION FORM
+// GENERAL INFORMAION FORM      
 
 // Question One A
 
 $(function () {
-    $('input[name="radio_decline"]').on('click', function () {
+    $('input[name="insurer_decline"]').on('click', function () {
         if ($(this).val() == 'yes') {
             $('#textboxes4').show();
         } else {
@@ -91,7 +91,7 @@ $(function () {
 // Question One B
 
 $(function () {
-    $('input[name="radio_special"]').on('click', function () {
+    $('input[name="special_terms"]').on('click', function () {
         if ($(this).val() == 'yes') {
             $('#textboxes5').show();
         } else {
@@ -103,7 +103,7 @@ $(function () {
 // Question One C
 
 $(function () {
-    $('input[name="radio_cancelled"]').on('click', function () {
+    $('input[name="cancelled_refused_cover"]').on('click', function () {
         if ($(this).val() == 'yes') {
             $('#textboxes6').show();
         } else {
@@ -115,7 +115,7 @@ $(function () {
 // Question One D
 
 $(function () {
-    $('input[name="radio_increase"]').on('click', function () {
+    $('input[name="increased_premium"]').on('click', function () {
         if ($(this).val() == 'yes') {
             $('#textboxes7').show();
         } else {
@@ -127,7 +127,7 @@ $(function () {
 // Question TWO
 
 $(function () {
-    $('input[name="radio_loss"]').on('click', function () {
+    $('input[name="sustained_loss_from_mentioned_perils"]').on('click', function () {
         if ($(this).val() == 'yes') {
             $('#textboxes8').show();
         } else {

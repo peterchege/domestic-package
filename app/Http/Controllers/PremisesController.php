@@ -199,17 +199,6 @@ class PremisesController extends Controller
         //
 
         try {
-<<<<<<< HEAD
-            //submit data
-            $domestic = new Pr_dp_domestic;
-            $domestic->employee_type = $request->input('indoor_Staff');
-            $domestic->number_of_employees = $request->input('indoor_staff_number');
-            $domestic->annual_salary = $request->input('indoor_staff_salary');
-            $domestic->section_id = 1;
-            $domestic->customer_role = 'owner';
-            $domestic->premises_id = 3;
-            exit('success');
-=======
             for ($i = 0; $i < count($request->employee_number); $i++) {
                 //submit data
                 $domestic = new Pr_dp_domestic;
@@ -221,7 +210,6 @@ class PremisesController extends Controller
                 $domestic->premises_id = 3;
                 $domestic->save();
             }
->>>>>>> a78e532599f7b549c3a02395d10704d0f3a69875
         } catch (\Exception $e) {
             // echo $e->getMessage();
             return back();
