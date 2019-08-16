@@ -206,7 +206,7 @@ class PremisesController extends Controller
             $domestic->section_id = 1;
             $domestic->customer_role = 'owner';
             $domestic->premises_id = 3;
-           // exit('success');
+            exit('success');
         } catch (\Exception $e) {
             // echo $e->getMessage();
             return back();
