@@ -72,47 +72,47 @@
                     <div class="row cont-row container">
                         <div class="col-md-2 offset-2">
                             <label>Employee</label><br>
-                            <input type="checkbox" class="form-check-input check indoor_staff" id="indoor_staff">
+                            <input name="indoor_Staff" value="1" type="checkbox" class="form-check-input check indoor_staff" id="indoor_staff">
                             <p>Indoor Staff</p>
                             <br>
-                            <input type="checkbox" class="form-check-input check gardener" id="gardener">
+                            <input name="gardener" value="2" type="checkbox" class="form-check-input check gardener" id="gardener">
                             <p>Gardener</p>
                             <br>
-                            <input type="checkbox" class="form-check-input check stablemen" id="stablemen">
+                            <input name="stablemen" value="3" type="checkbox" class="form-check-input check stablemen" id="stablemen">
                             <p>Stablemen</p>
                             <br>
-                            <input type="checkbox" class="form-check-input check chauffeurs" id="chauffeurs">
+                            <input name="chauffeurs" value="4" type="checkbox" type="checkbox" class="form-check-input check chauffeurs" id="chauffeurs">
                             <p>Chauffeurs</p>
                             <br>
-                            <input type="checkbox" class="form-check-input check watchmen" id="watchmen">
+                            <input  name="watchmen" value="5" type="checkbox" class="form-check-input check watchmen" id="watchmen">
                             <p>Watchmen</p>
                         </div>
                         <div class="col-md-2 number_column">
                             <label>No. </label>
-                            <input type="number" class="form-control" id="indoor_staff" placeholder="" value=""
+                            <input name="indoor_staff_number" type="number" class="form-control" id="indoor_staff" placeholder="" value=""
                                 disabled>
                             <br>
-                            <input type="number" class="form-control" id="gardener" placeholder="" value="" disabled>
+                            <input name="gardener_number" type="number" class="form-control" id="gardener" placeholder="" value="" disabled>
                             <br>
-                            <input type="number" class="form-control" id="stablemen" placeholder="" value="" disabled>
+                            <input name="stablemen_number" type="number" class="form-control" id="stablemen" placeholder="" value="" disabled>
                             <br>
-                            <input type="number" class="form-control" id="chauffeurs" placeholder="" value="" disabled>
+                            <input name="chauffeurs_number" type="number" class="form-control" id="chauffeurs" placeholder="" value="" disabled>
                             <br>
-                            <input type="number" class="form-control" id="watchmen" placeholder="" value="" disabled>
+                            <input name="watchmen_number" type="number" class="form-control" id="watchmen" placeholder="" value="" disabled>
                         </div>
 
                         <div class="col-md-4 offset-1 salary_column">
                             <label>Total Annual Salary</label><br>
-                            <input type="number" class="form-control" id="indoor_staff" placeholder="" value="" disabled
+                            <input name="indoor_staff_salary" type="number" class="form-control" id="indoor_staff" placeholder="" value="" disabled
                                 disabled>
                             <br>
-                            <input type="number" class="form-control" id="gardener" placeholder="" value="" disabled>
+                            <input name="gardener_salary" type="number" class="form-control" id="gardener" placeholder="" value="" disabled>
                             <br>
-                            <input type="number" class="form-control" id="stablemen" placeholder="" value="" disabled>
+                            <input name="stablemen_salary" type="number" class="form-control" id="stablemen" placeholder="" value="" disabled>
                             <br>
-                            <input type="number" class="form-control" id="chauffeurs" placeholder="" value="" disabled>
+                            <input name="chauffeurs_salary" type="number" class="form-control" id="chauffeurs" placeholder="" value="" disabled>
                             <br>
-                            <input type="number" class="form-control" id="watchmen" placeholder="" value="" disabled>
+                            <input name="watchmen_salary" type="number" class="form-control" id="watchmen" placeholder="" value="" disabled>
                         </div>
 
                     </div>
