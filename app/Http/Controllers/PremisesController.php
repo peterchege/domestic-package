@@ -197,21 +197,25 @@ class PremisesController extends Controller
     public function domesticSubmit(Request $request)
     {
         //
+
         try {
-            //submit data
-            $domestic = new Pr_dp_domestic;
-            $domestic->employee_type = $request->input('indoor_Staff');
-            $domestic->number_of_employees = $request->input('indoor_staff_number');
-            $domestic->annual_salary = $request->input('indoor_staff_salary');
-            $domestic->section_id = 1;
-            $domestic->customer_role = 'owner';
-            $domestic->premises_id = 3;
-           // exit('success');
+            for ($i = 0; $i < count($request->employee_number); $i++) {
+                //submit data
+                $domestic = new Pr_dp_domestic;
+                $domestic->employee_type = $request->employee_id[$i];
+                $domestic->number_of_employees = $request->employee_number[$i];
+                $domestic->annual_salary = $request->annual_salary[$i];
+                $domestic->section_id = 1;
+                $domestic->customer_role = 'owner';
+                $domestic->premises_id = 3;
+                $domestic->save();
+            } ///this
         } catch (\Exception $e) {
             // echo $e->getMessage();
             return back();
         }
         //exit('reached');
+
     }
 
 
