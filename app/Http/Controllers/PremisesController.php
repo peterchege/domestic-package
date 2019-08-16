@@ -200,8 +200,13 @@ class PremisesController extends Controller
         try {
             //submit data
             $domestic = new Pr_dp_domestic;
-
-            exit('success');
+            $domestic->employee_type = $request->input('indoor_Staff');
+            $domestic->number_of_employees = $request->input('indoor_staff_number');
+            $domestic->annual_salary = $request->input('indoor_staff_salary');
+            $domestic->section_id = 1;
+            $domestic->customer_role = 'owner';
+            $domestic->premises_id = 3;
+           // exit('success');
         } catch (\Exception $e) {
             // echo $e->getMessage();
             return back();
