@@ -89,8 +89,8 @@
                         </div>
                         <div class="col-md-2 number_column">
                             <label>No. </label>
-                            <input type="number" class="form-control" id="indoor_staff" placeholder="" value=""
-                                required>
+                            <input type="number" class="form-control" id="indoor_staff" placeholder="" value="" required
+                                disabled>
                             <br>
                             <input type="number" class="form-control" id="validationCustom02" placeholder="" value=""
                                 required>
@@ -105,10 +105,10 @@
                                 required>
                         </div>
 
-                        <div class="col-md-4 offset-1">
+                        <div class="col-md-4 offset-1 salary_column">
                             <label>Total Annual Salary</label><br>
-                            <input type="number" class="form-control" id="validationCustom02" placeholder="" value=""
-                                required>
+                            <input type="number" class="form-control" id="indoor_staff" placeholder="" value="" required
+                                disabled>
                             <br>
                             <input type="number" class="form-control" id="validationCustom02" placeholder="" value=""
                                 required>
@@ -152,11 +152,14 @@
                         $('.check').click(function () {
                             if ($(this).prop('checked') == true) {
                                 var id_name = $(this).attr('id');
-                                $('.number_column #' + id_name + '').prop('disabled', false);
+                                $('.number_column>#' + id_name + '').prop('disabled', false);
+                                $('.salary_column>#' + id_name + '').prop('disabled', false);
                             } else if ($(this).prop('checked') == false) {
                                 var id_name = $(this).attr('id');
-                                $('.number_column #' + id_name + '').prop('disabled', true);
-
+                                $('.number_column>#' + id_name + '').prop('disabled', true);
+                                $('.number_column>#' + id_name + '').val('');
+                                $('.salary_column>#' + id_name + '').prop('disabled', true);
+                                $('.salary_column>#' + id_name + '').val('');
                             }
                         });
                     });
