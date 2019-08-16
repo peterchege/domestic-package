@@ -75,52 +75,44 @@
                             <input type="checkbox" class="form-check-input check indoor_staff" id="indoor_staff">
                             <p>Indoor Staff</p>
                             <br>
-                            <input type="checkbox" class="form-check-input check gardener" id="exampleCheck1">
+                            <input type="checkbox" class="form-check-input check gardener" id="gardener">
                             <p>Gardener</p>
                             <br>
-                            <input type="checkbox" class="form-check-input check stablemen" id="exampleCheck1">
+                            <input type="checkbox" class="form-check-input check stablemen" id="stablemen">
                             <p>Stablemen</p>
                             <br>
-                            <input type="checkbox" class="form-check-input check chauffeurs" id="exampleCheck1">
+                            <input type="checkbox" class="form-check-input check chauffeurs" id="chauffeurs">
                             <p>Chauffeurs</p>
                             <br>
-                            <input type="checkbox" class="form-check-input check watchmen" id="exampleCheck1">
+                            <input type="checkbox" class="form-check-input check watchmen" id="watchmen">
                             <p>Watchmen</p>
                         </div>
                         <div class="col-md-2 number_column">
                             <label>No. </label>
-                            <input type="number" class="form-control" id="indoor_staff" placeholder="" value="" required
+                            <input type="number" class="form-control" id="indoor_staff" placeholder="" value=""
                                 disabled>
                             <br>
-                            <input type="number" class="form-control" id="validationCustom02" placeholder="" value=""
-                                required>
+                            <input type="number" class="form-control" id="gardener" placeholder="" value="" disabled>
                             <br>
-                            <input type="number" class="form-control" id="validationCustom02" placeholder="" value=""
-                                required>
+                            <input type="number" class="form-control" id="stablemen" placeholder="" value="" disabled>
                             <br>
-                            <input type="number" class="form-control" id="validationCustom02" placeholder="" value=""
-                                required>
+                            <input type="number" class="form-control" id="chauffeurs" placeholder="" value="" disabled>
                             <br>
-                            <input type="number" class="form-control" id="validationCustom02" placeholder="" value=""
-                                required>
+                            <input type="number" class="form-control" id="watchmen" placeholder="" value="" disabled>
                         </div>
 
                         <div class="col-md-4 offset-1 salary_column">
                             <label>Total Annual Salary</label><br>
-                            <input type="number" class="form-control" id="indoor_staff" placeholder="" value="" required
+                            <input type="number" class="form-control" id="indoor_staff" placeholder="" value="" disabled
                                 disabled>
                             <br>
-                            <input type="number" class="form-control" id="validationCustom02" placeholder="" value=""
-                                required>
+                            <input type="number" class="form-control" id="gardener" placeholder="" value="" disabled>
                             <br>
-                            <input type="number" class="form-control" id="validationCustom02" placeholder="" value=""
-                                required>
+                            <input type="number" class="form-control" id="stablemen" placeholder="" value="" disabled>
                             <br>
-                            <input type="number" class="form-control" id="validationCustom02" placeholder="" value=""
-                                required>
+                            <input type="number" class="form-control" id="chauffeurs" placeholder="" value="" disabled>
                             <br>
-                            <input type="number" class="form-control" id="validationCustom02" placeholder="" value=""
-                                required>
+                            <input type="number" class="form-control" id="watchmen" placeholder="" value="" disabled>
                         </div>
 
                     </div>
