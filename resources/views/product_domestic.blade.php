@@ -95,37 +95,37 @@
                         <div class="col-md-2 number_column">
                             <label>No. </label>
                             <input name="employee_number[]" type="number" class="form-control" id="indoor_staff"
-                                placeholder="" value="" disabled>
+                                placeholder="" value="" min="1" disabled>
                             <br>
                             <input name="employee_number[]" type="number" class="form-control" id="gardener"
-                                placeholder="" value="" disabled>
+                                placeholder="" value="" min="1" disabled>
                             <br>
                             <input name="employee_number[]" type="number" class="form-control" id="stablemen"
-                                placeholder="" value="" disabled>
+                                placeholder="" value="" min="1" disabled>
                             <br>
                             <input name="employee_number[]" type="number" class="form-control" id="chauffeurs"
-                                placeholder="" value="" disabled>
+                                placeholder="" value="" min="1" disabled>
                             <br>
                             <input name="employee_number[]" type="number" class="form-control" id="watchmen"
-                                placeholder="" value="" disabled>
+                                placeholder="" value="" min="1" disabled>
                         </div>
 
                         <div class="col-md-4 offset-1 salary_column">
                             <label>Total Annual Salary</label><br>
                             <input name="annual_salary[]" type="number" class="form-control" id="indoor_staff"
-                                placeholder="" value="" disabled disabled>
+                                placeholder="" value="" min="1" disabled disabled>
                             <br>
                             <input name="annual_salary[]" type="number" class="form-control" id="gardener"
-                                placeholder="" value="" disabled>
+                                placeholder="" value="" min="1" disabled>
                             <br>
                             <input name="annual_salary[]" type="number" class="form-control" id="stablemen"
-                                placeholder="" value="" disabled>
+                                placeholder="" value="" min="1" disabled>
                             <br>
                             <input name="annual_salary[]" type="number" class="form-control" id="chauffeurs"
-                                placeholder="" value="" disabled>
+                                placeholder="" value="" min="1" disabled>
                             <br>
                             <input name="annual_salary[]" type="number" class="form-control" id="watchmen"
-                                placeholder="" value="" disabled>
+                                placeholder="" value="" min="1" disabled>
                         </div>
 
                     </div>

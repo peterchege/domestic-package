@@ -212,7 +212,7 @@ class PremisesController extends Controller
             }
             return redirect('product_general_information');
         } catch (\Exception $e) {
-            // echo $e->getMessage();
+            echo $e->getMessage();
             return back();
         }
     }
