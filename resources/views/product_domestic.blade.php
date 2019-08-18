@@ -147,7 +147,7 @@
                     <br>
                     <div class="row">
                         <div class="col-12 text-center">
-                            <button class="btn btn-primary btn-mine" type="submit">NEXT</button>
+                            <button class="btn btn-primary btn-mine" id="domesticSubmit" type="submit">NEXT</button>
                         </div>
                     </div>
                 </form>
@@ -168,6 +168,24 @@
                                 $('.salary_column>#' + id_name + '').val('');
                             }
                         });
+
+                        $(document).on('click', '#domesticSubmit', function (e) {
+                            e.preventDefault();
+                            var empty_field = [];
+                            $('input[type=number]').each(function () {
+                                var isDisabled = $(this).prop('disabled');
+                                if (isDisabled == false && $(this).val() == '') {
+                                    empty_field.push($(this).attr('id'));
+                                }
+                            });
+
+                            if (empty_field.length > 0) {
+                                swal.fire('Please fill all the selected input fields!', '', 'info')
+                            } else {
+                                //prepare form for submission
+                                $('form').unbind('submit').submit();
+                            }
+                        })
                     });
 
                 </script>

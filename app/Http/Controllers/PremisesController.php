@@ -210,11 +210,11 @@ class PremisesController extends Controller
                 $domestic->premises_id = 3;
                 $domestic->save();
             }
+            return redirect('product_general_information');
         } catch (\Exception $e) {
             // echo $e->getMessage();
             return back();
         }
-        return redirect('product_general_information');
     }
 
 
