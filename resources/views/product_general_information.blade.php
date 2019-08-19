@@ -267,6 +267,8 @@
                             });
                             if (errors.length > 0) {
                                 swal.fire('Please fill in the missing fields!', '', 'info');
+                            } else {
+                                $('form').unbind('submit').submit();
                             }
                         });
                     });
