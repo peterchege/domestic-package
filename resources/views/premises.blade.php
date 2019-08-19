@@ -402,7 +402,7 @@
                     <div class="row">
                         <div class="col-12 text-center">
                             <a href="{{ route('premisesSubmit') }}">
-                                <button name="submitPremisesInfo" class="btn btn-primary btn-mine"
+                                <button id="premisesSubmit" name="submitPremisesInfo" class="btn btn-primary btn-mine"
                                     type="submit">NEXT</button>
                             </a>
 
@@ -442,6 +442,25 @@
                         $('#domestic_amount').val(domestic_amount);
                         var risk_amount = sessionStorage.getItem('risk_amount');
                         $('#risk_amount').val(risk_amount);
+
+                        $('#premisesSubmit').click(function (e) {
+                            e.preventDefault();
+                            var errors = [];
+                            $('textarea').each(function () {
+                                // element == this
+                                if (!$(this).is(":hidden") && $(this).val() == '') {
+                                    $(this).css('border', '#d92550 solid 1px');
+                                    errors.push($(this).attr('name'));
+                                } else {
+                                    $(this).removeAttr('style');
+                                }
+                            });
+                            if (errors.length > 0) {
+                                swal.fire('Please fill in the missing fields!', '', 'info');
+                            } else {
+                                $('form').unbind('submit').submit();
+                            }
+                        });
                     });
 
                 </script>
