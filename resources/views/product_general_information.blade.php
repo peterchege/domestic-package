@@ -60,7 +60,8 @@
         <div class="main-card mb-3 card">
             <div class="card-body build-h5">
                 <h5 class="card-title">Kindly fill the following information</h5><br>
-                <form class="needs-validation" novalidate>
+                <form action="{{ route('generalInformationSubmit') }}" method="POST" class="needs-validation"
+                    novalidate>
                     @csrf
                     <div class="form-row  ">
                         <ol class="cont-li ">
@@ -69,21 +70,28 @@
                                     <li>Declined to insure you?
                                         <div class="position-relative form-check">
                                             <label class="form-check-label">
-                                                <input name="insurer_decline" type="radio" class="form-check-input"
-                                                    value="yes"> Yes
+                                                <input name="insurer_decline" type="radio" class="form-check-input @error('insurer_decline') is-invalid
+                                                    @enderror" value="1"
+                                                    {{(old('insurer_decline') == '1') ? 'checked' : ''}}> Yes
                                             </label>
                                             <!-- textbox display -->
                                             <div class="col-md-12 col-sm-12 mb-3" style="display: none;"
                                                 id="textboxes4"><br>
                                                 <label> If so give details</label>
-                                                <textarea class="form-control" id="display_field" rows="3">
-                                                                </textarea>
+                                                <textarea name="insurer_decline_details" class="form-control"
+                                                    id="display_field" rows="3"></textarea>
                                             </div>
                                         </div>
                                         <div class="position-relative form-check">
                                             <label class="form-check-label">
-                                                <input name="insurer_decline" type="radio" class="form-check-input">
+                                                <input name="insurer_decline" type="radio" value="0" class="form-check-input @error('insurer_decline') is-invalid
+                                                    @enderror" {{ old('insurer_decline')=='0'?'checked':'' }}>
                                                 No
+                                                @error('insurer_decline')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                                @enderror
                                             </label>
                                         </div>
                                     </li>
@@ -91,21 +99,29 @@
                                     <li>Required special terms to insure you?
                                         <div class="position-relative form-check">
                                             <label class="form-check-label">
-                                                <input name="special_terms" type="radio" class="form-check-input"
-                                                    value="yes"> Yes
+                                                <input name="special_terms" type="radio" class="form-check-input  @error('special_terms') is-invalid
+                                                    @enderror" value="1"
+                                                    {{(old('special_terms') == '1') ? 'checked' : ''}}> Yes
                                             </label>
                                             <!-- textbox display -->
                                             <div class="col-md-12 col-sm-12 mb-3" style="display: none;"
                                                 id="textboxes5"><br>
                                                 <label> If so give details</label>
-                                                <textarea class="form-control" id="display_field" rows="3">
-                                                                </textarea>
+                                                <textarea name="special_terms_details" class="form-control"
+                                                    id="display_field" rows="3"></textarea>
                                             </div>
                                         </div>
                                         <div class="position-relative form-check">
                                             <label class="form-check-label">
-                                                <input name="special_terms" type="radio" class="form-check-input">
+                                                <input name="special_terms" type="radio" class="form-check-input  @error('special_terms') is-invalid
+                                                    @enderror" value="0"
+                                                    {{(old('special_terms') == '0') ? 'checked' : ''}}>
                                                 No
+                                                @error('special_terms')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                                @enderror
                                             </label>
                                         </div>
                                     </li>
@@ -113,20 +129,20 @@
                                     <li>Cancellled or refused to renew your insurance?
                                         <div class="position-relative form-check">
                                             <label class="form-check-label">
-                                                <input name="cancelled_refused_cover" type="radio" class="form-check-input"
-                                                    value="yes"> Yes
+                                                <input name="cancelled_refused_cover" type="radio"
+                                                    class="form-check-input" value="yes"> Yes
                                             </label>
                                             <!-- textbox display -->
                                             <div class="col-md-12 col-sm-12 mb-3" style="display: none;"
                                                 id="textboxes6"><br>
                                                 <label> If so give details</label>
-                                                <textarea class="form-control" id="display_field" rows="3">
-                                                                </textarea>
+                                                <textarea class="form-control" id="display_field" rows="3"></textarea>
                                             </div>
                                         </div>
                                         <div class="position-relative form-check">
                                             <label class="form-check-label">
-                                                <input name="cancelled_refused_cover" type="radio" class="form-check-input"> No
+                                                <input name="cancelled_refused_cover" type="radio"
+                                                    class="form-check-input"> No
                                             </label>
                                         </div>
                                     </li>
@@ -141,8 +157,7 @@
                                             <div class="col-md-12 col-sm-12 mb-3" style="display: none;"
                                                 id="textboxes7"><br>
                                                 <label> If so give details</label>
-                                                <textarea class="form-control" id="display_field" rows="3">
-                                                                </textarea>
+                                                <textarea class="form-control" id="display_field" rows="3"></textarea>
                                             </div>
                                         </div>
                                         <div class="position-relative form-check">
@@ -158,20 +173,21 @@
                             <li>Have you ever sustained loss from any of the herein mentioned perils?
                                 <div class="position-relative form-check">
                                     <label class="form-check-label">
-                                        <input name="sustained_loss_from_mentioned_perils" type="radio" class="form-check-input" value="yes">
+                                        <input name="sustained_loss_from_mentioned_perils" type="radio"
+                                            class="form-check-input" value="yes">
                                         Yes
                                     </label>
                                     <!-- textbox display -->
                                     <div class="col-md-12 col-sm-12 mb-3" style="display: none;" id="textboxes8">
                                         <br>
                                         <label> If so give details</label>
-                                        <textarea class="form-control" id="display_field" rows="3">
-                                                        </textarea>
+                                        <textarea class="form-control" id="display_field" rows="3"></textarea>
                                     </div>
                                 </div>
                                 <div class="position-relative form-check">
                                     <label class="form-check-label">
-                                        <input name="sustained_loss_from_mentioned_perils" type="radio" class="form-check-input">
+                                        <input name="sustained_loss_from_mentioned_perils" type="radio"
+                                            class="form-check-input">
                                         No
                                     </label>
                                 </div>

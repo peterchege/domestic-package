@@ -80,7 +80,7 @@ $(function () {
 
 $(function () {
     $('input[name="insurer_decline"]').on('click', function () {
-        if ($(this).val() == 'yes') {
+        if ($(this).val() == '1') {
             $('#textboxes4').show();
         } else {
             $('#textboxes4').hide();
@@ -92,7 +92,7 @@ $(function () {
 
 $(function () {
     $('input[name="special_terms"]').on('click', function () {
-        if ($(this).val() == 'yes') {
+        if ($(this).val() == '1') {
             $('#textboxes5').show();
         } else {
             $('#textboxes5').hide();

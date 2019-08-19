@@ -210,7 +210,30 @@ class PremisesController extends Controller
                 $domestic->premises_id = 3;
                 $domestic->save();
             }
-            return redirect('product_general_information');
+            return redirect('general_information');
+        } catch (\Exception $e) {
+            echo $e->getMessage();
+            return back();
+        }
+    }
+
+    /**
+     * Feeding domestic data to db.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function generalInformationSubmit(Request $request)
+    {
+        //
+        //storing premises form data
+        $this->validate($request, [
+            'insurer_decline' => 'required',
+            'special_terms' => 'required',
+        ]);
+
+        try {
+
+            return redirect('');
         } catch (\Exception $e) {
             echo $e->getMessage();
             return back();
