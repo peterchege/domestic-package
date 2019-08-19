@@ -104,7 +104,7 @@ $(function () {
 
 $(function () {
     $('input[name="cancelled_refused_cover"]').on('click', function () {
-        if ($(this).val() == 'yes') {
+        if ($(this).val() == '1') {
             $('#textboxes6').show();
         } else {
             $('#textboxes6').hide();
@@ -116,7 +116,7 @@ $(function () {
 
 $(function () {
     $('input[name="increased_premium"]').on('click', function () {
-        if ($(this).val() == 'yes') {
+        if ($(this).val() == '1') {
             $('#textboxes7').show();
         } else {
             $('#textboxes7').hide();
@@ -128,7 +128,7 @@ $(function () {
 
 $(function () {
     $('input[name="sustained_loss_from_mentioned_perils"]').on('click', function () {
-        if ($(this).val() == 'yes') {
+        if ($(this).val() == '1') {
             $('#textboxes8').show();
         } else {
             $('#textboxes8').hide();

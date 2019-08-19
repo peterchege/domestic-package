@@ -129,20 +129,28 @@
                                     <li>Cancellled or refused to renew your insurance?
                                         <div class="position-relative form-check">
                                             <label class="form-check-label">
-                                                <input name="cancelled_refused_cover" type="radio"
-                                                    class="form-check-input" value="yes"> Yes
+                                                <input name="cancelled_refused_cover" type="radio" class="form-check-input @error('cancelled_refused_cover') is-invalid
+                                                    @enderror " value="1"
+                                                    {{ old('cancelled_refused_cover')=='1'?'checked':'' }}> Yes
                                             </label>
                                             <!-- textbox display -->
                                             <div class="col-md-12 col-sm-12 mb-3" style="display: none;"
                                                 id="textboxes6"><br>
                                                 <label> If so give details</label>
-                                                <textarea class="form-control" id="display_field" rows="3"></textarea>
+                                                <textarea name="cancelled_refused_cover_details" class="form-control"
+                                                    id="display_field" rows="3"></textarea>
                                             </div>
                                         </div>
                                         <div class="position-relative form-check">
                                             <label class="form-check-label">
-                                                <input name="cancelled_refused_cover" type="radio"
-                                                    class="form-check-input"> No
+                                                <input name="cancelled_refused_cover" type="radio" class="form-check-input @error('cancelled_refused_cover') is-invalid
+                                                    @enderror" value="0"
+                                                    {{ old('cancelled_refused_cover')=='0'?'checked':'' }}> No
+                                                @error('cancelled_refused_cover')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                                @enderror
                                             </label>
                                         </div>
                                     </li>
@@ -150,20 +158,30 @@
                                     <li>Increased your premium on renewal?
                                         <div class="position-relative form-check">
                                             <label class="form-check-label">
-                                                <input name="increased_premium" type="radio" class="form-check-input"
-                                                    value="yes"> Yes
+                                                <input name="increased_premium" type="radio"
+                                                    class="form-check-input @error('increased_premium') is-invalid @enderror "
+                                                    value="1" {{(old('increased_premium') == '1') ? 'checked' : ''}}>
+                                                Yes
                                             </label>
                                             <!-- textbox display -->
                                             <div class="col-md-12 col-sm-12 mb-3" style="display: none;"
                                                 id="textboxes7"><br>
                                                 <label> If so give details</label>
-                                                <textarea class="form-control" id="display_field" rows="3"></textarea>
+                                                <textarea name="increased_premium_details" class="form-control"
+                                                    id="display_field" rows="3"></textarea>
                                             </div>
                                         </div>
                                         <div class="position-relative form-check">
                                             <label class="form-check-label">
-                                                <input name="increased_premium" type="radio" class="form-check-input">
+                                                <input name="increased_premium" type="radio" class="form-check-input @error('increased_premium') is-invalid
+                                                    @enderror" value="0"
+                                                    {{(old('increased_premium') == '0') ? 'checked' : ''}}>
                                                 No
+                                                @error('increased_premium')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                                @enderror
                                             </label>
                                         </div>
                                     </li>
@@ -173,22 +191,30 @@
                             <li>Have you ever sustained loss from any of the herein mentioned perils?
                                 <div class="position-relative form-check">
                                     <label class="form-check-label">
-                                        <input name="sustained_loss_from_mentioned_perils" type="radio"
-                                            class="form-check-input" value="yes">
+                                        <input name="sustained_loss_from_mentioned_perils" type="radio" class="form-check-input @error('sustained_loss_from_mentioned_perils')
+                                            is-invalid @enderror" value="1"
+                                            {{ (old('sustained_loss_from_mentioned_perils')=='0')?'checked':'' }}>
                                         Yes
                                     </label>
                                     <!-- textbox display -->
                                     <div class="col-md-12 col-sm-12 mb-3" style="display: none;" id="textboxes8">
                                         <br>
                                         <label> If so give details</label>
-                                        <textarea class="form-control" id="display_field" rows="3"></textarea>
+                                        <textarea name="sustained_loss_from_mentioned_perils_details"
+                                            class="form-control" id="display_field" rows="3"></textarea>
                                     </div>
                                 </div>
                                 <div class="position-relative form-check">
                                     <label class="form-check-label">
-                                        <input name="sustained_loss_from_mentioned_perils" type="radio"
-                                            class="form-check-input">
+                                        <input name="sustained_loss_from_mentioned_perils" type="radio" class="form-check-input @error('sustained_loss_from_mentioned_perils')
+                                            is-invalid @enderror " value="0"
+                                            {{ (old('sustained_loss_from_mentioned_perils') == '0')? 'checked':'' }}>
                                         No
+                                        @error('sustained_loss_from_mentioned_perils')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                        @enderror
                                     </label>
                                 </div>
                             </li>
@@ -199,7 +225,8 @@
 
                     <div class="row">
                         <div class="col-12 text-center">
-                            <button class="btn btn-primary btn-mine" type="submit">NEXT</button>
+                            <button class="btn btn-primary btn-mine" id="generalInformationSubmit"
+                                type="submit">NEXT</button>
                         </div>
                     </div>
 
@@ -207,23 +234,40 @@
 
                 <script>
                     // Example starter JavaScript for disabling form submissions if there are invalid fields
-                    (function () {
-                        'use strict';
-                        window.addEventListener('load', function () {
-                            // Fetch all the forms we want to apply custom Bootstrap validation styles to
-                            var forms = document.getElementsByClassName('needs-validation');
-                            // Loop over them and prevent submission
-                            var validation = Array.prototype.filter.call(forms, function (form) {
-                                form.addEventListener('submit', function (event) {
-                                    if (form.checkValidity() === false) {
-                                        event.preventDefault();
-                                        event.stopPropagation();
-                                    }
-                                    form.classList.add('was-validated');
-                                }, false);
+                    // (function () {
+                    //     'use strict';
+                    //     window.addEventListener('load', function () {
+                    //         // Fetch all the forms we want to apply custom Bootstrap validation styles to
+                    //         var forms = document.getElementsByClassName('needs-validation');
+                    //         // Loop over them and prevent submission
+                    //         var validation = Array.prototype.filter.call(forms, function (form) {
+                    //             form.addEventListener('submit', function (event) {
+                    //                 if (form.checkValidity() === false) {
+                    //                     event.preventDefault();
+                    //                     event.stopPropagation();
+                    //                 }
+                    //                 form.classList.add('was-validated');
+                    //             }, false);
+                    //         });
+                    //     }, false);
+                    // })();
+                    $(document).ready(function () {
+                        // check if theres a yes radio button that's acitve
+                        $('#generalInformationSubmit').click(function (e) {
+                            e.preventDefault();
+                            var errors = [];
+                            $('textarea').each(function () {
+                                // element == this
+                                if (!$(this).is(":hidden") && $(this).val() == '') {
+                                    $(this).css('border', 'red solid 1px');
+                                    errors.push($(this).attr('name'));
+                                }
+                                if (error.length > 0) {
+                                    alert('Please fill in the missing fields!');
+                                }
                             });
-                        }, false);
-                    })();
+                        });
+                    });
 
                 </script>
             </div>

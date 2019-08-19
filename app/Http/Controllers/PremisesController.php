@@ -229,6 +229,9 @@ class PremisesController extends Controller
         $this->validate($request, [
             'insurer_decline' => 'required',
             'special_terms' => 'required',
+            'cancelled_refused_cover' => 'required',
+            'increased_premium' => 'required',
+            'sustained_loss_from_mentioned_perils' => 'required',
         ]);
 
         try {
