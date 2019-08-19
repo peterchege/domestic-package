@@ -177,7 +177,7 @@
                                     <div class="col-md-12 col-sm-12 mb-3" style="display: none;" id="textboxes"><br>
                                         <label>If so, give particulars.</label>
                                         <textarea name="rad_details" class="form-control" id="display_field"
-                                            rows="3"></textarea>
+                                            rows="3">{{ old('rad_details') }}</textarea>
                                     </div>
                                 </div>
 

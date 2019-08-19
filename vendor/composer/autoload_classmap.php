@@ -31,6 +31,7 @@ return array(
     'App\\Pr_dp_allrisk' => $baseDir . '/app/Pr_dp_allrisk.php',
     'App\\Pr_dp_content' => $baseDir . '/app/Pr_dp_content.php',
     'App\\Pr_dp_domestic' => $baseDir . '/app/Pr_dp_domestic.php',
+    'App\\Pr_dp_general_information' => $baseDir . '/app/Pr_dp_general_information.php',
     'App\\Pr_dp_premise' => $baseDir . '/app/Pr_dp_premise.php',
     'App\\Providers\\AppServiceProvider' => $baseDir . '/app/Providers/AppServiceProvider.php',
     'App\\Providers\\AuthServiceProvider' => $baseDir . '/app/Providers/AuthServiceProvider.php',

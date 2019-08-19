@@ -79,7 +79,8 @@
                                                 id="textboxes4"><br>
                                                 <label> If so give details</label>
                                                 <textarea name="insurer_decline_details" class="form-control"
-                                                    id="display_field" rows="3"></textarea>
+                                                    id="display_field"
+                                                    rows="3">{{ old('insurer_decline_details') }}</textarea>
                                             </div>
                                         </div>
                                         <div class="position-relative form-check">
@@ -108,7 +109,8 @@
                                                 id="textboxes5"><br>
                                                 <label> If so give details</label>
                                                 <textarea name="special_terms_details" class="form-control"
-                                                    id="display_field" rows="3"></textarea>
+                                                    id="display_field"
+                                                    rows="3">{{ old('special_terms_details') }}</textarea>
                                             </div>
                                         </div>
                                         <div class="position-relative form-check">
@@ -138,7 +140,8 @@
                                                 id="textboxes6"><br>
                                                 <label> If so give details</label>
                                                 <textarea name="cancelled_refused_cover_details" class="form-control"
-                                                    id="display_field" rows="3"></textarea>
+                                                    id="display_field"
+                                                    rows="3">{{ old('cancelled_refused_cover_details') }}</textarea>
                                             </div>
                                         </div>
                                         <div class="position-relative form-check">
@@ -168,7 +171,8 @@
                                                 id="textboxes7"><br>
                                                 <label> If so give details</label>
                                                 <textarea name="increased_premium_details" class="form-control"
-                                                    id="display_field" rows="3"></textarea>
+                                                    id="display_field"
+                                                    rows="3">{{ old('increased_premium_details') }}</textarea>
                                             </div>
                                         </div>
                                         <div class="position-relative form-check">
@@ -201,7 +205,8 @@
                                         <br>
                                         <label> If so give details</label>
                                         <textarea name="sustained_loss_from_mentioned_perils_details"
-                                            class="form-control" id="display_field" rows="3"></textarea>
+                                            class="form-control" id="display_field"
+                                            rows="3">{{ old('sustained_loss_from_mentioned_perils_details') }}</textarea>
                                     </div>
                                 </div>
                                 <div class="position-relative form-check">
@@ -259,7 +264,7 @@
                             $('textarea').each(function () {
                                 // element == this
                                 if (!$(this).is(":hidden") && $(this).val() == '') {
-                                    $(this).css('border', 'red solid 1px');
+                                    $(this).css('border', '#d92550 solid 1px');
                                     errors.push($(this).attr('name'));
                                 } else {
                                     $(this).removeAttr('style');
