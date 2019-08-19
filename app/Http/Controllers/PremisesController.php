@@ -10,6 +10,7 @@ use App\Pr_dp_premise;
 use App\Pr_dp_content;
 use App\Pr_dp_allrisk;
 use App\Pr_dp_domestic;
+use App\Pr_dp_general_information;
 use App\Ref_roof_material;
 use App\Ref_wall_material;
 use App\SocialFacebookAccount;
@@ -100,7 +101,7 @@ class PremisesController extends Controller
                 $feed->other_sec_arrangement = $request->input('other_security');
                 $feed->premises_value = $request->input('building_amount');
                 $feed->save();
-                //return redirect()->route('product_content');
+                return redirect()->route('general_information');
             } catch (\Exception $th) {
                 //throw $th;
                 return back();
@@ -211,8 +212,8 @@ class PremisesController extends Controller
                 $domestic->save();
             }
             return redirect('general_information');
-        } catch (\Exception $e) {
-            echo $e->getMessage();
+        } catch (Exception $e) {
+            report($e);
             return back();
         }
     }
@@ -234,11 +235,24 @@ class PremisesController extends Controller
             'sustained_loss_from_mentioned_perils' => 'required',
         ]);
 
+        $user_id = Auth::user()->user_id;
         try {
-
-            return redirect('');
-        } catch (\Exception $e) {
-            echo $e->getMessage();
+            $general = new Pr_dp_general_information;
+            $general->user_id = $user_id;
+            $general->insurer_decline = $request->input('insurer_decline');
+            $general->insurer_decline_details = $request->input('insurer_decline_details');
+            $general->special_terms = $request->input('special_terms');
+            $general->special_terms_details = $request->input('special_terms_details');
+            $general->cancelled_refused_cover = $request->input('cancelled_refused_cover');
+            $general->cancelled_refused_cover_details = $request->input('cancelled_refused_cover_details');
+            $general->increased_premium = $request->input('increased_premium');
+            $general->increased_premium_details = $request->input('increased_premium_detail');
+            $general->sustained_loss_from_mentioned_perils = $request->input('sustained_loss_from_mentioned_perils');
+            $general->sustained_loss_from_mentioned_perils_details = $request->input('sustained_loss_from_mentioned_perils_details');
+            $general->save();
+            return redirect()->route('billing_detail');
+        } catch (Exception $e) {
+            report($e);
             return back();
         }
     }

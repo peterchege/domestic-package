@@ -33,7 +33,7 @@ Route::get('/product_domestic', 'MainController@product_domestic')->name('produc
 
 Route::get('/general_information', 'MainController@general_information')->name('general_information');
 
-Route::get('/billing_details', 'MainController@billing_details')->name('billing_details');
+Route::get('/billing_details', 'MainController@billing_details')->name('billing_detail');
 
 Route::get('/invoice', 'MainController@invoice')->name('invoice');
 
