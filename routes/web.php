@@ -50,3 +50,6 @@ Route::post('/allriskSubmit', 'PremisesController@allriskSubmit')->name('allrisk
 
 //domestic submit
 Route::post('/domesticSubmit', 'PremisesController@domesticSubmit')->name('domesticSubmit');
+
+//general information
+Route::post('/generalInformationSubmit', 'PremisesController@generalInformationSubmit')->name('generalInformationSubmit');
