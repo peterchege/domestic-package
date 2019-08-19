@@ -180,7 +180,7 @@
                             });
 
                             if (empty_field.length > 0) {
-                                swal.fire('Please fill all the selected input fields!', '', 'info')
+                                swal.fire('Please fill all the selected input fields!', '', 'info');
                             } else {
                                 //prepare form for submission
                                 $('form').unbind('submit').submit();

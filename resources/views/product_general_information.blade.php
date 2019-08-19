@@ -261,11 +261,13 @@
                                 if (!$(this).is(":hidden") && $(this).val() == '') {
                                     $(this).css('border', 'red solid 1px');
                                     errors.push($(this).attr('name'));
-                                }
-                                if (error.length > 0) {
-                                    alert('Please fill in the missing fields!');
+                                } else {
+                                    $(this).removeAttr('style');
                                 }
                             });
+                            if (errors.length > 0) {
+                                swal.fire('Please fill in the missing fields!', '', 'info');
+                            }
                         });
                     });
 
