@@ -185,7 +185,7 @@
                                 //prepare form for submission
                                 $('form').unbind('submit').submit();
                             }
-                        })
+                        });
                     });
 
                 </script>

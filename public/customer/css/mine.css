@@ -13,7 +13,7 @@
 
 
 
-.app-theme-white .header-color  {
+.app-theme-white .header-color {
     background-color: #0D345F;
     color: #fff;
     height: 70px;
@@ -34,23 +34,23 @@
 
 .app-header-left .search-wrapper .input-holder {
     background-color: #fff;
-    border-radius: 20px; 
+    border-radius: 20px;
 }
 
-.icon-build{
+.icon-build {
     color: #0C4DA2;
 }
 
-.build-head h2{
-    color: #0C4DA2;
-    font-family: 'Oswald',
-    sans-serif;
-}
-
-.build-h5 h5{
+.build-head h2 {
     color: #0C4DA2;
     font-family: 'Oswald',
-    sans-serif;
+        sans-serif;
+}
+
+.build-h5 h5 {
+    color: #0C4DA2;
+    font-family: 'Oswald',
+        sans-serif;
     font-size: 18px;
 }
 
@@ -58,36 +58,36 @@
 .app-sidebar__inner .app-sidebar__heading {
     color: #0C4DA2;
     font-family: 'Oswald',
-    sans-serif;
+        sans-serif;
     font-size: 15px;
     font-weight: 500;
 }
 
-.vertical-nav-menu li{
+.vertical-nav-menu li {
     color: #0D345F;
     font-family: 'Trebuchet MS',
-    'Lucida Sans Unicode',
-    'Lucida Grande',
-    'Lucida Sans',
-    Arial,
-    sans-serif;
+        'Lucida Sans Unicode',
+        'Lucida Grande',
+        'Lucida Sans',
+        Arial,
+        sans-serif;
 }
 
 /* END OF NAVBAR */
 
-.cont-li li{
+.cont-li li {
     font-size: 16px;
     padding: 10px 15px;
     color: #0D345F;
     font-family: 'Trebuchet MS',
-    'Lucida Sans Unicode',
-    'Lucida Grande',
-    'Lucida Sans',
-    Arial,
-    sans-serif;
+        'Lucida Sans Unicode',
+        'Lucida Grande',
+        'Lucida Sans',
+        Arial,
+        sans-serif;
 }
 
-.btn-mine{
+.btn-mine {
     border-radius: 20px;
     font-family: 'Oswald', sans-serif;
     padding: 10px 25px;
@@ -99,25 +99,39 @@
     box-shadow: 7px 7px 10px -2px rgba(95, 99, 104, 0.6);
 }
 
+.btn-mine22 {
+    border-radius: 20px;
+    font-family: 'Oswald', sans-serif;
+    padding: 7px 25px;
+    font-size: 14px;
+    margin-bottom: 2%;
+    background-color: slategray;
+    border: none;
+    -webkit-box-shadow: 7px 7px 10px -2px rgba(95, 99, 104, 0.6);
+    -moz-box-shadow: 7px 7px 10px -2px rgba(95, 99, 104, 0.6);
+    box-shadow: 7px 7px 10px -2px rgba(95, 99, 104, 0.6);
+}
+
+
 /* BUILDING COVER */
 
-.cont-val{
+.cont-val {
     margin: 5% auto 0 auto;
 }
 
-.cont-val label{
+.cont-val label {
     color: #0C4DA2;
     font-family: 'Oswald',
-    sans-serif;
+        sans-serif;
     padding-bottom: 20px;
     font-size: 18px;
 }
 
-.cal-up{
+.cal-up {
     padding-bottom: 5%;
 }
 
-.cont-row{
+.cont-row {
     margin: 5% auto;
 }
 
@@ -129,10 +143,10 @@
     font-size: 18px;
 }
 
-.space-bt{
+.space-bt {
     border-radius: 20px;
     font-family: 'Oswald',
-    sans-serif;
+        sans-serif;
     padding: 10px 25px;
     font-size: 12px;
     margin-top: 40px;
@@ -142,6 +156,6 @@
     box-shadow: 7px 7px 10px -2px rgba(95, 99, 104, 0.6);
 }
 
-.table-alg{
+.table-alg {
     margin: 0 auto;
 }

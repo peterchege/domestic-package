@@ -79,7 +79,7 @@ class MainController extends Controller
     }
 
     /**
-     * Display general_information form.
+     * Display billing details form.
      *
      * @return \Illuminate\Http\Response
      */
@@ -89,7 +89,7 @@ class MainController extends Controller
     }
 
     /**
-     * Display general_information form.
+     * Display invoice form.
      *
      * @return \Illuminate\Http\Response
      */

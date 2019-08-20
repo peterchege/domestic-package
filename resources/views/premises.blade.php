@@ -65,6 +65,37 @@
                     @csrf
                     <div class="form-row">
                         <ol class="cont-li">
+
+                            <li>State physical location of all the Premises at which property is contained/ insurance is
+                                requred
+                                <div class="row">
+                                    <div class="col-md-10">
+                                        <div class="col-md-12 col-sm-12 mb-3"><br>
+                                            <input name="wall_material" type="text"
+                                                class="form-control @error('wall_material') is-invalid @enderror"
+                                                id="validationCustom01"
+                                                placeholder="e.g. PLOT NO. 1870/VI/209 MVULI ROAD WESTLANDS, NAIROBI..."
+                                                required value="{{ old('wall_material') }}">
+                                            @error('wall_material')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                            @enderror
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-2">
+                                        <div class="col-md-12 col-sm-12 mb-3"><br>
+                                            <a href="#">
+                                                <button id="premisesSubmit" name="submitPremisesInfo"
+                                                    class="btn btn-primary btn-mine22" type="submit">add</button>
+                                            </a>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </li>
+
                             <li>Of what materials is the dwelling constructed?
                                 <div class="row">
                                     <div class="col-md-6">
@@ -166,6 +197,7 @@
                                     </div>
                                 </div>
                             </li>
+
                             <li>Is any business, profession or trade carried on in any portion of the premises of which
                                 the dwelling forms a part?<br>
                                 <div class="position-relative form-check">

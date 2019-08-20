@@ -18,6 +18,7 @@
     <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
     <link href="{{ asset('customer/main.css') }}" rel="stylesheet">
     <link href="{{ asset('customer/css/mine.css') }}" rel="stylesheet">
+    <link href="{{ asset('customer/css/invoice.css') }}" rel="stylesheet">
     <!-- scripts -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript" src="{{ asset('customer/assets/scripts/main.js' ) }}"></script>
