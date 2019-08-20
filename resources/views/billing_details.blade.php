@@ -138,7 +138,7 @@
                                 Looks good!
                             </div>
                         </div>
-                        <div class="col-md-4 mb-3">
+                        {{-- <div class="col-md-4 mb-3">
                             <label for="validationCustomUsername">Fax Number</label>
                             <div class="input-group">
                                 <input type="text" class="form-control" id="validationCustomUsername" placeholder=""
@@ -147,7 +147,7 @@
                                     Please provide your Fax No.
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
                     <br>
 
