@@ -78,11 +78,13 @@
             <div class="card-body">
                 <!-- <h5 class="card-title">Bootstrap 4 Form Validation</h5> -->
                 <form class="needs-validation" novalidate>
+                    @foreach ($userDetails as $userDetail)
                     <div class="form-row">
                         <div class="col-md-4 mb-3">
                             <label for="validationCustom01">First Name</label>
-                            <input type="text" class="form-control" id="validationCustom01" placeholder="" value=""
-                                required>
+
+                            <input type="text" class="form-control" id="validationCustom01" placeholder=""
+                                value="{{ $userDetail->first_name }}" required>
                             <div class="invalid-feedback">
                                 Please provide your firstname
                             </div>
@@ -105,7 +107,7 @@
                             <label for="validationCustomUsername">Last Name</label>
                             <div class="input-group">
                                 <input type="text" class="form-control" id="validationCustomUsername" placeholder=""
-                                    aria-describedby="inputGroupPrepend" required>
+                                    aria-describedby="inputGroupPrepend" value="{{ $userDetail->last_name }}" required>
                                 <div class="invalid-feedback">
                                     Please provide your Surname
                                 </div>
@@ -115,7 +117,7 @@
                     <br>
 
                     <div class="form-row">
-                        <div class="col-md-5 mb-3">
+                        <div class="col-md-4 mb-3">
                             <label for="validationCustom01">Mobile Number</label>
                             <input type="tel" class="form-control" id="validationCustom01" placeholder="" value=""
                                 required>
@@ -127,8 +129,8 @@
                             </div>
                         </div>
 
-                        <div class="offset-2 col-md-5 mb-3">
-                            <label for="validationCustom02">Other Number</label>
+                        <div class="col-md-4 mb-3">
+                            <label for="validationCustom02">Phone Number</label>
                             <input type="tel" class="form-control" id="validationCustom02" placeholder="" value=""
                                 required>
                             <div class="invalid-feedback">
@@ -138,7 +140,7 @@
                                 Looks good!
                             </div>
                         </div>
-                        {{-- <div class="col-md-4 mb-3">
+                        <div class="col-md-4 mb-3">
                             <label for="validationCustomUsername">Fax Number</label>
                             <div class="input-group">
                                 <input type="text" class="form-control" id="validationCustomUsername" placeholder=""
@@ -147,7 +149,7 @@
                                     Please provide your Fax No.
                                 </div>
                             </div>
-                        </div> --}}
+                        </div>
                     </div>
                     <br>
 
@@ -244,6 +246,7 @@
 
                         </div>
                     </div>
+                    @endforeach
                 </form>
 
                 <script>

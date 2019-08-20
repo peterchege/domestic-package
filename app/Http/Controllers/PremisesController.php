@@ -250,11 +250,29 @@ class PremisesController extends Controller
             $general->sustained_loss_from_mentioned_perils = $request->input('sustained_loss_from_mentioned_perils');
             $general->sustained_loss_from_mentioned_perils_details = $request->input('sustained_loss_from_mentioned_perils_details');
             $general->save();
-            return redirect()->route('billing_detail');
+            //return redirect()->route('billing_detail');
+
+            $userDetails = User::where('user_id', Auth::user()->user_id)->get();
+            //exit(dd($userDetails));
+            return view('billing_details', compact('userDetails'));
         } catch (Exception $e) {
             report($e);
             return back();
         }
+    }
+
+
+
+    /**
+     * Fetching current user instance.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function billingDetailsFetch()
+    {
+        $userDetails = User::where('user_id', Auth::user()->user_id)->get();
+        exit(dd($userDetails));
+        return view('billing_details', compact('userDetails'));
     }
 
 
