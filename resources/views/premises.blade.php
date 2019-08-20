@@ -117,6 +117,35 @@
                                             </a>
                                         </div>
                                     </div>
+                                    
+
+                                    <!-- TABLE -->
+                                    <div class="row container">
+                                        
+                                        <div class="col-lg-11 table-alg">
+                                            <br>
+                                            <div class="main-card mb-3 card">
+                                                <div class="card-body">
+                                                    <h5 class="card-title">List of items</h5>
+                                                    <table class="mb-0 table table-hover">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>#</th>
+                                                                <th>DescriptionPhysical location</th>
+                                                                <th>Value (KShs)</th>
+                                                                <th>Action</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody id="table_body">
+
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <br>
 
                                 </div>
                             </li>
