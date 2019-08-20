@@ -131,8 +131,8 @@
 
                         <div class="col-md-4 mb-3">
                             <label for="validationCustom02">Phone Number</label>
-                            <input type="tel" class="form-control" id="validationCustom02" placeholder="" value=""
-                                required>
+                            <input type="tel" class="form-control" id="validationCustom02" placeholder=""
+                                value="{{ $userDetail->phone_number }}" required>
                             <div class="invalid-feedback">
                                 Please provide your Phone Number
                             </div>
@@ -144,7 +144,7 @@
                             <label for="validationCustomUsername">Fax Number</label>
                             <div class="input-group">
                                 <input type="text" class="form-control" id="validationCustomUsername" placeholder=""
-                                    aria-describedby="inputGroupPrepend" required>
+                                    aria-describedby="inputGroupPrepend" required value="">
                                 <div class="invalid-feedback">
                                     Please provide your Fax No.
                                 </div>
@@ -157,7 +157,7 @@
                         <div class="col-md-4 mb-3">
                             <label for="validationCustom01">Email Address</label>
                             <input type="email" class="form-control" id="validationCustom01" placeholder="" value=""
-                                required>
+                                required value="{{ $userDetail->email }}">
                             <div class="invalid-feedback">
                                 Please provide your Email Address.
                             </div>
@@ -169,7 +169,7 @@
                         <div class="col-md-4 mb-3">
                             <label for="validationCustom02">KRA PIN Number</label>
                             <input type="number" class="form-control" id="validationCustom02" placeholder="" value=""
-                                required>
+                                required value="{{ $userDetail->kra }}">
                             <div class="invalid-feedback">
                                 Please provide your Pin Number
                             </div>
@@ -180,8 +180,8 @@
 
                         <div class="col-md-4 mb-3">
                             <label for="validationCustom02">National ID Number</label>
-                            <input type="number" class="form-control" id="validationCustom02" placeholder="" value=""
-                                required>
+                            <input type="number" class="form-control" id="validationCustom02" placeholder=""
+                                value="{{ $userDetail->national_id }}" required>
                             <div class="invalid-feedback">
                                 Please provide your Identification Number
                             </div>
