@@ -115,7 +115,7 @@
                     <br>
 
                     <div class="form-row">
-                        <div class="col-md-4 mb-3">
+                        <div class="col-md-5 mb-3">
                             <label for="validationCustom01">Mobile Number</label>
                             <input type="tel" class="form-control" id="validationCustom01" placeholder="" value=""
                                 required>
@@ -127,7 +127,7 @@
                             </div>
                         </div>
 
-                        <div class="col-md-4 mb-3">
+                        <div class="offset-2 col-md-5 mb-3">
                             <label for="validationCustom02">Other Number</label>
                             <input type="tel" class="form-control" id="validationCustom02" placeholder="" value=""
                                 required>
