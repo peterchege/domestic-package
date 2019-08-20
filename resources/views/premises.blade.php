@@ -112,7 +112,7 @@
                                     <div class="col-md-2">
                                         <div class="col-md-12 col-sm-12 mb-3"><br>
                                             <a href="#"><br><br>
-                                                <button id="premisesSubmit" name="submitPremisesInfo"
+                                                <button id="" name=""
                                                     class="btn btn-primary btn-mine22" type="submit">add</button>
                                             </a>
                                         </div>
