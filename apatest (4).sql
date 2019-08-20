@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 14, 2019 at 07:29 PM
+-- Generation Time: Aug 20, 2019 at 11:34 AM
 -- Server version: 10.1.34-MariaDB
 -- PHP Version: 7.2.7
 
@@ -47,7 +47,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (17, '2019_08_07_091849_create_ref_wall_materials_table', 3),
 (18, '2019_08_09_131738_create_pr_dp_contents_table', 4),
 (19, '2019_08_13_122235_create_pr_dp_allrisks_table', 5),
-(20, '2019_08_14_201427_add_premises_id_to_allrisk_table', 6);
+(20, '2019_08_14_201427_add_premises_id_to_allrisk_table', 6),
+(21, '2019_08_19_170359_create_pr_dp_general_informations_table', 7);
 
 -- --------------------------------------------------------
 
@@ -88,7 +89,9 @@ CREATE TABLE `pr_dp_allrisks` (
 INSERT INTO `pr_dp_allrisks` (`id`, `section_id`, `content_id`, `premises_id`, `serial_number`, `make_model`, `item_description`, `value`, `customer_role`, `created_at`, `updated_at`) VALUES
 (1, 3, 1, 3, 'serial', 'make', 'name', 12055, 'owner', '2019-08-14 17:28:10', '2019-08-14 17:28:10'),
 (2, 3, 1, 3, '12358', 'samsung', 'tv', 50000, 'owner', '2019-08-14 17:28:57', '2019-08-14 17:28:57'),
-(3, 3, 1, 3, '12358', 'jvc', 'radio', 50000, 'owner', '2019-08-14 17:28:57', '2019-08-14 17:28:57');
+(3, 3, 1, 3, '12358', 'jvc', 'radio', 50000, 'owner', '2019-08-14 17:28:57', '2019-08-14 17:28:57'),
+(4, 3, 1, 3, 'sero', 'make', 'na', 300, 'owner', '2019-08-16 05:45:48', '2019-08-16 05:45:48'),
+(5, 3, 1, 3, 'lk', 'mak', 'yu', 3200, 'owner', '2019-08-16 05:45:49', '2019-08-16 05:45:49');
 
 -- --------------------------------------------------------
 
@@ -117,7 +120,100 @@ INSERT INTO `pr_dp_contents` (`id`, `item_description`, `item_value`, `section_i
 (3, 'Cupboard', 100000, 2, 'owner', 3, '2019-08-13 10:01:07', '2019-08-13 10:01:07'),
 (4, 'Bed', 1500000, 2, 'owner', 3, '2019-08-13 10:01:07', '2019-08-13 10:01:07'),
 (5, 'Furniture', 5000, 2, 'owner', 3, '2019-08-13 10:01:07', '2019-08-13 10:01:07'),
-(6, 'recent', 80000, 2, 'owner', 3, '2019-08-14 14:03:30', '2019-08-14 14:03:30');
+(6, 'recent', 80000, 2, 'owner', 3, '2019-08-14 14:03:30', '2019-08-14 14:03:30'),
+(7, 'name', 485, 2, 'owner', 3, '2019-08-15 06:59:33', '2019-08-15 06:59:33'),
+(8, 'name', 8, 2, 'owner', 3, '2019-08-15 06:59:33', '2019-08-15 06:59:33'),
+(9, 'name', 86, 2, 'owner', 3, '2019-08-15 06:59:33', '2019-08-15 06:59:33'),
+(10, 'sofa', 800000, 2, 'owner', 3, '2019-08-15 08:35:36', '2019-08-15 08:35:36'),
+(11, 'table', 600000, 2, 'owner', 3, '2019-08-15 08:35:37', '2019-08-15 08:35:37');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pr_dp_domestics`
+--
+
+CREATE TABLE `pr_dp_domestics` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `employee_type` int(11) DEFAULT NULL,
+  `number_of_employees` int(11) DEFAULT NULL,
+  `annual_salary` double DEFAULT NULL,
+  `section_id` int(11) NOT NULL,
+  `customer_role` enum('owner','tenant') COLLATE utf8mb4_unicode_ci NOT NULL,
+  `premises_id` int(11) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `pr_dp_domestics`
+--
+
+INSERT INTO `pr_dp_domestics` (`id`, `employee_type`, `number_of_employees`, `annual_salary`, `section_id`, `customer_role`, `premises_id`, `created_at`, `updated_at`) VALUES
+(1, 1, 3000, 5000, 1, 'owner', 3, '2019-08-16 09:37:37', '2019-08-16 09:37:37'),
+(2, NULL, NULL, NULL, 1, 'owner', 3, '2019-08-16 09:38:17', '2019-08-16 09:38:17'),
+(3, NULL, NULL, NULL, 1, 'owner', 3, '2019-08-16 09:43:27', '2019-08-16 09:43:27'),
+(4, 1, 8000, 5000, 1, 'owner', 3, '2019-08-16 09:55:42', '2019-08-16 09:55:42'),
+(5, 2, NULL, NULL, 1, 'owner', 3, '2019-08-16 09:57:12', '2019-08-16 09:57:12'),
+(6, 2, 10, 10000, 1, 'owner', 3, '2019-08-16 09:57:46', '2019-08-16 09:57:46'),
+(7, 1, 6000, 9000, 1, 'owner', 3, '2019-08-16 10:00:30', '2019-08-16 10:00:30'),
+(8, 1, 1000, 10000, 1, 'owner', 3, '2019-08-16 10:02:08', '2019-08-16 10:02:08'),
+(9, 2, 200, 8000, 1, 'owner', 3, '2019-08-16 10:02:31', '2019-08-16 10:02:31'),
+(10, 1, 1000, 30000, 1, 'owner', 3, '2019-08-16 10:58:11', '2019-08-16 10:58:11'),
+(11, 1, 1000, 30000, 1, 'owner', 3, '2019-08-16 10:58:34', '2019-08-16 10:58:34'),
+(12, 2, 500, 60000, 1, 'owner', 3, '2019-08-16 10:58:34', '2019-08-16 10:58:34'),
+(13, 3, 36, 5000, 1, 'owner', 3, '2019-08-16 10:58:34', '2019-08-16 10:58:34'),
+(14, 1, 20, 500000, 1, 'owner', 3, '2019-08-16 10:59:34', '2019-08-16 10:59:34'),
+(15, 3, 5, 50000, 1, 'owner', 3, '2019-08-16 10:59:34', '2019-08-16 10:59:34'),
+(16, 1, 300, 2000, 1, 'owner', 3, '2019-08-16 11:08:31', '2019-08-16 11:08:31'),
+(17, 4, 8555, 6555, 1, 'owner', 3, '2019-08-16 11:08:31', '2019-08-16 11:08:31'),
+(18, 1, 8, 65, 1, 'owner', 3, '2019-08-18 09:13:16', '2019-08-18 09:13:16'),
+(19, 1, 30, 58, 1, 'owner', 3, '2019-08-18 09:13:52', '2019-08-18 09:13:52'),
+(20, 1, 800, 2300, 1, 'owner', 3, '2019-08-18 09:28:07', '2019-08-18 09:28:07'),
+(21, 1, 1, 1, 1, 'owner', 3, '2019-08-18 09:33:01', '2019-08-18 09:33:01'),
+(22, 1, 30, 3000, 1, 'owner', 3, '2019-08-19 06:14:56', '2019-08-19 06:14:56'),
+(23, 2, 5000, 3600, 1, 'owner', 3, '2019-08-19 06:14:56', '2019-08-19 06:14:56'),
+(24, 1, 200, 300, 1, 'owner', 3, '2019-08-20 09:23:08', '2019-08-20 09:23:08');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pr_dp_general_informations`
+--
+
+CREATE TABLE `pr_dp_general_informations` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `user_id` int(255) NOT NULL,
+  `insurer_decline` tinyint(1) NOT NULL,
+  `insurer_decline_details` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `special_terms` tinyint(1) NOT NULL,
+  `special_terms_details` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `cancelled_refused_cover` tinyint(1) NOT NULL,
+  `cancelled_refused_cover_details` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `increased_premium` tinyint(1) NOT NULL,
+  `increased_premium_details` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `sustained_loss_from_mentioned_perils` tinyint(1) NOT NULL,
+  `sustained_loss_from_mentioned_perils_details` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `pr_dp_general_informations`
+--
+
+INSERT INTO `pr_dp_general_informations` (`id`, `user_id`, `insurer_decline`, `insurer_decline_details`, `special_terms`, `special_terms_details`, `cancelled_refused_cover`, `cancelled_refused_cover_details`, `increased_premium`, `increased_premium_details`, `sustained_loss_from_mentioned_perils`, `sustained_loss_from_mentioned_perils_details`, `created_at`, `updated_at`) VALUES
+(1, 1687971775, 0, NULL, 0, NULL, 0, NULL, 0, NULL, 0, NULL, '2019-08-19 16:55:02', '2019-08-19 16:55:02'),
+(2, 1687971775, 0, NULL, 0, NULL, 0, NULL, 0, NULL, 0, NULL, '2019-08-19 17:02:34', '2019-08-19 17:02:34'),
+(3, 1687971775, 0, NULL, 0, NULL, 0, NULL, 0, NULL, 0, NULL, '2019-08-19 17:03:06', '2019-08-19 17:03:06'),
+(4, 1687971775, 0, NULL, 0, NULL, 0, NULL, 0, NULL, 0, NULL, '2019-08-19 17:03:32', '2019-08-19 17:03:32'),
+(5, 1687971775, 0, NULL, 0, NULL, 0, NULL, 0, NULL, 0, NULL, '2019-08-19 17:03:46', '2019-08-19 17:03:46'),
+(6, 1687971775, 0, NULL, 0, NULL, 0, NULL, 0, NULL, 0, NULL, '2019-08-19 17:04:00', '2019-08-19 17:04:00'),
+(7, 1687971775, 0, NULL, 0, NULL, 0, NULL, 0, NULL, 0, NULL, '2019-08-19 17:04:00', '2019-08-19 17:04:00'),
+(8, 1687971775, 0, NULL, 0, NULL, 0, NULL, 0, NULL, 0, NULL, '2019-08-19 17:05:12', '2019-08-19 17:05:12'),
+(9, 1687971775, 0, NULL, 0, NULL, 0, NULL, 0, NULL, 0, NULL, '2019-08-19 17:05:39', '2019-08-19 17:05:39'),
+(10, 1687971775, 0, NULL, 0, NULL, 0, NULL, 0, NULL, 0, NULL, '2019-08-19 17:05:49', '2019-08-19 17:05:49'),
+(11, 1687971775, 0, NULL, 0, NULL, 0, NULL, 0, NULL, 0, NULL, '2019-08-20 09:23:18', '2019-08-20 09:23:18');
 
 -- --------------------------------------------------------
 
@@ -262,6 +358,19 @@ ALTER TABLE `pr_dp_contents`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `pr_dp_domestics`
+--
+ALTER TABLE `pr_dp_domestics`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `pr_dp_general_informations`
+--
+ALTER TABLE `pr_dp_general_informations`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `user_id` (`user_id`);
+
+--
 -- Indexes for table `pr_dp_premises`
 --
 ALTER TABLE `pr_dp_premises`
@@ -304,19 +413,31 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `pr_dp_allrisks`
 --
 ALTER TABLE `pr_dp_allrisks`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `pr_dp_contents`
 --
 ALTER TABLE `pr_dp_contents`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
+-- AUTO_INCREMENT for table `pr_dp_domestics`
+--
+ALTER TABLE `pr_dp_domestics`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+
+--
+-- AUTO_INCREMENT for table `pr_dp_general_informations`
+--
+ALTER TABLE `pr_dp_general_informations`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `pr_dp_premises`
@@ -351,6 +472,12 @@ ALTER TABLE `users`
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `pr_dp_general_informations`
+--
+ALTER TABLE `pr_dp_general_informations`
+  ADD CONSTRAINT `pr_dp_general_informations_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `pr_dp_premises` (`user_id`);
 
 --
 -- Constraints for table `pr_dp_premises`
