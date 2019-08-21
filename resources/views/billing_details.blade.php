@@ -357,7 +357,7 @@
                         $('form').submit(function (e) {
                             e.preventDefault();
                             if ($('input[name=terms_conditions]').prop('checked') == false) {
-                                alert('Please agree to the terms and conditions.');
+                                swal.fire('Please agree to the terms and conditions!', '', 'info');
                             } else {
                                 $('form').unbind('submit').submit();
                             }
