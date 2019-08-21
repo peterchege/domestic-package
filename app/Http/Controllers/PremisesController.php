@@ -271,6 +271,42 @@ class PremisesController extends Controller
     }
 
 
+    public function billingDetailsSubmit(Request $request)
+    {
+        //
+        //storing premises form data
+        $this->validate($request, [
+            'first_name' => 'required',
+            'middle_name' => 'required',
+            'last_name' => 'required',
+            'phone_number' => 'required',
+            'other_number' => 'required',
+            'email' => 'required',
+            'kra' => 'required'
+        ]);
+
+        $user_id = Auth::user()->user_id;
+        try {
+            $general = new User;
+            $general->user_id = $user_id;
+            $general->insurer_decline = $request->input('insurer_decline');
+            $general->insurer_decline_details = $request->input('insurer_decline_details');
+            $general->special_terms = $request->input('special_terms');
+            $general->special_terms_details = $request->input('special_terms_details');
+            $general->cancelled_refused_cover = $request->input('cancelled_refused_cover');
+            $general->cancelled_refused_cover_details = $request->input('cancelled_refused_cover_details');
+            $general->increased_premium = $request->input('increased_premium');
+            $general->increased_premium_details = $request->input('increased_premium_detail');
+            $general->sustained_loss_from_mentioned_perils = $request->input('sustained_loss_from_mentioned_perils');
+            $general->sustained_loss_from_mentioned_perils_details = $request->input('sustained_loss_from_mentioned_perils_details');
+
+            return redirect()->route('billingDetailsFetch');
+        } catch (Exception $e) {
+            report($e);
+            return back();
+        }
+    }
+
     /**
      * Show the form for creating a new resource.
      *
