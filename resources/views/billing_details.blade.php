@@ -77,7 +77,7 @@
         <div class="main-card mb-3 card">
             <div class="card-body">
                 <!-- <h5 class="card-title">Bootstrap 4 Form Validation</h5> -->
-                <form class="needs-validation" novalidate>
+                <form action="{{ route('billingDetailsSubmit') }}" method="POST" class="needs-validation" novalidate>
                     @foreach ($userDetails as $userDetail)
                     <div class="form-row">
                         <div class="col-md-4 mb-3">

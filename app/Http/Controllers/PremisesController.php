@@ -250,7 +250,6 @@ class PremisesController extends Controller
             $general->sustained_loss_from_mentioned_perils = $request->input('sustained_loss_from_mentioned_perils');
             $general->sustained_loss_from_mentioned_perils_details = $request->input('sustained_loss_from_mentioned_perils_details');
             $general->save();
-            //return redirect()->route('billing_detail');            
             return redirect()->route('billingDetailsFetch');
         } catch (Exception $e) {
             report($e);
