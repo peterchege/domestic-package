@@ -117,7 +117,7 @@
                     <br>
 
                     <div class="form-row">
-                        <div class="col-md-4 mb-3">
+                        <div class="col-md-5 mb-3">
                             <label for="validationCustom01">Mobile Number</label>
                             <input type="tel" class="form-control" id="validationCustom01" placeholder="" value=""
                                 required>
@@ -129,8 +129,8 @@
                             </div>
                         </div>
 
-                        <div class="col-md-4 mb-3">
-                            <label for="validationCustom02">Phone Number</label>
+                        <div class="offset-1 col-md-5 mb-3">
+                            <label for="validationCustom02">Other Number</label>
                             <input type="tel" class="form-control" id="validationCustom02" placeholder=""
                                 value="{{ $userDetail->phone_number }}" required>
                             <div class="invalid-feedback">
@@ -140,7 +140,7 @@
                                 Looks good!
                             </div>
                         </div>
-                        <div class="col-md-4 mb-3">
+                        {{-- <div class="col-md-4 mb-3">
                             <label for="validationCustomUsername">Fax Number</label>
                             <div class="input-group">
                                 <input type="text" class="form-control" id="validationCustomUsername" placeholder=""
@@ -149,7 +149,7 @@
                                     Please provide your Fax No.
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
                     <br>
 
