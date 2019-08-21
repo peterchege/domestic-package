@@ -282,7 +282,14 @@ class PremisesController extends Controller
             'phone_number' => 'required',
             'other_number' => 'required',
             'email' => 'required',
-            'kra' => 'required'
+            'kra' => 'required',
+            'national_id' => 'required',
+            'postal_address' => 'required',
+            'city_town' => 'required',
+            'post_code' => 'required',
+            'county' => 'required',
+            'terms_conditions' => 'required',
+
         ]);
 
         $user_id = Auth::user()->user_id;

@@ -222,14 +222,19 @@
 
                         <div class="col-md-4 mb-3">
                             <label for="validationCustom02">National ID Number</label>
-                            <input name="national_id" type="number" class="form-control" id="validationCustom02"
-                                placeholder="" value="{{ $userDetail->national_id }}" required>
-                            <div class="invalid-feedback">
+                            <input name="national_id" type="number" class="form-control @error('national_id') @enderror"
+                                id="validationCustom02" placeholder="" value="{{ $userDetail->national_id }}" required>
+                            @error('national_id')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
+                            {{-- <div class="invalid-feedback">
                                 Please provide your Identification Number
                             </div>
                             <div class="valid-feedback">
                                 Looks good!
-                            </div>
+                            </div> --}}
                         </div>
 
                     </div>
@@ -238,50 +243,80 @@
                     <div class="form-row">
                         <div class="col-md-4 mb-3">
                             <label for="validationCustom03">Postal Address (P.O.BOX)</label>
-                            <input name="postal_address" type="text" class="form-control" id="validationCustom03"
-                                value="{{ old('postal_address') }}" placeholder="" required>
-                            <div class="invalid-feedback">
+                            <input name="postal_address" type="text"
+                                class="form-control @error('postal_address') is-invalid @enderror "
+                                id="validationCustom03" value="{{ old('postal_address') }}" placeholder="" required>
+                            @error('postal_address')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
+                            {{-- <div class="invalid-feedback">
                                 Please provide a valid Address.
-                            </div>
+                            </div> --}}
                         </div>
 
                         <div class="col-md-4 mb-3">
                             <label for="validationCustom04">City / Town</label>
-                            <input name="city_town" type="text" class="form-control" id="validationCustom04"
+                            <input name="city_town" type="text"
+                                class="form-control @error('city_town') is-invalid @enderror" id="validationCustom04"
                                 value="{{ old('city_town') }}" placeholder="" required>
-                            <div class="invalid-feedback">
+                            @error('city_town')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
+                            {{-- <div class="invalid-feedback">
                                 Please provide a valid city / town.
-                            </div>
+                            </div> --}}
                         </div>
 
                         <div class="col-md-2 mb-3">
                             <label for="validationCustom03">Post Code</label>
-                            <input name="post_code" type="text" class="form-control" id="validationCustom03"
+                            <input name="post_code" type="text"
+                                class="form-control @error('post_code') is-invalid @enderror " id="validationCustom03"
                                 value="{{ old('post_code') }}" placeholder="" required>
-                            <div class="invalid-feedback">
+                            @error('post_code')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
+                            {{-- <div class="invalid-feedback">
                                 Please provide a valid Post code.
-                            </div>
+                            </div> --}}
                         </div>
                         <div class="col-md-2 mb-3">
                             <label for="validationCustom05">county</label>
-                            <input name="county" type="text" class="form-control" id="validationCustom05"
-                                value="{{ old('county') }}" placeholder="" required>
-                            <div class="invalid-feedback">
+                            <input name="county" type="text" class="form-control @error('county') is-invalid @enderror "
+                                id="validationCustom05" value="{{ old('county') }}" placeholder="" required>
+                            @error('county')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
+                            {{-- <div class="invalid-feedback">
                                 Please provide a valid county.
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
 
                     <div class="form-group">
                         <div class="form-check">
-                            <input name="terms_conditions" class="form-check-input" type="checkbox"
+                            <input name="terms_conditions"
+                                class="form-check-input @error('terms_conditions') @enderror " type="checkbox"
                                 value="{{ old('terms_conditions') }}" id="invalidCheck" required>
+
                             <label class="form-check-label" for="invalidCheck">
                                 Agree to terms and conditions
                             </label>
-                            <div class="invalid-feedback">
+                            {{-- <div class="invalid-feedback">
                                 You must agree before submitting.
-                            </div>
+                            </div> --}}
+                            @error('terms_conditions')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
                         </div>
                     </div>
 
@@ -290,7 +325,6 @@
                             <a href="product_risk.html">
                                 <button class="btn btn-primary btn-mine" type="submit">Complete</button>
                             </a>
-
                         </div>
                     </div>
                     @endforeach
