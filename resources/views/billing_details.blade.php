@@ -119,8 +119,8 @@
                     <div class="form-row">
                         <div class="col-md-5 mb-3">
                             <label for="validationCustom01">Mobile Number</label>
-                            <input type="tel" class="form-control" id="validationCustom01" placeholder="" value=""
-                                required>
+                            <input type="tel" class="form-control" id="validationCustom01" placeholder=""
+                                value="{{ $userDetail->phone_number }}" required>
                             <div class="invalid-feedback">
                                 Please provide your Telephone No.
                             </div>
@@ -131,8 +131,8 @@
 
                         <div class="offset-1 col-md-5 mb-3">
                             <label for="validationCustom02">Other Number</label>
-                            <input type="tel" class="form-control" id="validationCustom02" placeholder=""
-                                value="{{ $userDetail->phone_number }}" required>
+                            <input type="tel" class="form-control" id="validationCustom02" placeholder="" value=""
+                                required>
                             <div class="invalid-feedback">
                                 Please provide your Phone Number
                             </div>
