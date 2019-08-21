@@ -54,4 +54,4 @@ Route::post('/domesticSubmit', 'PremisesController@domesticSubmit')->name('domes
 //general information
 Route::post('/generalInformationSubmit', 'PremisesController@generalInformationSubmit')->name('generalInformationSubmit');
 
-Route::post('/billingDetailsFetch', 'PremisesController@billingDetailsFetch')->name('billingDetailsFetch');
+Route::get('/billingDetailsFetch', 'PremisesController@billingDetailsFetch')->name('billingDetailsFetch');

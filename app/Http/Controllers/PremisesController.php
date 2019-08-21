@@ -219,7 +219,7 @@ class PremisesController extends Controller
     }
 
     /**
-     * Feeding domestic data to db.
+     * Feeding general information data to db.
      *
      * @return \Illuminate\Http\Response
      */
@@ -250,11 +250,8 @@ class PremisesController extends Controller
             $general->sustained_loss_from_mentioned_perils = $request->input('sustained_loss_from_mentioned_perils');
             $general->sustained_loss_from_mentioned_perils_details = $request->input('sustained_loss_from_mentioned_perils_details');
             $general->save();
-            //return redirect()->route('billing_detail');
-
-            $userDetails = User::where('user_id', Auth::user()->user_id)->get();
-            //exit(dd($userDetails));
-            return view('billing_details', compact('userDetails'));
+            //return redirect()->route('billing_detail');            
+            return redirect()->route('billingDetailsFetch');
         } catch (Exception $e) {
             report($e);
             return back();
@@ -271,7 +268,6 @@ class PremisesController extends Controller
     public function billingDetailsFetch()
     {
         $userDetails = User::where('user_id', Auth::user()->user_id)->get();
-        exit(dd($userDetails));
         return view('billing_details', compact('userDetails'));
     }
 

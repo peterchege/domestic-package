@@ -156,8 +156,8 @@
                     <div class="form-row">
                         <div class="col-md-4 mb-3">
                             <label for="validationCustom01">Email Address</label>
-                            <input type="email" class="form-control" id="validationCustom01" placeholder="" value=""
-                                required value="{{ $userDetail->email }}">
+                            <input type="email" class="form-control" id="validationCustom01" placeholder="" required
+                                value="{{ $userDetail->email }}">
                             <div class="invalid-feedback">
                                 Please provide your Email Address.
                             </div>
@@ -168,8 +168,8 @@
 
                         <div class="col-md-4 mb-3">
                             <label for="validationCustom02">KRA PIN Number</label>
-                            <input type="number" class="form-control" id="validationCustom02" placeholder="" value=""
-                                required value="{{ $userDetail->kra }}">
+                            <input type="text" class="form-control" id="validationCustom02" placeholder="" required
+                                value="{{ $userDetail->kra }}">
                             <div class="invalid-feedback">
                                 Please provide your Pin Number
                             </div>
