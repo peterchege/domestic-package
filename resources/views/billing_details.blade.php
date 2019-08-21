@@ -189,7 +189,8 @@
                         <div class="col-md-4 mb-3">
                             <label for="validationCustom01">Email Address</label>
                             <input name="email" type="email" class="form-control @error('email') is-invalid @enderror "
-                                id="validationCustom01" placeholder="" required value="{{ $userDetail->email }}">
+                                id="validationCustom01" placeholder="" required value="{{ $userDetail->email }}"
+                                disabled>
                             @error('email')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -305,25 +306,27 @@
                             <input name="terms_conditions"
                                 class="form-check-input @error('terms_conditions') @enderror " type="checkbox"
                                 value="{{ old('terms_conditions') }}" id="invalidCheck" required>
-
-                            <label class="form-check-label" for="invalidCheck">
-                                Agree to terms and conditions
-                            </label>
-                            {{-- <div class="invalid-feedback">
-                                You must agree before submitting.
-                            </div> --}}
                             @error('terms_conditions')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
                             @enderror
+                            <label class="form-check-label" for="invalidCheck">
+                                Agree to terms and conditions
+                            </label>
+
+                            {{-- <div class="invalid-feedback">
+                                You must agree before submitting.
+                            </div> --}}
+
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="col-12 text-center">
                             <a href="product_risk.html">
-                                <button class="btn btn-primary btn-mine" type="submit">Complete</button>
+                                <button class="btn btn-primary btn-mine" name="complete" id="complete"
+                                    type="submit">Complete</button>
                             </a>
                         </div>
                     </div>
@@ -331,7 +334,7 @@
                 </form>
 
                 <script>
-                    // Example starter JavaScript for disabling form submissions if there are invalid fields
+                    // //  Example starter JavaScript for disabling form submissions if there are invalid fields
                     // (function () {
                     //     'use strict';
                     //     window.addEventListener('load', function () {
@@ -349,6 +352,17 @@
                     //         });
                     //     }, false);
                     // })();
+
+                    $(document).ready(function () {
+                        $('form').submit(function (e) {
+                            e.preventDefault();
+                            if ($('input[name=terms_conditions]').prop('checked') == false) {
+                                alert('Please agree to the terms and conditions.');
+                            } else {
+                                $('form').unbind('submit').submit();
+                            }
+                        });
+                    });
 
                 </script>
             </div>

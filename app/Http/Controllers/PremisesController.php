@@ -274,7 +274,7 @@ class PremisesController extends Controller
     public function billingDetailsSubmit(Request $request)
     {
         //
-        //storing premises form data
+        //validating form data from billing details page
         $this->validate($request, [
             'first_name' => 'required',
             'middle_name' => 'required',
@@ -292,22 +292,14 @@ class PremisesController extends Controller
 
         ]);
 
+        // getting id of current user
         $user_id = Auth::user()->user_id;
         try {
-            $general = new User;
-            $general->user_id = $user_id;
-            $general->insurer_decline = $request->input('insurer_decline');
-            $general->insurer_decline_details = $request->input('insurer_decline_details');
-            $general->special_terms = $request->input('special_terms');
-            $general->special_terms_details = $request->input('special_terms_details');
-            $general->cancelled_refused_cover = $request->input('cancelled_refused_cover');
-            $general->cancelled_refused_cover_details = $request->input('cancelled_refused_cover_details');
-            $general->increased_premium = $request->input('increased_premium');
-            $general->increased_premium_details = $request->input('increased_premium_detail');
-            $general->sustained_loss_from_mentioned_perils = $request->input('sustained_loss_from_mentioned_perils');
-            $general->sustained_loss_from_mentioned_perils_details = $request->input('sustained_loss_from_mentioned_perils_details');
+            $updateData = new User;
 
-            return redirect()->route('billingDetailsFetch');
+
+            // redirect to payments page after updating user data in users table
+            return redirect()->route('');
         } catch (Exception $e) {
             report($e);
             return back();
