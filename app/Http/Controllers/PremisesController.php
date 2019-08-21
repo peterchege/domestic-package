@@ -271,6 +271,11 @@ class PremisesController extends Controller
     }
 
 
+    /**
+     * Updating user details from billing details form.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function billingDetailsSubmit(Request $request)
     {
         //
