@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
+-- version 4.8.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 21, 2019 at 09:17 AM
--- Server version: 10.3.16-MariaDB
--- PHP Version: 7.3.8
+-- Generation Time: Aug 21, 2019 at 11:33 AM
+-- Server version: 10.1.34-MariaDB
+-- PHP Version: 7.2.7
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -49,7 +49,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (19, '2019_08_13_122235_create_pr_dp_allrisks_table', 5),
 (20, '2019_08_14_201427_add_premises_id_to_allrisk_table', 6),
 (21, '2019_08_19_170359_create_pr_dp_general_informations_table', 7),
-(22, '2019_08_20_125832_adding_middle_name_po_box_city', 8);
+(22, '2019_08_20_125832_adding_middle_name_po_box_city', 8),
+(23, '2019_08_21_120029_adding_other_number_column_to_users', 9);
 
 -- --------------------------------------------------------
 
@@ -229,15 +230,15 @@ CREATE TABLE `pr_dp_premises` (
   `location` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `floors` int(11) DEFAULT NULL,
   `business` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `business_description` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `business_description` longtext COLLATE utf8mb4_unicode_ci,
   `sole_occupation` tinyint(1) NOT NULL,
   `dwelling` enum('private','self-contained','room-not-self-contained') COLLATE utf8mb4_unicode_ci NOT NULL,
   `for_hire` tinyint(1) DEFAULT NULL,
   `thirty_day_inoccupancy` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `thirty_day_inoccupancy_details` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `thirty_day_inoccupancy_details` longtext COLLATE utf8mb4_unicode_ci,
   `good_state_of_repair` tinyint(1) NOT NULL,
   `burglar_proof` tinyint(1) NOT NULL,
-  `burglar_proof_details` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `burglar_proof_details` longtext COLLATE utf8mb4_unicode_ci,
   `other_sec_arrangement` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
   `premises_value` int(11) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
@@ -316,6 +317,7 @@ CREATE TABLE `users` (
   `email` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `password` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `phone_number` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `other_number` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `national_id` int(11) NOT NULL,
   `kra` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
   `postal_address` int(11) DEFAULT NULL,
@@ -332,10 +334,10 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `user_id`, `first_name`, `middle_name`, `last_name`, `email`, `password`, `phone_number`, `national_id`, `kra`, `postal_address`, `city_town`, `post_code`, `county`, `email_verified_at`, `remember_token`, `created_at`, `updated_at`) VALUES
-(3, 0, 'ANTHONY', '', 'KARONJI', 'anthonybaru@gmail.com', '$2y$10$MXS1/dg8eI7RJdPcb3/SV.eH9CjE6O5vL2neNlIkl.9k2ELn1tBYm', '700658856', 312215234, 'A54218542345I', 0, '', 0, '', NULL, NULL, '2019-08-08 06:01:18', '2019-08-08 06:01:18'),
-(5, 201148874, 'Victor', NULL, 'Asava', 'vickyavicky23@gmail.com', '$2y$10$TlVUBu/0KfW8keruHqa.A.qXyUZ8XkxW.NWqK62UrHLVzhitF5yPq', '0712345678', 12345678, 'A123456789', NULL, NULL, NULL, NULL, NULL, NULL, '2019-08-20 12:41:36', '2019-08-20 12:41:36'),
-(4, 1687971775, 'ANTHONY', '', 'KARONJI', 'anthonbaru@gmail.com', '$2y$10$2ANuRLGVTqa5BmGUeYDjtuEJO1/OgWZ8wCFz/8PB/Il7nWHWtAp/6', '700658856', 32132121, 'A8528452568541P', 0, '', 0, '', NULL, NULL, '2019-08-08 06:54:31', '2019-08-08 06:54:31');
+INSERT INTO `users` (`id`, `user_id`, `first_name`, `middle_name`, `last_name`, `email`, `password`, `phone_number`, `other_number`, `national_id`, `kra`, `postal_address`, `city_town`, `post_code`, `county`, `email_verified_at`, `remember_token`, `created_at`, `updated_at`) VALUES
+(3, 0, 'ANTHONY', '', 'KARONJI', 'anthonybaru@gmail.com', '$2y$10$MXS1/dg8eI7RJdPcb3/SV.eH9CjE6O5vL2neNlIkl.9k2ELn1tBYm', '700658856', NULL, 312215234, 'A54218542345I', 0, '', 0, '', NULL, NULL, '2019-08-08 06:01:18', '2019-08-08 06:01:18'),
+(5, 201148874, 'Victor', NULL, 'Asava', 'vickyavicky23@gmail.com', '$2y$10$TlVUBu/0KfW8keruHqa.A.qXyUZ8XkxW.NWqK62UrHLVzhitF5yPq', '0712345678', NULL, 12345678, 'A123456789', NULL, NULL, NULL, NULL, NULL, NULL, '2019-08-20 12:41:36', '2019-08-20 12:41:36'),
+(4, 1687971775, 'ANTHONY', '', 'KARONJI', 'anthonbaru@gmail.com', '$2y$10$2ANuRLGVTqa5BmGUeYDjtuEJO1/OgWZ8wCFz/8PB/Il7nWHWtAp/6', '700658856', NULL, 32132121, 'A8528452568541P', 0, '', 0, '', NULL, NULL, '2019-08-08 06:54:31', '2019-08-08 06:54:31');
 
 --
 -- Indexes for dumped tables
@@ -421,7 +423,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `pr_dp_allrisks`
