@@ -286,7 +286,6 @@ class PremisesController extends Controller
             'last_name' => 'required',
             'phone_number' => 'required',
             'other_number' => 'required',
-            'email' => 'required',
             'kra' => 'required',
             'national_id' => 'required',
             'postal_address' => 'required',
@@ -303,12 +302,23 @@ class PremisesController extends Controller
             $updateData = new User;
 
 
-            // redirect to payments page after updating user data in users table
-            return redirect()->route('');
+            // redirect to invoice page after updating user data in users table
+            return redirect()->route('invoiceDetailsFetch');
         } catch (Exception $e) {
             report($e);
             return back();
         }
+    }
+
+    /**
+     * Updating user details from billing details form.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function invoiceDetailsFetch()
+    {
+        $userDetails = User::where('user_id', Auth::user()->user_id)->get();
+        return view('invoice', compact('userDetails'));
     }
 
     /**
