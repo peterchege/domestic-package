@@ -250,7 +250,6 @@ class PremisesController extends Controller
             $general->sustained_loss_from_mentioned_perils = $request->input('sustained_loss_from_mentioned_perils');
             $general->sustained_loss_from_mentioned_perils_details = $request->input('sustained_loss_from_mentioned_perils_details');
             $general->save();
-            //return redirect()->route('billing_detail');            
             return redirect()->route('billingDetailsFetch');
         } catch (Exception $e) {
             report($e);
@@ -271,6 +270,54 @@ class PremisesController extends Controller
         return view('billing_details', compact('userDetails'));
     }
 
+
+    /**
+     * Updating user details from billing details form.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function billingDetailsSubmit(Request $request)
+    {
+        //
+        //validating form data from billing details page
+        $this->validate($request, [
+            'first_name' => 'required',
+            'middle_name' => 'required',
+            'last_name' => 'required',
+            'phone_number' => 'required',
+            'other_number' => 'required',
+            'kra' => 'required',
+            'national_id' => 'required',
+            'postal_address' => 'required',
+            'city_town' => 'required',
+            'post_code' => 'required',
+            'county' => 'required',
+        ]);
+
+        try {
+            // getting id of current user
+            $user_id = Auth::user()->user_id;
+            $updateData = new User;
+
+
+            // redirect to invoice page after updating user data in users table
+            return redirect()->route('invoiceDetailsFetch');
+        } catch (Exception $e) {
+            report($e);
+            return back();
+        }
+    }
+
+    /**
+     * Updating user details from billing details form.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function invoiceDetailsFetch()
+    {
+        $inDetails = User::where('user_id', Auth::user()->user_id)->get();
+        return view('invoice', compact('inDetails'));
+    }
 
     /**
      * Show the form for creating a new resource.

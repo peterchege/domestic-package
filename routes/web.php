@@ -33,7 +33,8 @@ Route::get('/product_domestic', 'MainController@product_domestic')->name('produc
 
 Route::get('/general_information', 'MainController@general_information')->name('general_information');
 
-Route::get('/billing_details', 'MainController@billing_details')->name('billing_detail');
+//changed controller form main controller so as to load the information from db using the premises controller
+//Route::get('/billing_details', 'PremisesController@billingDetailsFetch')->name('billing_detail');
 
 Route::get('/invoice', 'MainController@invoice')->name('invoice');
 
@@ -55,3 +56,7 @@ Route::post('/domesticSubmit', 'PremisesController@domesticSubmit')->name('domes
 Route::post('/generalInformationSubmit', 'PremisesController@generalInformationSubmit')->name('generalInformationSubmit');
 
 Route::get('/billingDetailsFetch', 'PremisesController@billingDetailsFetch')->name('billingDetailsFetch');
+
+Route::post('/billingDetailsSubmit', 'PremisesController@billingDetailsSubmit')->name('billingDetailsSubmit');
+
+Route::get('/invoiceDetailsFetch', 'PremisesController@invoiceDetailsFetch')->name('invoiceDetailsFetch');
