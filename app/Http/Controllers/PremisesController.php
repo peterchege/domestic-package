@@ -315,8 +315,8 @@ class PremisesController extends Controller
      */
     public function invoiceDetailsFetch()
     {
-        $inDetails = User::where('user_id', Auth::user()->user_id)->get();
-        return view('invoice', compact('inDetails'));
+        $invoiceDetails = User::where('user_id', Auth::user()->user_id)->get();
+        return view('invoice', compact('invoiceDetails'));
     }
 
     /**

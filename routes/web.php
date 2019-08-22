@@ -36,7 +36,8 @@ Route::get('/general_information', 'MainController@general_information')->name('
 //changed controller form main controller so as to load the information from db using the premises controller
 //Route::get('/billing_details', 'PremisesController@billingDetailsFetch')->name('billing_detail');
 
-Route::get('/invoice', 'MainController@invoice')->name('invoice');
+//removed this and replaced it with premisesController@invoiceDetailsFetch
+//Route::get('/invoice', 'MainController@invoice')->name('invoice');
 
 Route::get('/calculator', 'CalculatorController@calculator')->name('calculator');
 
