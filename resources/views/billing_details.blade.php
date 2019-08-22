@@ -324,10 +324,8 @@
 
                     <div class="row">
                         <div class="col-12 text-center">
-                            <a href="product_risk.html">
-                                <button class="btn btn-primary btn-mine" name="complete" id="complete"
-                                    type="submit">Complete</button>
-                            </a>
+                            <button class="btn btn-primary btn-mine" name="complete" id="complete"
+                                type="submit">Complete</button>
                         </div>
                     </div>
                     @endforeach

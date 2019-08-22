@@ -292,13 +292,11 @@ class PremisesController extends Controller
             'city_town' => 'required',
             'post_code' => 'required',
             'county' => 'required',
-            'terms_conditions' => 'required',
-
         ]);
 
-        // getting id of current user
-        $user_id = Auth::user()->user_id;
         try {
+            // getting id of current user
+            $user_id = Auth::user()->user_id;
             $updateData = new User;
 
 
@@ -317,8 +315,8 @@ class PremisesController extends Controller
      */
     public function invoiceDetailsFetch()
     {
-        $userDetails = User::where('user_id', Auth::user()->user_id)->get();
-        return view('invoice', compact('userDetails'));
+        $inDetails = User::where('user_id', Auth::user()->user_id)->get();
+        return view('invoice', compact('inDetails'));
     }
 
     /**
