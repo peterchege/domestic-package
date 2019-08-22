@@ -69,7 +69,7 @@
                             <li>State physical location of all the Premises at which property is contained/ insurance is
                                 requred
                                 <div class="row">
-                                    <div class="col-md-7">
+                                    <div class="col-md-8">
                                         
                                         <label class="form-check-label"><br>
                                             Physical location:
@@ -89,7 +89,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-md-3">
+                                    <div class="col-md-4">
 
                                         <label class="form-check-label"><br>
                                                 Value of the building:
@@ -109,18 +109,18 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-md-2">
+                                    {{-- <div class="col-md-2">
                                         <div class="col-md-12 col-sm-12 mb-3"><br>
                                             <a href="#"><br><br>
                                                 <button id="" name=""
                                                     class="btn btn-primary btn-mine22" type="submit">add</button>
                                             </a>
                                         </div>
-                                    </div>
+                                    </div> --}}
                                     
 
                                     <!-- TABLE -->
-                                    <div class="row container">
+                                    {{-- <div class="row container">
                                         
                                         <div class="col-lg-11 table-alg">
                                             <br>
@@ -145,7 +145,7 @@
 
                                         </div>
                                     </div>
-                                    <br>
+                                    <br> --}}
 
                                 </div>
                             </li>
