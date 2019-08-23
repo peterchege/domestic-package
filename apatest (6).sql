@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 21, 2019 at 11:33 AM
+-- Generation Time: Aug 23, 2019 at 02:19 PM
 -- Server version: 10.1.34-MariaDB
 -- PHP Version: 7.2.7
 
@@ -50,7 +50,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (20, '2019_08_14_201427_add_premises_id_to_allrisk_table', 6),
 (21, '2019_08_19_170359_create_pr_dp_general_informations_table', 7),
 (22, '2019_08_20_125832_adding_middle_name_po_box_city', 8),
-(23, '2019_08_21_120029_adding_other_number_column_to_users', 9);
+(23, '2019_08_21_120029_adding_other_number_column_to_users', 9),
+(25, '2019_08_23_113400_adding_seven_day_innocupancy_and_details_to_pr_dp_premises', 10);
 
 -- --------------------------------------------------------
 
@@ -127,7 +128,9 @@ INSERT INTO `pr_dp_contents` (`id`, `item_description`, `item_value`, `section_i
 (8, 'name', 8, 2, 'owner', 3, '2019-08-15 06:59:33', '2019-08-15 06:59:33'),
 (9, 'name', 86, 2, 'owner', 3, '2019-08-15 06:59:33', '2019-08-15 06:59:33'),
 (10, 'sofa', 800000, 2, 'owner', 3, '2019-08-15 08:35:36', '2019-08-15 08:35:36'),
-(11, 'table', 600000, 2, 'owner', 3, '2019-08-15 08:35:37', '2019-08-15 08:35:37');
+(11, 'table', 600000, 2, 'owner', 3, '2019-08-15 08:35:37', '2019-08-15 08:35:37'),
+(12, 'laptop', 2031, 2, 'owner', 3, '2019-08-23 09:58:44', '2019-08-23 09:58:44'),
+(13, 'radio', 5220, 2, 'owner', 3, '2019-08-23 09:58:44', '2019-08-23 09:58:44');
 
 -- --------------------------------------------------------
 
@@ -216,7 +219,8 @@ INSERT INTO `pr_dp_general_informations` (`id`, `user_id`, `insurer_decline`, `i
 (9, 1687971775, 0, NULL, 0, NULL, 0, NULL, 0, NULL, 0, NULL, '2019-08-19 17:05:39', '2019-08-19 17:05:39'),
 (10, 1687971775, 0, NULL, 0, NULL, 0, NULL, 0, NULL, 0, NULL, '2019-08-19 17:05:49', '2019-08-19 17:05:49'),
 (11, 1687971775, 0, NULL, 0, NULL, 0, NULL, 0, NULL, 0, NULL, '2019-08-20 09:23:18', '2019-08-20 09:23:18'),
-(12, 1687971775, 0, NULL, 0, NULL, 0, NULL, 0, NULL, 0, NULL, '2019-08-20 09:42:53', '2019-08-20 09:42:53');
+(12, 1687971775, 0, NULL, 0, NULL, 0, NULL, 0, NULL, 0, NULL, '2019-08-20 09:42:53', '2019-08-20 09:42:53'),
+(13, 0, 0, NULL, 0, NULL, 0, NULL, 0, NULL, 0, NULL, '2019-08-21 11:10:57', '2019-08-21 11:10:57');
 
 -- --------------------------------------------------------
 
@@ -236,6 +240,8 @@ CREATE TABLE `pr_dp_premises` (
   `for_hire` tinyint(1) DEFAULT NULL,
   `thirty_day_inoccupancy` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `thirty_day_inoccupancy_details` longtext COLLATE utf8mb4_unicode_ci,
+  `seven_day_inoccupancy` tinyint(1) DEFAULT NULL,
+  `seven_day_inoccupancy_details` longtext COLLATE utf8mb4_unicode_ci,
   `good_state_of_repair` tinyint(1) NOT NULL,
   `burglar_proof` tinyint(1) NOT NULL,
   `burglar_proof_details` longtext COLLATE utf8mb4_unicode_ci,
@@ -249,15 +255,18 @@ CREATE TABLE `pr_dp_premises` (
 -- Dumping data for table `pr_dp_premises`
 --
 
-INSERT INTO `pr_dp_premises` (`premises_id`, `user_id`, `location`, `floors`, `business`, `business_description`, `sole_occupation`, `dwelling`, `for_hire`, `thirty_day_inoccupancy`, `thirty_day_inoccupancy_details`, `good_state_of_repair`, `burglar_proof`, `burglar_proof_details`, `other_sec_arrangement`, `premises_value`, `created_at`, `updated_at`) VALUES
-(1, 1687971775, NULL, 8, '0', NULL, 1, 'private', NULL, '0', NULL, 1, 0, NULL, 'Dogs', NULL, '2019-08-08 11:11:32', '2019-08-08 11:11:32'),
-(2, 1687971775, NULL, 8, '0', NULL, 1, 'private', NULL, '0', NULL, 1, 0, NULL, 'Dogs', NULL, '2019-08-08 11:12:38', '2019-08-08 11:12:38'),
-(3, 1687971775, NULL, 8, '0', NULL, 1, 'private', NULL, '0', NULL, 1, 0, NULL, 'Dogs', 20000000, '2019-08-08 11:26:44', '2019-08-08 11:26:44'),
-(4, 0, NULL, 5, '1', 'Green Grocey', 1, 'self-contained', NULL, '0', NULL, 1, 0, NULL, 'Dogs', 5000000, '2019-08-09 03:06:29', '2019-08-09 03:06:29'),
-(5, 0, NULL, 5, '1', 'Green Grocey', 1, 'self-contained', NULL, '0', NULL, 1, 0, NULL, 'Dogs', 5000000, '2019-08-09 05:08:15', '2019-08-09 05:08:15'),
-(6, 0, NULL, 5, '1', 'Green Grocey', 1, 'self-contained', NULL, '0', NULL, 1, 0, NULL, 'Dogs', 5000000, '2019-08-09 05:23:49', '2019-08-09 05:23:49'),
-(7, 0, NULL, 6, '1', 'Bar', 1, 'private', NULL, '1', 'On holiday.', 1, 1, 'G4S', 'Dogs-German Shepherds.', 10000000, '2019-08-13 09:58:17', '2019-08-13 09:58:17'),
-(8, 1687971775, NULL, 4852548, '0', NULL, 1, 'room-not-self-contained', NULL, '0', NULL, 0, 1, 'Metal windows', 'Dogs', 10000000, '2019-08-14 08:43:58', '2019-08-14 08:43:58');
+INSERT INTO `pr_dp_premises` (`premises_id`, `user_id`, `location`, `floors`, `business`, `business_description`, `sole_occupation`, `dwelling`, `for_hire`, `thirty_day_inoccupancy`, `thirty_day_inoccupancy_details`, `seven_day_inoccupancy`, `seven_day_inoccupancy_details`, `good_state_of_repair`, `burglar_proof`, `burglar_proof_details`, `other_sec_arrangement`, `premises_value`, `created_at`, `updated_at`) VALUES
+(1, 1687971775, NULL, 8, '0', NULL, 1, 'private', NULL, '0', NULL, NULL, NULL, 1, 0, NULL, 'Dogs', NULL, '2019-08-08 11:11:32', '2019-08-08 11:11:32'),
+(2, 1687971775, NULL, 8, '0', NULL, 1, 'private', NULL, '0', NULL, NULL, NULL, 1, 0, NULL, 'Dogs', NULL, '2019-08-08 11:12:38', '2019-08-08 11:12:38'),
+(3, 1687971775, NULL, 8, '0', NULL, 1, 'private', NULL, '0', NULL, NULL, NULL, 1, 0, NULL, 'Dogs', 20000000, '2019-08-08 11:26:44', '2019-08-08 11:26:44'),
+(4, 0, NULL, 5, '1', 'Green Grocey', 1, 'self-contained', NULL, '0', NULL, NULL, NULL, 1, 0, NULL, 'Dogs', 5000000, '2019-08-09 03:06:29', '2019-08-09 03:06:29'),
+(5, 0, NULL, 5, '1', 'Green Grocey', 1, 'self-contained', NULL, '0', NULL, NULL, NULL, 1, 0, NULL, 'Dogs', 5000000, '2019-08-09 05:08:15', '2019-08-09 05:08:15'),
+(6, 0, NULL, 5, '1', 'Green Grocey', 1, 'self-contained', NULL, '0', NULL, NULL, NULL, 1, 0, NULL, 'Dogs', 5000000, '2019-08-09 05:23:49', '2019-08-09 05:23:49'),
+(7, 0, NULL, 6, '1', 'Bar', 1, 'private', NULL, '1', 'On holiday.', NULL, NULL, 1, 1, 'G4S', 'Dogs-German Shepherds.', 10000000, '2019-08-13 09:58:17', '2019-08-13 09:58:17'),
+(8, 1687971775, NULL, 4852548, '0', NULL, 1, 'room-not-self-contained', NULL, '0', NULL, NULL, NULL, 0, 1, 'Metal windows', 'Dogs', 10000000, '2019-08-14 08:43:58', '2019-08-14 08:43:58'),
+(9, 1687971775, NULL, 3, '0', NULL, 0, 'room-not-self-contained', 1, '0', NULL, NULL, NULL, 1, 1, 'Guard Rails', 'Dogs', 30000000, '2019-08-23 08:21:18', '2019-08-23 08:21:18'),
+(10, 1687971775, NULL, 6, '0', NULL, 0, 'room-not-self-contained', 1, '0', NULL, 0, NULL, 1, 0, NULL, 'Guards', 5000000, '2019-08-23 09:40:28', '2019-08-23 09:40:28'),
+(11, 1687971775, 'PLOT NO. 1870/VI/209 MVULI ROAD WESTLANDS, NAIROBI', 11, '0', NULL, 0, 'self-contained', 1, '0', NULL, 1, 'Guards', 1, 1, 'Mesh', 'Guards', 5000000, '2019-08-23 09:51:29', '2019-08-23 09:51:29');
 
 -- --------------------------------------------------------
 
@@ -337,7 +346,7 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`id`, `user_id`, `first_name`, `middle_name`, `last_name`, `email`, `password`, `phone_number`, `other_number`, `national_id`, `kra`, `postal_address`, `city_town`, `post_code`, `county`, `email_verified_at`, `remember_token`, `created_at`, `updated_at`) VALUES
 (3, 0, 'ANTHONY', '', 'KARONJI', 'anthonybaru@gmail.com', '$2y$10$MXS1/dg8eI7RJdPcb3/SV.eH9CjE6O5vL2neNlIkl.9k2ELn1tBYm', '700658856', NULL, 312215234, 'A54218542345I', 0, '', 0, '', NULL, NULL, '2019-08-08 06:01:18', '2019-08-08 06:01:18'),
 (5, 201148874, 'Victor', NULL, 'Asava', 'vickyavicky23@gmail.com', '$2y$10$TlVUBu/0KfW8keruHqa.A.qXyUZ8XkxW.NWqK62UrHLVzhitF5yPq', '0712345678', NULL, 12345678, 'A123456789', NULL, NULL, NULL, NULL, NULL, NULL, '2019-08-20 12:41:36', '2019-08-20 12:41:36'),
-(4, 1687971775, 'ANTHONY', '', 'KARONJI', 'anthonbaru@gmail.com', '$2y$10$2ANuRLGVTqa5BmGUeYDjtuEJO1/OgWZ8wCFz/8PB/Il7nWHWtAp/6', '700658856', NULL, 32132121, 'A8528452568541P', 0, '', 0, '', NULL, NULL, '2019-08-08 06:54:31', '2019-08-08 06:54:31');
+(4, 1687971775, 'JOHN', 'DOE', 'SENIOR', 'anthonbaru@gmail.com', '$2y$10$2ANuRLGVTqa5BmGUeYDjtuEJO1/OgWZ8wCFz/8PB/Il7nWHWtAp/6', '4265412654', '0712345678', 32132121, 'A002603455S', 3500, 'NAIROBI', 300, 'Arizona', NULL, NULL, '2019-08-08 06:54:31', '2019-08-23 11:36:28');
 
 --
 -- Indexes for dumped tables
@@ -385,6 +394,7 @@ ALTER TABLE `pr_dp_general_informations`
 --
 ALTER TABLE `pr_dp_premises`
   ADD PRIMARY KEY (`premises_id`),
+  ADD UNIQUE KEY `unique location name` (`location`),
   ADD KEY `user_id` (`user_id`);
 
 --
@@ -423,7 +433,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `pr_dp_allrisks`
@@ -435,7 +445,7 @@ ALTER TABLE `pr_dp_allrisks`
 -- AUTO_INCREMENT for table `pr_dp_contents`
 --
 ALTER TABLE `pr_dp_contents`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `pr_dp_domestics`
@@ -447,13 +457,13 @@ ALTER TABLE `pr_dp_domestics`
 -- AUTO_INCREMENT for table `pr_dp_general_informations`
 --
 ALTER TABLE `pr_dp_general_informations`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `pr_dp_premises`
 --
 ALTER TABLE `pr_dp_premises`
-  MODIFY `premises_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `premises_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `pr_dp_social_facebook_accounts`
