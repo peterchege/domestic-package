@@ -103,7 +103,9 @@
                             <label for="validationCustom02">Middle Name</label>
                             <input name="middle_name" type="text"
                                 class="form-control @error('middle_name') is-invalid @enderror" id="validationCustom02"
-                                placeholder="" value="{{ old('middle_name') }}" required>
+                                placeholder=""
+                                value="<?= (($userDetail->middle_name)?$userDetail->middle_name:old('middle_name')); ?>"
+                                required>
                             @error('middle_name')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -159,7 +161,9 @@
                             <label for="validationCustom02">Other Number</label>
                             <input name="other_number" type="tel"
                                 class="form-control @error('other_number') is-invalid @enderror "
-                                id="validationCustom02" placeholder="" value="{{ old('other_number') }}" required>
+                                id="validationCustom02" placeholder=""
+                                value="<?= (($userDetail->other_number)?$userDetail->other_number:old('other_number')); ?>"
+                                required>
                             @error('other_number')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -246,7 +250,9 @@
                             <label for="validationCustom03">Postal Address (P.O.BOX)</label>
                             <input name="postal_address" type="text"
                                 class="form-control @error('postal_address') is-invalid @enderror "
-                                id="validationCustom03" value="{{ old('postal_address') }}" placeholder="" required>
+                                id="validationCustom03"
+                                value="<?= (($userDetail->postal_address)?$userDetail->postal_address:old('postal_address')); ?>"
+                                placeholder="" required>
                             @error('postal_address')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -261,7 +267,8 @@
                             <label for="validationCustom04">City / Town</label>
                             <input name="city_town" type="text"
                                 class="form-control @error('city_town') is-invalid @enderror" id="validationCustom04"
-                                value="{{ old('city_town') }}" placeholder="" required>
+                                value="<?= (($userDetail->city_town)?$userDetail->city_town:old('city_town')); ?>"
+                                placeholder="" required>
                             @error('city_town')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -276,7 +283,8 @@
                             <label for="validationCustom03">Post Code</label>
                             <input name="post_code" type="text"
                                 class="form-control @error('post_code') is-invalid @enderror " id="validationCustom03"
-                                value="{{ old('post_code') }}" placeholder="" required>
+                                value="<?= (($userDetail->post_code)?$userDetail->post_code:old('post_code')); ?>"
+                                placeholder="" required>
                             @error('post_code')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -289,7 +297,9 @@
                         <div class="col-md-2 mb-3">
                             <label for="validationCustom05">county</label>
                             <input name="county" type="text" class="form-control @error('county') is-invalid @enderror "
-                                id="validationCustom05" value="{{ old('county') }}" placeholder="" required>
+                                id="validationCustom05"
+                                value="<?= (($userDetail->county)?$userDetail->county:old('county')); ?>" placeholder=""
+                                required>
                             @error('county')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
