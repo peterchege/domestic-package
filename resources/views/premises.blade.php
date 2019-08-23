@@ -400,7 +400,7 @@
                                 any inhabitants for more than 7 consecutive days?<br>
                                 <div class="position-relative form-check"><br>
                                     <label class="form-check-label">
-                                        <input name="seven_day" type="radio" class="form-check-input" value="yes"> Yes
+                                        <input name="seven_day" type="radio" class="form-check-input" value="1"> Yes
                                     </label>
                                     <!-- textbox display -->
                                     <div class="col-md-12 col-sm-12 mb-3" style="display: none;" id="textboxes2"><br>
@@ -411,7 +411,7 @@
                                 </div>
                                 <div class="position-relative form-check">
                                     <label class="form-check-label">
-                                        <input name="seven_day" type="radio" class="form-check-input">
+                                        <input name="seven_day" type="radio" class="form-check-input" value="0">
                                         No
                                     </label>
                                 </div>

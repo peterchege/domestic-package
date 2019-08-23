@@ -52,8 +52,8 @@ $(function () {
 // QUESTION NINE TEXTBOX
 
 $(function () {
-    $('input[name="radio_sev"]').on('click', function () {
-        if ($(this).val() == 'yes') {
+    $('input[name="seven_day"]').on('click', function () {
+        if ($(this).val() == '1') {
             $('#textboxes2').show();
         } else {
             $('#textboxes2').hide();
