@@ -70,18 +70,18 @@
                                 requred
                                 <div class="row">
                                     <div class="col-md-8">
-                                        
+
                                         <label class="form-check-label"><br>
                                             Physical location:
                                         </label>
-                                        
+
                                         <div class="col-md-12 col-sm-12 mb-3"><br>
-                                            <input name="wall_material" type="text"
-                                                class="form-control @error('wall_material') is-invalid @enderror"
+                                            <input name="physical_location" type="text"
+                                                class="form-control @error('physical_location') is-invalid @enderror"
                                                 id="validationCustom01"
                                                 placeholder="e.g. PLOT NO. 1870/VI/209 MVULI ROAD WESTLANDS, NAIROBI..."
-                                                required value="{{ old('wall_material') }}">
-                                            @error('wall_material')
+                                                required value="{{ old('physical_location') }}">
+                                            @error('physical_location')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
                                             </span>
@@ -92,16 +92,15 @@
                                     <div class="col-md-4">
 
                                         <label class="form-check-label"><br>
-                                                Value of the building:
-                                            </label>
+                                            Value of the building:
+                                        </label>
 
                                         <div class="col-md-12 col-sm-12 mb-3"><br>
-                                            <input name="wall_material" type="text"
-                                                class="form-control @error('wall_material') is-invalid @enderror"
-                                                id="validationCustom01"
-                                                placeholder="e.g. 10,000,000"
-                                                required value="{{ old('wall_material') }}">
-                                            @error('wall_material')
+                                            <input name="premises_value" type="number"
+                                                class="form-control @error('premises_value') is-invalid @enderror"
+                                                id="premises_value" placeholder="e.g. 10000000" required
+                                                value="{{ old('premises_value') }}">
+                                            @error('premises_value')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
                                             </span>
@@ -117,7 +116,7 @@
                                             </a>
                                         </div>
                                     </div> --}}
-                                    
+
 
                                     <!-- TABLE -->
                                     {{-- <div class="row container">
@@ -401,18 +400,18 @@
                                 any inhabitants for more than 7 consecutive days?<br>
                                 <div class="position-relative form-check"><br>
                                     <label class="form-check-label">
-                                        <input name="radio_sev" type="radio" class="form-check-input" value="yes"> Yes
+                                        <input name="seven_day" type="radio" class="form-check-input" value="yes"> Yes
                                     </label>
                                     <!-- textbox display -->
                                     <div class="col-md-12 col-sm-12 mb-3" style="display: none;" id="textboxes2"><br>
                                         <label>If so, give particulars.</label>
-                                        <textarea name="seven_day" class="form-control" id="display_field"
+                                        <textarea name="seven_day_details" class="form-control" id="display_field"
                                             rows="3">{{ old('seven_day') }}</textarea>
                                     </div>
                                 </div>
                                 <div class="position-relative form-check">
                                     <label class="form-check-label">
-                                        <input name="radio_sev" type="radio" class="form-check-input">
+                                        <input name="seven_day" type="radio" class="form-check-input">
                                         No
                                     </label>
                                 </div>
@@ -481,7 +480,7 @@
                             </li>
                         </ol>
                     </div>
-                    <input type="text" name="building_amount" id="building_amount" value="">
+                    <input type="hidden" name="building_amount" id="building_amount" value="">
                     <input type="hidden" name="content_amount" id="content_amount" value="">
                     <input type="hidden" name="domestic_amount" id="domestic_amount" value="">
                     <input type="hidden" name="risk_amount" id="risk_amount" value="">
@@ -521,7 +520,7 @@
                 <script>
                     $(document).ready(function () {
                         var building_amount = sessionStorage.getItem('building_amount');
-                        $('#building_amount').val(building_amount);
+                        $('#premises_value').val(building_amount);
                         var content_amount = sessionStorage.getItem('content_amount');
                         $('#content_amount').val(content_amount);
                         var domestic_amount = sessionStorage.getItem('domestic_amount');

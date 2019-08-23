@@ -16,8 +16,8 @@ $(function () {
 // QUESTION SIX -this is the trigger to question 7
 
 $(function () {
-    $('input[name="radio_dwell"]').on('click', function () {
-        if ($(this).val() == 'no') {
+    $('input[name="dwelling_occupation"]').on('click', function () {
+        if ($(this).val() == '0') {
             $('#occupation').show();
         } else {
             $('#occupation').hide();

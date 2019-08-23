@@ -40,6 +40,7 @@ class PremisesController extends Controller
     {
         //storing premises form data
         $this->validate($request, [
+            'physical_location' => 'required',
             'wall_material' => 'required',
             'roof_material' => 'required',
             'building_height' => 'required',
@@ -53,7 +54,7 @@ class PremisesController extends Controller
             'burglar_proof' => 'required|in:1,0'
         ]);
 
-        $building_amount = $request->input('building_amount');
+        $building_amount = $request->input('premises_value');
         $content_amount = $request->input('content_amount');
         $domestic_amount = $request->input('domestic_amount');
         $risk_amount = $request->input('risk_amount');
@@ -64,6 +65,7 @@ class PremisesController extends Controller
             try {
                 $feed = new Pr_dp_premise;
                 $feed->user_id = $user_id;
+                $feed->location = $request->input('');
                 $feed->floors = $request->input('building_height');
                 $feed->business = $request->input('rad');
                 $feed->business_description = $request->input('rad_details');
@@ -72,11 +74,13 @@ class PremisesController extends Controller
                 $feed->for_hire = $request->input('let');
                 $feed->thirty_day_inoccupancy = $request->input('thirty_day');
                 $feed->thirty_day_inoccupancy_details =  $request->input('thirty_day_details');
+                $feed->seven_day_inoccupancy = $request->input('seven_day');
+                $feed->seven_day_inoccupancy_details = $request->input('seven_day_details');
                 $feed->good_state_of_repair = $request->input('repair_state');
                 $feed->burglar_proof = $request->input('burglar_proof');
                 $feed->burglar_proof_details = $request->input('burglar_proof_details');
                 $feed->other_sec_arrangement = $request->input('other_security');
-                $feed->premises_value = $request->input('building_amount');
+                $feed->premises_value = $request->input('premises_value');
                 $feed->save();
                 return redirect()->route('product_content');
             } catch (\Exception $th) {
@@ -99,7 +103,7 @@ class PremisesController extends Controller
                 $feed->burglar_proof = $request->input('burglar_proof');
                 $feed->burglar_proof_details = $request->input('burglar_proof_details');
                 $feed->other_sec_arrangement = $request->input('other_security');
-                $feed->premises_value = $request->input('building_amount');
+                $feed->premises_value = $request->input('premises_value');
                 $feed->save();
                 return redirect()->route('general_information');
             } catch (\Exception $th) {
@@ -181,12 +185,12 @@ class PremisesController extends Controller
                 $description->premises_id = 3;
 
                 $description->save();
+                return redirect('product_domestic');
             }
-        } catch (\Exception $e) {
-            // echo $e->getMessage();
+        } catch (Exception $e) {
+            report($e);
             return back();
         }
-        //exit('reached');
     }
 
 
