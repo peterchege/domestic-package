@@ -296,9 +296,21 @@ class PremisesController extends Controller
 
         try {
             // getting id of current user
-            $user_id = Auth::user()->user_id;
-            $updateData = new User;
-
+            $id = Auth::user()->id;
+            // you need to update using the individuals $id not the $user_id
+            $updateData = User::find($id);
+            $updateData->first_name = $request->input('first_name');
+            $updateData->middle_name = $request->input('middle_name');
+            $updateData->last_name = $request->input('last_name');
+            $updateData->phone_number = $request->input('phone_number');
+            $updateData->other_number = $request->input('other_number');
+            $updateData->kra = $request->input('kra');
+            $updateData->national_id = $request->input('national_id');
+            $updateData->postal_address = $request->input('postal_address');
+            $updateData->city_town = $request->input('city_town');
+            $updateData->post_code = $request->input('post_code');
+            $updateData->county = $request->input('county');
+            $updateData->save();
 
             // redirect to invoice page after updating user data in users table
             return redirect()->route('invoiceDetailsFetch');
