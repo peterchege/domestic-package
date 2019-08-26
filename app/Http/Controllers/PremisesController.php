@@ -67,7 +67,7 @@ class PremisesController extends Controller
                 $feed->user_id = $user_id;
                 $feed->location = $request->input('physical_location');
                 $feed->floors = $request->input('building_height');
-                $feed->business = $request->input('rad');
+                $feed->business = $request->input('rad'); //is any business conducted around premises
                 $feed->business_description = $request->input('rad_details');
                 $feed->dwelling  = $request->input('dwelling');
                 $feed->sole_occupation = $request->input('dwelling_occupation');
@@ -93,7 +93,7 @@ class PremisesController extends Controller
                 $feed->user_id = $user_id;
                 $feed->location = $request->input('physical_location');
                 $feed->floors = $request->input('building_height');
-                $feed->business = $request->input('rad');
+                $feed->business = $request->input('rad'); //is any business conducted around premises
                 $feed->business_description = $request->input('rad_details');
                 $feed->dwelling  = $request->input('dwelling');
                 $feed->sole_occupation = $request->input('dwelling_occupation');
@@ -107,6 +107,7 @@ class PremisesController extends Controller
                 $feed->burglar_proof_details = $request->input('burglar_proof_details');
                 $feed->other_sec_arrangement = $request->input('other_security');
                 $feed->premises_value = $request->input('premises_value');
+                $feed->save();
                 return redirect()->route('general_information');
             } catch (\Exception $th) {
                 //throw $th;
