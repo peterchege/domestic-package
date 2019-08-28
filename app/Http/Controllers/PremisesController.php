@@ -41,6 +41,7 @@ class PremisesController extends Controller
         //storing premises form data
         $this->validate($request, [
             'physical_location' => 'required',
+            'premises_value' => 'required',
             'wall_material' => 'required',
             'roof_material' => 'required',
             'building_height' => 'required',

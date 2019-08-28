@@ -520,7 +520,10 @@
                 <script>
                     $(document).ready(function () {
                         var building_amount = sessionStorage.getItem('building_amount');
-                        $('#premises_value').val(building_amount);
+                        if ($('premises_value') == '') {
+                            $('#premises_value').val(building_amount);
+                        }
+
                         var content_amount = sessionStorage.getItem('content_amount');
                         $('#content_amount').val(content_amount);
                         var domestic_amount = sessionStorage.getItem('domestic_amount');

@@ -97,22 +97,22 @@
                                 </div>
                             </div>
                             <hr>
-                            <p>Sign in with :</p>
+                            {{-- <p>Sign in with :</p>
                             <div class="row btn-cust">
                                 <div class="col-md-6 ">
                                     <a href="#" class="btn btn-gmail"><i class="fab fa-google-plus-g"></i> Google</a>
                                 </div>
                                 <div class="col-md-6 ">
                                     <a href="{{url('/redirect')}}" class="btn btn-fb"><i class="fab fa-facebook-f"></i>
-                                        Facebook</a>
-                                </div>
-                            </div>
+                            Facebook</a>
                         </div>
-                    </form>
-                </div>
-
+                </div> --}}
             </div>
+            </form>
         </div>
+
+    </div>
+    </div>
 
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
