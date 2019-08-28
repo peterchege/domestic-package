@@ -13,8 +13,6 @@ use App\Pr_dp_domestic;
 use App\Pr_dp_general_information;
 use App\Ref_roof_material;
 use App\Ref_wall_material;
-use App\SocialFacebookAccount;
-//use Illuminate\Support\Facades\Auth;
 use Auth;
 use PhpParser\Node\Stmt\Catch_;
 
@@ -40,7 +38,7 @@ class PremisesController extends Controller
     {
         //storing premises form data
         $this->validate($request, [
-            'physical_location' => 'required',
+            'physical_location' => 'required|unique:pr_dp_premises,location',
             'premises_value' => 'required',
             'wall_material' => 'required',
             'roof_material' => 'required',
@@ -49,7 +47,6 @@ class PremisesController extends Controller
             'dwelling' => 'required|in:private,self-contained,room-not-self-contained',
             'dwelling_occupation' => 'required|in:1,0',
             'thirty_day' => 'required|in:1,0',
-            // 'let' => 'required|in:1,0'
             'repair_state' => 'required|in:1,0',
             'thirty_day' => 'required|in:1,0',
             'burglar_proof' => 'required|in:1,0'
@@ -86,9 +83,8 @@ class PremisesController extends Controller
                 $feed->burglar_proof = $request->input('burglar_proof');
                 $feed->burglar_proof_details = $request->input('burglar_proof_details');
                 $feed->other_sec_arrangement = $request->input('other_security');
-
                 $feed->save();
-                return redirect()->route('product_content')->with('message_name', 'Test notification');
+                return redirect()->route('product_content')->with('message_name', 'Details submitted successfully.');
             } catch (Exception $e) {
                 report($e);
                 return back()->with('message_name', 'An error ocurred. Please try again!');
@@ -98,11 +94,15 @@ class PremisesController extends Controller
                 $feed = new Pr_dp_premise;
                 $feed->user_id = $user_id;
                 $feed->location = $request->input('physical_location');
+                $feed->premises_value = $request->input('premises_value');
+                $feed->dwelling_wall  = $request->input('wall_material');
+                $feed->dwelling_roof  = $request->input('roof_material');
                 $feed->floors = $request->input('building_height');
+                $feed->outbuilding_wall = $request->input('outbuilding_wall');
+                $feed->outbuilding_roof = $request->input('outbuilding_roof');
                 $feed->business = $request->input('rad'); //is any business conducted around premises
                 $feed->business_description = $request->input('rad_details');
-                $feed->dwelling_wall  = $request->input('dwelling');
-                $feed->dwelling_roof  = $request->input('dwelling');
+                $feed->dwelling = $request->input('dwelling');
                 $feed->sole_occupation = $request->input('dwelling_occupation');
                 $feed->for_hire = $request->input('let');
                 $feed->thirty_day_inoccupancy = $request->input('thirty_day');
@@ -113,9 +113,8 @@ class PremisesController extends Controller
                 $feed->burglar_proof = $request->input('burglar_proof');
                 $feed->burglar_proof_details = $request->input('burglar_proof_details');
                 $feed->other_sec_arrangement = $request->input('other_security');
-                $feed->premises_value = $request->input('premises_value');
                 $feed->save();
-                return redirect()->route('general_information')->with('message_name', 'Test notification');
+                return redirect()->route('general_information')->with('message_name', 'Details submitted successfully.');
             } catch (Exception $e) {
                 report($e);
                 return back()->with('message_name', 'An error ocurred. Please try again!');
