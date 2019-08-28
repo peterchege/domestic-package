@@ -168,11 +168,10 @@
 
                             <li>Height of the building (Storey / Floors).
                                 <div class="col-md-5 col-sm-12 mb-3"><br>
-                                    <select class="form-control">
-                                        <option selected disabled>Choose.....</option>
-                                        <option>Bricks </option>
-                                        <option>Stone </option>
-                                    </select>
+                                    <input name="heigh" type="text"
+                                                    class="form-control @error('wall_material') is-invalid @enderror"
+                                                    id="validationCustom01" placeholder="e.g. 1" required
+                                                    value="{{ old('wall_material') }}">
                                     @error('building_height')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
