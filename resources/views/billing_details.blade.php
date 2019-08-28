@@ -10,6 +10,7 @@
                         <i class="pe-7s-calculator icon-build">
                         </i>
                     </div>
+
                     <div class="build-head">
                         <h2> BILLING INFORMATION </h2>
                         <div class="page-title-subheading">
@@ -73,7 +74,11 @@
                 </div>
             </div>
         </div>
-
+        @if(session('message_name'))
+            <div class="alert alert-success">
+                {{session('message_name')}}
+            </div>
+        @endif
         <div class="main-card mb-3 card">
             <div class="card-body">
                 <!-- <h5 class="card-title">Bootstrap 4 Form Validation</h5> -->

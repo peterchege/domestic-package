@@ -83,10 +83,10 @@ class PremisesController extends Controller
                 $feed->other_sec_arrangement = $request->input('other_security');
                 $feed->premises_value = $request->input('premises_value');
                 $feed->save();
-                return redirect()->route('product_content');
+                return redirect()->route('product_content')->with('message_name', 'Test notification');
             } catch (\Exception $th) {
                 //throw $th;
-                return back();
+                return back()->with('message_name', 'Test notification');
             }
         } elseif ($building_amount !== 'null' && $content_amount == 'null' && $risk_amount == 'null' && $domestic_amount == 'null') {
             try {
@@ -109,10 +109,10 @@ class PremisesController extends Controller
                 $feed->other_sec_arrangement = $request->input('other_security');
                 $feed->premises_value = $request->input('premises_value');
                 $feed->save();
-                return redirect()->route('general_information');
+                return redirect()->route('general_information')->with('message_name', 'Test notification');
             } catch (\Exception $th) {
                 //throw $th;
-                return back();
+                return back()->with('message_name', 'Test notification');
             }
             return redirect()->route('general_information');
         } elseif ($building_amount !== 'null' && $content_amount !== 'null' && $risk_amount == 'null' && $domestic_amount == 'null') {
@@ -157,9 +157,9 @@ class PremisesController extends Controller
                 $description->premises_id = 3;
                 $description->save();
             }
-            return redirect('product_allrisk');
+            return redirect('product_allrisk')->with('message_name', 'Test notification');
         } catch (\Exception $th) {
-            return back();
+            return back()->with('message_name', 'Test notification');
         }
     }
 
@@ -189,11 +189,11 @@ class PremisesController extends Controller
                 $description->premises_id = 3;
 
                 $description->save();
-                return redirect('product_domestic');
+                return redirect('product_domestic')->with('message_name', 'Test notification');
             }
         } catch (Exception $e) {
             report($e);
-            return back();
+            return back()->with('message_name', 'Test notification');
         }
     }
 
@@ -219,10 +219,10 @@ class PremisesController extends Controller
                 $domestic->premises_id = 3;
                 $domestic->save();
             }
-            return redirect('general_information');
+            return redirect('general_information')->with('message_name', 'Test notification');
         } catch (Exception $e) {
             report($e);
-            return back();
+            return back()->with('message_name', 'Test notification');
         }
     }
 
@@ -258,10 +258,10 @@ class PremisesController extends Controller
             $general->sustained_loss_from_mentioned_perils = $request->input('sustained_loss_from_mentioned_perils');
             $general->sustained_loss_from_mentioned_perils_details = $request->input('sustained_loss_from_mentioned_perils_details');
             $general->save();
-            return redirect()->route('billingDetailsFetch');
+            return redirect()->route('billingDetailsFetch')->with('message_name', 'Test notification');
         } catch (Exception $e) {
             report($e);
-            return back();
+            return back()->with('message_name', 'Test notification');
         }
     }
 
@@ -321,10 +321,10 @@ class PremisesController extends Controller
             $updateData->save();
 
             // redirect to invoice page after updating user data in users table
-            return redirect()->route('invoiceDetailsFetch');
+            return redirect()->route('invoiceDetailsFetch')->with('message_name', 'Test notification');
         } catch (Exception $e) {
             report($e);
-            return back();
+            return back()->with('message_name', 'Test notification');
         }
     }
 

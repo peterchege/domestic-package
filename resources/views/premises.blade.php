@@ -11,6 +11,7 @@
                         <i class="pe-7s-culture icon-build">
                         </i>
                     </div>
+
                     <div class="build-head">
                         <h2> PREMISES INFORMATION </h2>
                         <div class="page-title-subheading">
@@ -19,6 +20,7 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="page-title-actions">
                     <button type="button" data-toggle="tooltip" title="Example Tooltip" data-placement="bottom"
                         class="btn-shadow mr-3 btn btn-dark">
@@ -57,7 +59,11 @@
                 </div>
             </div>
         </div>
-
+        @if(session('message_name'))
+            <div class="alert alert-success">
+                {{session('message_name')}}
+            </div>
+        @endif
         <div class="main-card mb-3 card">
             <div class="card-body build-h5">
                 <h5 class="card-title">Kindly fill the following information</h5><br>
@@ -120,7 +126,7 @@
 
                                     <!-- TABLE -->
                                     {{-- <div class="row container">
-                                        
+
                                         <div class="col-lg-11 table-alg">
                                             <br>
                                             <div class="main-card mb-3 card">
