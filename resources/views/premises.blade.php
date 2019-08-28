@@ -525,7 +525,7 @@
                 <script>
                     $(document).ready(function () {
                         var building_amount = sessionStorage.getItem('building_amount');
-                        if ($('premises_value') == '') {
+                        if (building_amount != '') {
                             $('#premises_value').val(building_amount);
                         }
 
