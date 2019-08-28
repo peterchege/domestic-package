@@ -60,9 +60,9 @@
             </div>
         </div>
         @if(session('message_name'))
-            <div class="alert alert-success">
-                {{session('message_name')}}
-            </div>
+        <div class="alert alert-success">
+            {{session('message_name')}}
+        </div>
         @endif
         <div class="main-card mb-3 card">
             <div class="card-body build-h5">
@@ -114,7 +114,6 @@
                                         </div>
                                     </div>
 
-
                                 </div>
                             </li>
 
@@ -126,10 +125,15 @@
                                                 Wall :
                                             </label>
                                             <div class="col-md-12 col-sm-12 mb-3"><br>
-                                                <input name="wall_material" type="text"
+                                                {{-- <input name="wall_material" type="text"
                                                     class="form-control @error('wall_material') is-invalid @enderror"
                                                     id="validationCustom01" placeholder="e.g. bricks..." required
-                                                    value="{{ old('wall_material') }}">
+                                                    value="{{ old('wall_material') }}"> --}}
+                                                <select class="form-control">
+                                                    <option selected disabled>Choose.....</option>
+                                                    <option>Bricks </option>
+                                                    <option>Stone </option>
+                                                </select>
                                                 @error('wall_material')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
@@ -145,10 +149,11 @@
                                                 Roof :
                                             </label>
                                             <div class="col-md-12 col-sm-12 mb-3"><br>
-                                                <input name="roof_material" type="Text"
-                                                    class="form-control @error('roof_material') is-invalid @enderror"
-                                                    id="validationCustom01" placeholder="e.g. bricks..." required
-                                                    value="{{ old('roof_material') }}">
+                                                <select class="form-control">
+                                                    <option selected disabled>Choose.....</option>
+                                                    <option>Bricks </option>
+                                                    <option>Stone </option>
+                                                </select>
                                                 @error('roof_material')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
@@ -163,10 +168,11 @@
 
                             <li>Height of the building (Storey / Floors).
                                 <div class="col-md-5 col-sm-12 mb-3"><br>
-                                    <input name="building_height" type="Number"
-                                        class="form-control @error('building_height') is-invalid @enderror "
-                                        id="validationCustom01" placeholder="e.g. 2" required
-                                        value="{{ old('building_height') }}">
+                                    <select class="form-control">
+                                        <option selected disabled>Choose.....</option>
+                                        <option>Bricks </option>
+                                        <option>Stone </option>
+                                    </select>
                                     @error('building_height')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -186,10 +192,11 @@
                                                 Wall :
                                             </label>
                                             <div class="col-md-12 col-sm-12 mb-3"><br>
-                                                <input name="outbuilding_wall" type="Text"
-                                                    class="form-control @error('outbuilding_wall') is-invalid @enderror "
-                                                    id="validationCustom01" placeholder="e.g. bricks..." required
-                                                    value="{{ old('outbuilding_wall') }}">
+                                                <select class="form-control">
+                                                    <option selected disabled>Choose.....</option>
+                                                    <option>Bricks </option>
+                                                    <option>Stone </option>
+                                                </select>
                                                 @error('outbuilding_wall')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
@@ -205,10 +212,11 @@
                                                 Roof :
                                             </label>
                                             <div class="col-md-12 col-sm-12 mb-3"><br>
-                                                <input name="outbuilding_roof" type="Text"
-                                                    class="form-control @error('outbuilding_roof') is-invalid @enderror "
-                                                    id="validationCustom01" placeholder="e.g. bricks..." required
-                                                    value="{{ old('outbuilding_roof') }}">
+                                                <select class="form-control">
+                                                    <option selected disabled>Choose.....</option>
+                                                    <option>Bricks </option>
+                                                    <option>Stone </option>
+                                                </select>
                                                 @error('outbuilding_roof')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
