@@ -129,10 +129,15 @@
                                                     class="form-control @error('wall_material') is-invalid @enderror"
                                                     id="validationCustom01" placeholder="e.g. bricks..." required
                                                     value="{{ old('wall_material') }}"> --}}
-                                                <select class="form-control">
+                                                <select name="wall_material"
+                                                    class="form-control @error('wall_material') is-invalid @enderror"
+                                                    required>
                                                     <option selected disabled>Choose.....</option>
-                                                    <option>Bricks </option>
-                                                    <option>Stone </option>
+                                                    <option value="1" {{ ((old('wall_material')==1)?'selected':'') }}>
+                                                        Stone
+                                                    </option>
+                                                    <option value="2" {{ ((old('wall_material')==2)?'selected':'') }}>
+                                                        Bricks </option>
                                                 </select>
                                                 @error('wall_material')
                                                 <span class="invalid-feedback" role="alert">
@@ -149,10 +154,13 @@
                                                 Roof :
                                             </label>
                                             <div class="col-md-12 col-sm-12 mb-3"><br>
-                                                <select class="form-control">
+                                                <select name="roof_material"
+                                                    class="form-control @error('roof_material') is-invalid @enderror  ">
                                                     <option selected disabled>Choose.....</option>
-                                                    <option>Bricks </option>
-                                                    <option>Stone </option>
+                                                    <option value="1" {{ ((old('roof_material')==1)?'selected':'') }}>
+                                                        Stone </option>
+                                                    <option value="2" {{ ((old('roof_material')==2)?'selected':'') }}>
+                                                        Bricks </option>
                                                 </select>
                                                 @error('roof_material')
                                                 <span class="invalid-feedback" role="alert">
@@ -168,10 +176,10 @@
 
                             <li>Height of the building (Storey / Floors).
                                 <div class="col-md-5 col-sm-12 mb-3"><br>
-                                    <input name="heigh" type="text"
-                                                    class="form-control @error('wall_material') is-invalid @enderror"
-                                                    id="validationCustom01" placeholder="e.g. 1" required
-                                                    value="{{ old('wall_material') }}">
+                                    <input name="building_height" type="number"
+                                        class="form-control @error('building_height') is-invalid @enderror"
+                                        id="validationCustom01" placeholder="e.g. 1" required
+                                        value="{{ old('wall_material') }}">
                                     @error('building_height')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
