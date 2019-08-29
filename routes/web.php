@@ -21,17 +21,17 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/home_customer', 'MainController@index')->name('home_customer');
+Route::get('/home-customer', 'MainController@index')->name('home_customer');
 
 Route::get('/premises', 'MainController@premises')->name('premises');
 
-Route::get('/product_content', 'MainController@product_content')->name('product_content');
+Route::get('/product-content', 'MainController@product_content')->name('product_content');
 
-Route::get('/product_allrisk', 'MainController@product_allrisk')->name('product_allrisk');
+Route::get('/product-allrisk', 'MainController@product_allrisk')->name('product_allrisk');
 
-Route::get('/product_domestic', 'MainController@product_domestic')->name('product_domestic');
+Route::get('/product-domestic', 'MainController@product_domestic')->name('product_domestic');
 
-Route::get('/general_information', 'MainController@general_information')->name('general_information');
+Route::get('/general-information', 'MainController@general_information')->name('general_information');
 
 //changed controller form main controller so as to load the information from db using the premises controller
 //Route::get('/billing_details', 'PremisesController@billingDetailsFetch')->name('billing_detail');
@@ -42,22 +42,22 @@ Route::get('/general_information', 'MainController@general_information')->name('
 Route::get('/calculator', 'CalculatorController@calculator')->name('calculator');
 
 //dictates the path to be taken
-Route::post('/premisesSubmit', 'PremisesController@start')->name('premisesSubmit');
+Route::post('/premises-submit', 'PremisesController@start')->name('premisesSubmit');
 
 // content submit
-Route::post('/contentSubmit', 'PremisesController@contentSubmit')->name('contentSubmit');
+Route::post('/content-submit', 'PremisesController@contentSubmit')->name('contentSubmit');
 
 //all risk submit
-Route::post('/allriskSubmit', 'PremisesController@allriskSubmit')->name('allriskSubmit');
+Route::post('/allrisk-submit', 'PremisesController@allriskSubmit')->name('allriskSubmit');
 
 //domestic submit
-Route::post('/domesticSubmit', 'PremisesController@domesticSubmit')->name('domesticSubmit');
+Route::post('/domestic-submit', 'PremisesController@domesticSubmit')->name('domesticSubmit');
 
 //general information
-Route::post('/generalInformationSubmit', 'PremisesController@generalInformationSubmit')->name('generalInformationSubmit');
+Route::post('/general-information-submit', 'PremisesController@generalInformationSubmit')->name('generalInformationSubmit');
 
-Route::get('/billingDetailsFetch', 'PremisesController@billingDetailsFetch')->name('billingDetailsFetch');
+Route::get('/billing-details-fetch', 'PremisesController@billingDetailsFetch')->name('billingDetailsFetch');
 
-Route::post('/billingDetailsSubmit', 'PremisesController@billingDetailsSubmit')->name('billingDetailsSubmit');
+Route::post('/billing-details-submit', 'PremisesController@billingDetailsSubmit')->name('billingDetailsSubmit');
 
-Route::get('/invoiceDetailsFetch', 'PremisesController@invoiceDetailsFetch')->name('invoiceDetailsFetch');
+Route::get('/invoice-details-fetch', 'PremisesController@invoiceDetailsFetch')->name('invoiceDetailsFetch');
