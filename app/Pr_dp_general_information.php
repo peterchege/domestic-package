@@ -7,4 +7,5 @@ use Illuminate\Database\Eloquent\Model;
 class Pr_dp_general_information extends Model
 {
     //
+    protected $fillable = ['id'];
 }

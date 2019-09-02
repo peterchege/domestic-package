@@ -199,11 +199,16 @@
                                                 Wall :
                                             </label>
                                             <div class="col-md-12 col-sm-12 mb-3"><br>
-                                                <select class="form-control">
+
+                                                <select name="outbuilding_wall" class="form-control @error('outbuilding_wall') is-invalid @enderror
+                                                    ">
                                                     <option selected disabled>Choose.....</option>
-                                                    <option>Bricks </option>
-                                                    <option>Stone </option>
+                                                    <option value="1" {{ ((old('roof_material')==1)?'selected':'') }}>
+                                                        Stone </option>
+                                                    <option value="2" {{ ((old('roof_material')==2)?'selected':'') }}>
+                                                        Bricks </option>
                                                 </select>
+
                                                 @error('outbuilding_wall')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
@@ -219,10 +224,15 @@
                                                 Roof :
                                             </label>
                                             <div class="col-md-12 col-sm-12 mb-3"><br>
-                                                <select class="form-control">
+                                                <select name="outbuilding_roof" class="form-control @error('outbuilding_roof') is-invalid @enderror
+                                                    ">
                                                     <option selected disabled>Choose.....</option>
-                                                    <option>Bricks </option>
-                                                    <option>Stone </option>
+                                                    <option value="1"
+                                                        {{ ((old('outbuilding_roof')==1)?'selected':'') }}>
+                                                        Stone </option>
+                                                    <option value="2"
+                                                        {{ ((old('outbuilding_roof')==2)?'selected':'') }}>
+                                                        Bricks </option>
                                                 </select>
                                                 @error('outbuilding_roof')
                                                 <span class="invalid-feedback" role="alert">
