@@ -477,6 +477,7 @@
                     <input type="hidden" name="content_amount" id="content_amount" value="">
                     <input type="hidden" name="domestic_amount" id="domestic_amount" value="">
                     <input type="hidden" name="risk_amount" id="risk_amount" value="">
+                    <input type="hidden" name="customer_role" id="customer_role" value="">
                     <div class="row">
                         <div class="col-12 text-center">
                             <a href="{{ route('premisesSubmit') }}">
@@ -512,6 +513,8 @@
                 </script>
                 <script>
                     $(document).ready(function () {
+                        var customer_role = sessionStorage.getItem('property');
+                        $('#customer_role').val(customer_role);
                         var building_amount = sessionStorage.getItem('building_amount');
                         if (building_amount != '') {
                             $('#premises_value').val(building_amount);

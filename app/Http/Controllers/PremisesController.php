@@ -52,6 +52,7 @@ class PremisesController extends Controller
             'burglar_proof' => 'required|in:1,0'
         ]);
 
+        $customer_role = $request->input('customer_role');
         $building_amount = $request->input('premises_value');
         $content_amount = $request->input('content_amount');
         $domestic_amount = $request->input('domestic_amount');
@@ -62,6 +63,7 @@ class PremisesController extends Controller
 
             try {
                 $feed = new Pr_dp_premise;
+                $feed->customer_role = $customer_role;
                 $feed->user_id = $user_id;
                 $feed->location = $request->input('physical_location');
                 $feed->premises_value = $request->input('premises_value');
@@ -92,6 +94,7 @@ class PremisesController extends Controller
         } elseif ($building_amount !== 'null' && $content_amount == 'null' && $risk_amount == 'null' && $domestic_amount == 'null') {
             try {
                 $feed = new Pr_dp_premise;
+                $feed->customer_role = $customer_role;
                 $feed->user_id = $user_id;
                 $feed->location = $request->input('physical_location');
                 $feed->premises_value = $request->input('premises_value');
