@@ -64,6 +64,13 @@
                                     class="btn btn-primary">{{ __('Send Password Reset Link') }}</button>
                             </div>
                             <hr>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <a href="{{ route('login') }}">Already Have an account? Login</a> </div>
+                                </div>
+                            </div>
                         </div>
                     </form>
                 </div>
