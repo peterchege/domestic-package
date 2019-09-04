@@ -156,16 +156,17 @@ class PremisesController extends Controller
     {
         //
         try {
+            $user_id = Auth::user()->user_id;
             for ($i = 0; $i < count($request->item_description); $i++) {
                 $description = new Pr_dp_content;
+                $description->user_id = $user_id;
                 $description->item_description = $request->item_description[$i];
                 $description->item_value = $request->item_value[$i];
-                $description->section_id = 2;
-                $description->customer_role = 'owner';
-                $description->premises_id = 3;
+                // $description->customer_role = 'owner';
+                // $description->premises_id = 3;
                 $description->save();
             }
-            return redirect('product_allrisk')->with('message_name', 'Test notification');
+            return redirect('product-allrisk')->with('message_name', 'Test notification');
         } catch (Exception $e) {
             report($e);
             return back()->with('message_name', 'Test notification');
@@ -181,24 +182,26 @@ class PremisesController extends Controller
     {
         //
         try {
+            $user_id = Auth::user()->user_id;
             for ($i = 0; $i < count($request->item_description); $i++) {
                 $description = new Pr_dp_allrisk;
                 //from product content
-                $description->content_id = 1;
+                //$description->content_id = 1;
                 //from form
+                $description->user_id = $user_id;
                 $description->serial_number = $request->serial_number[$i];
                 $description->make_model = $request->make_model[$i];
                 $description->item_description = $request->item_description[$i];
                 $description->value = $request->value[$i];
                 //product section info
-                $description->section_id = 3;
+                // $description->section_id = 3;
                 //customer info
-                $description->customer_role = 'owner';
+                //$description->customer_role = 'owner';
                 //premises info
-                $description->premises_id = 3;
+                //$description->premises_id = 3;
 
                 $description->save();
-                return redirect('product_domestic')->with('message_name', 'Test notification');
+                return redirect('product-domestic')->with('message_name', 'Test notification');
             }
         } catch (Exception $e) {
             report($e);
@@ -217,18 +220,20 @@ class PremisesController extends Controller
         //
 
         try {
+            $user_id = Auth::user()->user_id;
             for ($i = 0; $i < count($request->employee_number); $i++) {
                 //submit data
                 $domestic = new Pr_dp_domestic;
+                $domestic->user_id = $user_id;
                 $domestic->employee_type = $request->employee_id[$i];
                 $domestic->number_of_employees = $request->employee_number[$i];
                 $domestic->annual_salary = $request->annual_salary[$i];
-                $domestic->section_id = 1;
-                $domestic->customer_role = 'owner';
-                $domestic->premises_id = 3;
+                // $domestic->section_id = 1;
+                // $domestic->customer_role = 'owner';
+                // $domestic->premises_id = 3;
                 $domestic->save();
             }
-            return redirect('general_information')->with('message_name', 'Test notification');
+            return redirect('general-information')->with('message_name', 'Test notification');
         } catch (Exception $e) {
             report($e);
             return back()->with('message_name', 'Test notification');
