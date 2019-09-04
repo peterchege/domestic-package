@@ -530,7 +530,7 @@
                         $('#premisesSubmit').click(function (e) {
                             e.preventDefault();
                             var errors = [];
-                            $('textarea').each(function () {
+                            $('textarea:not(:last)').each(function () {
                                 // element == this
                                 if (!$(this).is(":hidden") && $(this).val() == '') {
                                     $(this).css('border', '#d92550 solid 1px');
