@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 02, 2019 at 02:11 PM
+-- Generation Time: Sep 04, 2019 at 11:46 AM
 -- Server version: 10.1.34-MariaDB
 -- PHP Version: 7.2.7
 
@@ -59,6 +59,26 @@ CREATE TABLE `old_all_risk_item` (
   `item_description` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `item` varchar(255) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=COMPACT;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `password_resets`
+--
+
+CREATE TABLE `password_resets` (
+  `email` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `token` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `password_resets`
+--
+
+INSERT INTO `password_resets` (`email`, `token`, `created_at`) VALUES
+('anthonbaru@gmail.com', '$2y$10$18w4QBe2aAcZeFT.dE5piuP.y3weetjJt.5ISoEqPoMHO7rI035vm', '2019-09-03 07:31:32'),
+('anthonybaru@gmail.com', '$2y$10$OgCbEI39kJHuQel8qRv1denaxRb4.gK7XV9CTWSIDCd9OSQKmw6Uq', '2019-09-03 09:51:54');
 
 -- --------------------------------------------------------
 
@@ -122,24 +142,27 @@ INSERT INTO `product_categories` (`category_id`, `category`, `product_id`, `crea
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pr_dp_all_risks`
+-- Table structure for table `pr_dp_allrisks`
 --
 
-CREATE TABLE `pr_dp_all_risks` (
-  `all_risk_id` int(11) NOT NULL,
-  `id` int(11) NOT NULL,
-  `user_id` int(11) DEFAULT NULL,
-  `cover_id` int(11) NOT NULL,
-  `content_id` int(11) DEFAULT NULL,
-  `premises_id` int(11) DEFAULT NULL,
-  `serial_no` varchar(65) COLLATE utf8_unicode_ci DEFAULT NULL,
+CREATE TABLE `pr_dp_allrisks` (
+  `allrisk_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `cover_id` int(11) DEFAULT NULL,
+  `serial_number` varchar(65) COLLATE utf8_unicode_ci NOT NULL,
   `make_model` varchar(65) COLLATE utf8_unicode_ci NOT NULL,
-  `item_description` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `value` double(20,0) DEFAULT NULL,
-  `customer_role` set('Owner','Tenant') COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+  `item_description` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `value` double(20,0) NOT NULL,
   `created_at` timestamp(6) NULL DEFAULT NULL,
   `updated_at` timestamp(6) NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=COMPACT;
+
+--
+-- Dumping data for table `pr_dp_allrisks`
+--
+
+INSERT INTO `pr_dp_allrisks` (`allrisk_id`, `user_id`, `cover_id`, `serial_number`, `make_model`, `item_description`, `value`, `created_at`, `updated_at`) VALUES
+(1, 1665378265, NULL, '7899564', 'toshiba', 'laptop', 200000, '2019-09-04 09:01:10.000000', '2019-09-04 09:01:10.000000');
 
 -- --------------------------------------------------------
 
@@ -151,14 +174,21 @@ CREATE TABLE `pr_dp_contents` (
   `content_id` int(11) NOT NULL,
   `user_id` int(11) DEFAULT NULL,
   `item_description` varchar(191) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `id` int(11) NOT NULL,
-  `premises_id` int(11) NOT NULL,
   `item_value` double NOT NULL,
-  `customer_role` set('Owner','Tenant') COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
-  `cover_id` int(11) DEFAULT NULL,
   `created_at` timestamp(6) NULL DEFAULT NULL,
   `updated_at` timestamp(6) NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=COMPACT;
+
+--
+-- Dumping data for table `pr_dp_contents`
+--
+
+INSERT INTO `pr_dp_contents` (`content_id`, `user_id`, `item_description`, `item_value`, `created_at`, `updated_at`) VALUES
+(1, NULL, 'laptop', 60000, '2019-09-04 06:52:50.000000', '2019-09-04 06:52:50.000000'),
+(2, NULL, 'bed', 60000, '2019-09-04 06:52:50.000000', '2019-09-04 06:52:50.000000'),
+(3, 1665378265, 'laptop', 80000, '2019-09-04 08:59:07.000000', '2019-09-04 08:59:07.000000'),
+(4, 1665378265, 'furniture', 90000, '2019-09-04 08:59:07.000000', '2019-09-04 08:59:07.000000'),
+(5, 1665378265, 'naem', 9555, '2019-09-04 08:59:07.000000', '2019-09-04 08:59:07.000000');
 
 -- --------------------------------------------------------
 
@@ -186,19 +216,22 @@ CREATE TABLE `pr_dp_covers` (
 --
 
 CREATE TABLE `pr_dp_domestics` (
-  `id` int(11) DEFAULT NULL,
+  `domestic_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
   `employee_type` set('Indoors Staff','Gardener','Stablemen','Chauffeurs','Watchmen') COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
   `number_of_employees` int(11) NOT NULL,
   `annual_salary` double NOT NULL,
-  `job_id` int(11) NOT NULL,
-  `cover_id` int(11) DEFAULT NULL,
-  `customer_role` set('Owner','Tenant') COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
-  `building_id` int(11) NOT NULL,
-  `user_id` int(11) DEFAULT NULL,
-  `premises_id` int(11) DEFAULT NULL,
   `created_at` timestamp(6) NULL DEFAULT NULL,
   `updated_at` timestamp(6) NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=COMPACT;
+
+--
+-- Dumping data for table `pr_dp_domestics`
+--
+
+INSERT INTO `pr_dp_domestics` (`domestic_id`, `user_id`, `employee_type`, `number_of_employees`, `annual_salary`, `created_at`, `updated_at`) VALUES
+(1, 1665378265, 'Indoors Staff', 65, 80000, '2019-09-04 09:23:57.000000', '2019-09-04 09:23:57.000000'),
+(2, 1665378265, 'Gardener', 2, 800000, '2019-09-04 09:23:57.000000', '2019-09-04 09:23:57.000000');
 
 -- --------------------------------------------------------
 
@@ -230,7 +263,8 @@ CREATE TABLE `pr_dp_general_informations` (
 INSERT INTO `pr_dp_general_informations` (`id`, `user_id`, `insurer_decline`, `insurer_decline_details`, `special_terms`, `special_terms_details`, `cancelled_refused_cover`, `cancelled_refused_cover_details`, `increased_premium`, `increased_premium_details`, `sustained_loss_from_mentioned_perils`, `sustained_loss_from_mentioned_perils_details`, `created_at`, `updated_at`) VALUES
 (1, 1665378265, 0, NULL, 0, NULL, 0, NULL, 0, NULL, 0, NULL, '2019-09-02 09:23:47.000000', '2019-09-02 09:23:47.000000'),
 (2, 1665378265, 0, NULL, 0, NULL, 0, NULL, 0, NULL, 0, NULL, '2019-09-02 09:30:10.000000', '2019-09-02 09:30:10.000000'),
-(3, 1665378265, 0, NULL, 0, NULL, 0, NULL, 0, NULL, 0, NULL, '2019-09-02 12:09:58.000000', '2019-09-02 12:09:58.000000');
+(3, 1665378265, 0, NULL, 0, NULL, 0, NULL, 0, NULL, 0, NULL, '2019-09-02 12:09:58.000000', '2019-09-02 12:09:58.000000'),
+(4, 1665378265, 0, NULL, 0, NULL, 0, NULL, 0, NULL, 0, NULL, '2019-09-04 09:24:09.000000', '2019-09-04 09:24:09.000000');
 
 -- --------------------------------------------------------
 
@@ -240,7 +274,7 @@ INSERT INTO `pr_dp_general_informations` (`id`, `user_id`, `insurer_decline`, `i
 
 CREATE TABLE `pr_dp_premises` (
   `premises_id` int(11) NOT NULL,
-  `customer_role` set('Owner','Tenant') COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+  `customer_role` set('Owner','Tenant') COLLATE utf8_unicode_ci DEFAULT '',
   `user_id` int(255) NOT NULL,
   `location` varchar(191) COLLATE utf8_unicode_ci NOT NULL,
   `dwelling_wall` int(11) NOT NULL,
@@ -276,7 +310,8 @@ INSERT INTO `pr_dp_premises` (`premises_id`, `customer_role`, `user_id`, `locati
 (6, '', 1665378265, 'PLOT NO. 1870/VI/209 MVULI ROAD WESTLANDS, NAks', 2, 1, 2, 1, 1, '1', 'Shops', 'self-contained', 1, NULL, 0, NULL, NULL, '0', 0, 0, NULL, 'Guards', 5000000, NULL, '2019-09-02 11:01:27.000000', '2019-09-02 11:01:27.000000'),
 (7, '', 1665378265, 'PLOT NO. 1870/VI/209 MVULI ROAD WESTLAND Area', 2, 2, 8, 2, 2, '1', 'Saloon.', 'self-contained', 0, 0, 0, NULL, '0', NULL, 0, 0, NULL, 'Dogs', 5000000, NULL, '2019-09-02 11:04:00.000000', '2019-09-02 11:04:00.000000'),
 (8, '', 1665378265, 'PLOT NO. 1870/VI/209 MVULI ROAD WESTLAND Nanyuki', 1, 1, 1, 1, 1, '1', 'Saloon.', 'self-contained', 0, 0, 0, NULL, NULL, '0', 0, 0, NULL, 'Dogs', 5000000, NULL, '2019-09-02 11:10:26.000000', '2019-09-02 11:10:26.000000'),
-(9, 'Owner', 1665378265, 'PLOT NO. 1870/VI/209 MVULI ROAD WESTLAND Niavasha', 1, 1, 1, 1, 1, '1', 'Saloon.', 'self-contained', 0, 0, 0, NULL, NULL, NULL, 0, 0, NULL, 'Dogs', 5000000, NULL, '2019-09-02 11:24:39.000000', '2019-09-02 11:24:39.000000');
+(9, 'Owner', 1665378265, 'PLOT NO. 1870/VI/209 MVULI ROAD WESTLAND Niavasha', 1, 1, 1, 1, 1, '1', 'Saloon.', 'self-contained', 0, 0, 0, NULL, NULL, NULL, 0, 0, NULL, 'Dogs', 5000000, NULL, '2019-09-02 11:24:39.000000', '2019-09-02 11:24:39.000000'),
+(10, 'Owner', 1665378265, 'PLOT NO. 1870/VI/209 MVULI ROAD WESTLANDS, COAST', 1, 1, 6, 1, 2, '0', NULL, 'self-contained', 0, 0, 0, NULL, NULL, '0', 0, 0, NULL, NULL, 500000, NULL, '2019-09-04 08:58:31.000000', '2019-09-04 08:58:31.000000');
 
 -- --------------------------------------------------------
 
@@ -419,6 +454,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `user_id`, `first_name`, `middle_name`, `last_name`, `email`, `password`, `phone_number`, `other_number`, `national_id`, `kra`, `postal_address`, `city_town`, `post_code`, `county`, `email_verified_at`, `remember_token`, `created_at`, `updated_at`) VALUES
+(6, 26672089, 'John', NULL, 'Doe', 'anthonybaru@gmail.com', '$2y$10$1oEUMNy1Il27sgIE23tO/u6iz1R66.Dpcq9fnbvAxbr6.jG3/GfXO', '0712345678', NULL, '12345678', 'A8528452568541P', NULL, NULL, NULL, NULL, NULL, 'ZYUm536fgGqnZmLlLUzuX77AHdvslsaorbrjlDZdX4OsEcSk4nMtHLSlJuDT', '2019-09-03 07:33:38.000000', '2019-09-03 08:01:37.000000'),
 (5, 1665378265, 'ANTHONY', 'JOHN', 'DOE', 'anthonbaru@gmail.com', '$2y$10$X41jZU/in8MV3SMMHVR95OBJ7/RcUfu3HhJZQIO1H33iUavSCpEMC', '700658856', '0712345678', '12345678', 'A8528452568541P', 9577, 'Mombasa', 300, 'Mombasa', NULL, NULL, '2019-09-02 06:46:25.000000', '2019-09-02 09:30:42.000000');
 
 --
@@ -440,6 +476,12 @@ ALTER TABLE `old_all_risk_item`
   ADD KEY `all_risk_id` (`all_risk_id`),
   ADD KEY `section_id` (`section_id`),
   ADD KEY `item_type` (`item_type`);
+
+--
+-- Indexes for table `password_resets`
+--
+ALTER TABLE `password_resets`
+  ADD KEY `password_resets_email_index` (`email`);
 
 --
 -- Indexes for table `payments`
@@ -465,12 +507,10 @@ ALTER TABLE `product_categories`
   ADD KEY `category_id` (`category_id`) USING BTREE;
 
 --
--- Indexes for table `pr_dp_all_risks`
+-- Indexes for table `pr_dp_allrisks`
 --
-ALTER TABLE `pr_dp_all_risks`
-  ADD PRIMARY KEY (`id`) USING BTREE,
-  ADD KEY `IX_Relationship27` (`content_id`) USING BTREE,
-  ADD KEY `Relationship19` (`customer_role`) USING BTREE,
+ALTER TABLE `pr_dp_allrisks`
+  ADD PRIMARY KEY (`allrisk_id`) USING BTREE,
   ADD KEY `cover_id` (`cover_id`),
   ADD KEY `user_id` (`user_id`);
 
@@ -478,9 +518,7 @@ ALTER TABLE `pr_dp_all_risks`
 -- Indexes for table `pr_dp_contents`
 --
 ALTER TABLE `pr_dp_contents`
-  ADD PRIMARY KEY (`id`) USING BTREE,
-  ADD KEY `IX_Relationship25` (`premises_id`,`customer_role`) USING BTREE,
-  ADD KEY `cover_id` (`cover_id`),
+  ADD PRIMARY KEY (`content_id`) USING BTREE,
   ADD KEY `user_id` (`user_id`);
 
 --
@@ -499,10 +537,7 @@ ALTER TABLE `pr_dp_covers`
 -- Indexes for table `pr_dp_domestics`
 --
 ALTER TABLE `pr_dp_domestics`
-  ADD PRIMARY KEY (`job_id`) USING BTREE,
-  ADD KEY `IX_Relationship26` (`building_id`) USING BTREE,
-  ADD KEY `Relationship17` (`customer_role`) USING BTREE,
-  ADD KEY `cover_id` (`cover_id`),
+  ADD PRIMARY KEY (`domestic_id`) USING BTREE,
   ADD KEY `user_id` (`user_id`);
 
 --
@@ -608,16 +643,16 @@ ALTER TABLE `product_categories`
   MODIFY `category_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT for table `pr_dp_all_risks`
+-- AUTO_INCREMENT for table `pr_dp_allrisks`
 --
-ALTER TABLE `pr_dp_all_risks`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `pr_dp_allrisks`
+  MODIFY `allrisk_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `pr_dp_contents`
 --
 ALTER TABLE `pr_dp_contents`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `content_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `pr_dp_covers`
@@ -626,16 +661,22 @@ ALTER TABLE `pr_dp_covers`
   MODIFY `cover_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `pr_dp_domestics`
+--
+ALTER TABLE `pr_dp_domestics`
+  MODIFY `domestic_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT for table `pr_dp_general_informations`
 --
 ALTER TABLE `pr_dp_general_informations`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `pr_dp_premises`
 --
 ALTER TABLE `pr_dp_premises`
-  MODIFY `premises_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `premises_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `ref_content_type`
@@ -665,19 +706,19 @@ ALTER TABLE `ref_outbuilding_walls`
 -- AUTO_INCREMENT for table `ref_roof_materials`
 --
 ALTER TABLE `ref_roof_materials`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `ref_wall_materials`
 --
 ALTER TABLE `ref_wall_materials`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Constraints for dumped tables
@@ -696,10 +737,10 @@ ALTER TABLE `products`
   ADD CONSTRAINT `Product categories` FOREIGN KEY (`product_id`) REFERENCES `product_categories` (`category_id`);
 
 --
--- Constraints for table `pr_dp_all_risks`
+-- Constraints for table `pr_dp_allrisks`
 --
-ALTER TABLE `pr_dp_all_risks`
-  ADD CONSTRAINT `pr_dp_all_risks_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `pr_dp_covers` (`user_id`);
+ALTER TABLE `pr_dp_allrisks`
+  ADD CONSTRAINT `pr_dp_all_risks to users relation` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `pr_dp_covers`
@@ -714,14 +755,19 @@ ALTER TABLE `pr_dp_covers`
 -- Constraints for table `pr_dp_domestics`
 --
 ALTER TABLE `pr_dp_domestics`
-  ADD CONSTRAINT `pr_dp_domestics_ibfk_1` FOREIGN KEY (`job_id`) REFERENCES `ref_jobs` (`job_id`),
-  ADD CONSTRAINT `pr_dp_domestics_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `pr_dp_covers` (`user_id`);
+  ADD CONSTRAINT `domestics to users relation` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `pr_dp_general_informations`
 --
 ALTER TABLE `pr_dp_general_informations`
   ADD CONSTRAINT `user id to general info` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `pr_dp_premises`
+--
+ALTER TABLE `pr_dp_premises`
+  ADD CONSTRAINT `premises to users relationship` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `ref_outbuilding_roofs`
