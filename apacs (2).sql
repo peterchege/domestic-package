@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 04, 2019 at 02:25 PM
+-- Generation Time: Sep 04, 2019 at 02:45 PM
 -- Server version: 10.1.34-MariaDB
 -- PHP Version: 7.2.7
 
@@ -612,8 +612,8 @@ ALTER TABLE `users`
   ADD UNIQUE KEY `email` (`email`) USING BTREE,
   ADD UNIQUE KEY `unique customer_id` (`id`) USING BTREE,
   ADD KEY `IX_Relationship21` (`password`) USING BTREE,
-  ADD KEY `middlename` (`middle_name`),
-  ADD KEY `phone` (`phone_number`) USING BTREE;
+  ADD KEY `phone` (`phone_number`) USING BTREE,
+  ADD KEY `user_id` (`user_id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -701,7 +701,7 @@ ALTER TABLE `ref_outbuilding_roofs`
 -- AUTO_INCREMENT for table `ref_outbuilding_walls`
 --
 ALTER TABLE `ref_outbuilding_walls`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `ref_roof_materials`
@@ -768,31 +768,11 @@ ALTER TABLE `pr_dp_general_informations`
 -- Constraints for table `pr_dp_premises`
 --
 ALTER TABLE `pr_dp_premises`
+  ADD CONSTRAINT `pr_dp_premises_ibfk_1` FOREIGN KEY (`dwelling_wall`) REFERENCES `ref_wall_materials` (`id`),
+  ADD CONSTRAINT `pr_dp_premises_ibfk_2` FOREIGN KEY (`dwelling_roof`) REFERENCES `ref_roof_materials` (`id`),
+  ADD CONSTRAINT `pr_dp_premises_ibfk_3` FOREIGN KEY (`outbuilding_roof`) REFERENCES `ref_outbuilding_roofs` (`id`),
+  ADD CONSTRAINT `pr_dp_premises_ibfk_4` FOREIGN KEY (`outbuilding_wall`) REFERENCES `ref_outbuilding_walls` (`id`),
   ADD CONSTRAINT `premises to users relationship` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `ref_outbuilding_roofs`
---
-ALTER TABLE `ref_outbuilding_roofs`
-  ADD CONSTRAINT `premises to outbuilding roof relationship` FOREIGN KEY (`id`) REFERENCES `pr_dp_premises` (`outbuilding_roof`);
-
---
--- Constraints for table `ref_outbuilding_walls`
---
-ALTER TABLE `ref_outbuilding_walls`
-  ADD CONSTRAINT `premises to outbuilidng relation` FOREIGN KEY (`id`) REFERENCES `pr_dp_premises` (`outbuilding_wall`);
-
---
--- Constraints for table `ref_roof_materials`
---
-ALTER TABLE `ref_roof_materials`
-  ADD CONSTRAINT `premises to roo materials relationship` FOREIGN KEY (`id`) REFERENCES `pr_dp_premises` (`dwelling_roof`);
-
---
--- Constraints for table `ref_wall_materials`
---
-ALTER TABLE `ref_wall_materials`
-  ADD CONSTRAINT `premises to wall materials id` FOREIGN KEY (`id`) REFERENCES `pr_dp_premises` (`dwelling_wall`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
