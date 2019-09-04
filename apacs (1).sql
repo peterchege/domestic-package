@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 04, 2019 at 11:46 AM
+-- Generation Time: Sep 04, 2019 at 02:25 PM
 -- Server version: 10.1.34-MariaDB
 -- PHP Version: 7.2.7
 
@@ -454,8 +454,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `user_id`, `first_name`, `middle_name`, `last_name`, `email`, `password`, `phone_number`, `other_number`, `national_id`, `kra`, `postal_address`, `city_town`, `post_code`, `county`, `email_verified_at`, `remember_token`, `created_at`, `updated_at`) VALUES
+(5, 1665378265, 'ANTHONY', 'JOHN', 'DOE', 'anthonbaru@gmail.com', '$2y$10$X41jZU/in8MV3SMMHVR95OBJ7/RcUfu3HhJZQIO1H33iUavSCpEMC', '700658856', '0712345678', '12345678', 'A8528452568541P', 9577, 'Mombasa', 300, 'Mombasa', NULL, NULL, '2019-09-02 06:46:25.000000', '2019-09-02 09:30:42.000000'),
 (6, 26672089, 'John', NULL, 'Doe', 'anthonybaru@gmail.com', '$2y$10$1oEUMNy1Il27sgIE23tO/u6iz1R66.Dpcq9fnbvAxbr6.jG3/GfXO', '0712345678', NULL, '12345678', 'A8528452568541P', NULL, NULL, NULL, NULL, NULL, 'ZYUm536fgGqnZmLlLUzuX77AHdvslsaorbrjlDZdX4OsEcSk4nMtHLSlJuDT', '2019-09-03 07:33:38.000000', '2019-09-03 08:01:37.000000'),
-(5, 1665378265, 'ANTHONY', 'JOHN', 'DOE', 'anthonbaru@gmail.com', '$2y$10$X41jZU/in8MV3SMMHVR95OBJ7/RcUfu3HhJZQIO1H33iUavSCpEMC', '700658856', '0712345678', '12345678', 'A8528452568541P', 9577, 'Mombasa', 300, 'Mombasa', NULL, NULL, '2019-09-02 06:46:25.000000', '2019-09-02 09:30:42.000000');
+(8, 97772024, 'John', NULL, 'Doe', 'johndoe@gmail.com', '$2y$10$QwzhIVSCEtj/ZR9h5yS6C.KDVufxRRhgCrwWkmOfmx7fbU/tGCdeq', '0712345678', NULL, '12345622', 'A456982158I', NULL, NULL, NULL, NULL, NULL, NULL, '2019-09-04 11:42:41.000000', '2019-09-04 11:42:41.000000');
 
 --
 -- Indexes for dumped tables
@@ -607,12 +608,12 @@ ALTER TABLE `ref_wall_materials`
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
-  ADD PRIMARY KEY (`user_id`) USING BTREE,
+  ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `email` (`email`) USING BTREE,
-  ADD UNIQUE KEY `phone` (`phone_number`) USING BTREE,
   ADD UNIQUE KEY `unique customer_id` (`id`) USING BTREE,
   ADD KEY `IX_Relationship21` (`password`) USING BTREE,
-  ADD KEY `middlename` (`middle_name`);
+  ADD KEY `middlename` (`middle_name`),
+  ADD KEY `phone` (`phone_number`) USING BTREE;
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -718,7 +719,7 @@ ALTER TABLE `ref_wall_materials`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- Constraints for dumped tables
