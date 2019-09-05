@@ -72,10 +72,38 @@ $(document).ready(function () {
             premium = (0.0015 * building_value) + (0.01 * content_value) + (0.015 * all_risk) + (0.02253 * domestic_value) + (liability_value);
             total = premium + (0.002 * premium) + (0.0025 * premium) + 40;
             if (total) {
+                var name = $('#name').val();
+                var phone = $('#phone').val();
+                var email = $('#email').val();
+                var location = $('#location').val();
+
+
+                var property = $('#property').find(':selected').val();
+
+                var building_amount = numeral($('#building_amount').val()).value();
+                var content_amount = numeral($('#content_amount').val()).value();
+                var risk_amount = numeral($('#risk_amount').val()).value();
+                var domestic_amount = numeral($('#domestic_amount').val()).value();
+                var liability_amount = numeral($('#liability_amount').val()).value();
+
+
+
                 $.ajax({
                     type: "POST",
                     url: "/ajaxRequest",
-                    data: $('#form').serialize(),
+                    //data: $('#form').serialize(),
+                    data: {
+                        name: name,
+                        phone: phone,
+                        email: email,
+                        location: location,
+                        property: property,
+                        building_amount: building_amount,
+                        content_amount: content_amount,
+                        risk_amount: risk_amount,
+                        domestic_amount: domestic_amount,
+                        liability_amount: liability_amount
+                    },
                     success: function (response) {
 
                     }

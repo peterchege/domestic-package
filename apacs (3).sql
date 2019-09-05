@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 04, 2019 at 02:45 PM
+-- Generation Time: Sep 05, 2019 at 11:19 AM
 -- Server version: 10.1.34-MariaDB
 -- PHP Version: 7.2.7
 
@@ -167,6 +167,43 @@ INSERT INTO `pr_dp_allrisks` (`allrisk_id`, `user_id`, `cover_id`, `serial_numbe
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `pr_dp_calculator_customer_quotations`
+--
+
+CREATE TABLE `pr_dp_calculator_customer_quotations` (
+  `id` int(11) NOT NULL,
+  `full_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `phone_number` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `location` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `property` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `premises` bigint(20) DEFAULT NULL,
+  `contents` bigint(20) DEFAULT NULL,
+  `all_risk` bigint(20) DEFAULT NULL,
+  `domestic_employee` bigint(20) DEFAULT NULL,
+  `liability` bigint(20) DEFAULT NULL,
+  `created_at` datetime(6) DEFAULT CURRENT_TIMESTAMP(6),
+  `updated_at` datetime(6) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=COMPACT;
+
+--
+-- Dumping data for table `pr_dp_calculator_customer_quotations`
+--
+
+INSERT INTO `pr_dp_calculator_customer_quotations` (`id`, `full_name`, `phone_number`, `email`, `location`, `property`, `premises`, `contents`, `all_risk`, `domestic_employee`, `liability`, `created_at`, `updated_at`) VALUES
+(1, 'ANTHONY KARONJI', '700658856', 'anthonybaru@gmail.com', 'MOmba', 'owner', 9, 800, 800, 200, 800, '2019-09-05 11:58:00.000000', '2019-09-05 11:58:00.000000'),
+(2, 'ANTHONY KARONJI', '700658856', 'anthonybaru@gmail.com', 'MOmba', 'owner', 9, 800, 800, 200, 800, '2019-09-05 11:58:12.000000', '2019-09-05 11:58:12.000000'),
+(3, 'John Doe', '07123665', 'p@gmail.com', 'Nakuru', 'owner', 866666, NULL, NULL, NULL, NULL, '2019-09-05 11:58:50.000000', '2019-09-05 11:58:50.000000'),
+(4, 'John Doe', '07123665', 'p@gmail.com', 'Nakuru', 'owner', 866666, 80000, 988888, 655555, 5000000, '2019-09-05 11:59:51.000000', '2019-09-05 11:59:51.000000'),
+(5, 'John Doe', '712345678', 'johndoe@gmail.com', 'Nakuru', 'owner', 8000000, 800000, 600000, 500000, 800000, '2019-09-05 12:03:43.000000', '2019-09-05 12:03:43.000000'),
+(6, 'John Doe', '712345678', 'johndoe@gmail.com', 'Nakuru', 'owner', 8000000, 800000, 600000, 500000, 800000, '2019-09-05 12:04:30.000000', '2019-09-05 12:04:30.000000'),
+(7, 'John Doe', '712345678', 'johndoe@gmail.com', 'Nakuru', 'owner', 8000000, 800000, 600000, 500000, 800000, '2019-09-05 12:08:46.000000', '2019-09-05 12:08:46.000000'),
+(8, 'John Doe', '712345678', 'johndoe@gmail.com', 'Nakuru', 'owner', 8000000, 800000, 600000, 500000, 800000, '2019-09-05 12:12:34.000000', '2019-09-05 12:12:34.000000'),
+(9, 'John Doe', '712345678', 'johndoe@gmail.com', 'Nakuru', 'owner', 8000000, 800000, 600000, 500000, 800000, '2019-09-05 12:12:49.000000', '2019-09-05 12:12:49.000000');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `pr_dp_contents`
 --
 
@@ -311,7 +348,8 @@ INSERT INTO `pr_dp_premises` (`premises_id`, `customer_role`, `user_id`, `locati
 (7, '', 1665378265, 'PLOT NO. 1870/VI/209 MVULI ROAD WESTLAND Area', 2, 2, 8, 2, 2, '1', 'Saloon.', 'self-contained', 0, 0, 0, NULL, '0', NULL, 0, 0, NULL, 'Dogs', 5000000, NULL, '2019-09-02 11:04:00.000000', '2019-09-02 11:04:00.000000'),
 (8, '', 1665378265, 'PLOT NO. 1870/VI/209 MVULI ROAD WESTLAND Nanyuki', 1, 1, 1, 1, 1, '1', 'Saloon.', 'self-contained', 0, 0, 0, NULL, NULL, '0', 0, 0, NULL, 'Dogs', 5000000, NULL, '2019-09-02 11:10:26.000000', '2019-09-02 11:10:26.000000'),
 (9, 'Owner', 1665378265, 'PLOT NO. 1870/VI/209 MVULI ROAD WESTLAND Niavasha', 1, 1, 1, 1, 1, '1', 'Saloon.', 'self-contained', 0, 0, 0, NULL, NULL, NULL, 0, 0, NULL, 'Dogs', 5000000, NULL, '2019-09-02 11:24:39.000000', '2019-09-02 11:24:39.000000'),
-(10, 'Owner', 1665378265, 'PLOT NO. 1870/VI/209 MVULI ROAD WESTLANDS, COAST', 1, 1, 6, 1, 2, '0', NULL, 'self-contained', 0, 0, 0, NULL, NULL, '0', 0, 0, NULL, NULL, 500000, NULL, '2019-09-04 08:58:31.000000', '2019-09-04 08:58:31.000000');
+(10, 'Owner', 1665378265, 'PLOT NO. 1870/VI/209 MVULI ROAD WESTLANDS, COAST', 1, 1, 6, 1, 2, '0', NULL, 'self-contained', 0, 0, 0, NULL, NULL, '0', 0, 0, NULL, NULL, 500000, NULL, '2019-09-04 08:58:31.000000', '2019-09-04 08:58:31.000000'),
+(11, 'Owner', 1665378265, 'PLOT NO. 1870/VI/209 MVULI ROAD WESTLAN', 1, 2, 1, NULL, NULL, '0', NULL, 'room-not-self-contained', 0, 0, 0, NULL, '0', NULL, 0, 0, NULL, NULL, 300000, NULL, '2019-09-04 16:47:45.000000', '2019-09-04 16:47:45.000000');
 
 -- --------------------------------------------------------
 
@@ -516,6 +554,12 @@ ALTER TABLE `pr_dp_allrisks`
   ADD KEY `user_id` (`user_id`);
 
 --
+-- Indexes for table `pr_dp_calculator_customer_quotations`
+--
+ALTER TABLE `pr_dp_calculator_customer_quotations`
+  ADD PRIMARY KEY (`id`) USING BTREE;
+
+--
 -- Indexes for table `pr_dp_contents`
 --
 ALTER TABLE `pr_dp_contents`
@@ -650,6 +694,12 @@ ALTER TABLE `pr_dp_allrisks`
   MODIFY `allrisk_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
+-- AUTO_INCREMENT for table `pr_dp_calculator_customer_quotations`
+--
+ALTER TABLE `pr_dp_calculator_customer_quotations`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
 -- AUTO_INCREMENT for table `pr_dp_contents`
 --
 ALTER TABLE `pr_dp_contents`
@@ -677,7 +727,7 @@ ALTER TABLE `pr_dp_general_informations`
 -- AUTO_INCREMENT for table `pr_dp_premises`
 --
 ALTER TABLE `pr_dp_premises`
-  MODIFY `premises_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `premises_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `ref_content_type`
@@ -701,7 +751,7 @@ ALTER TABLE `ref_outbuilding_roofs`
 -- AUTO_INCREMENT for table `ref_outbuilding_walls`
 --
 ALTER TABLE `ref_outbuilding_walls`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `ref_roof_materials`
@@ -732,10 +782,10 @@ ALTER TABLE `payments`
   ADD CONSTRAINT `user id to payment relation` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`);
 
 --
--- Constraints for table `products`
+-- Constraints for table `product_categories`
 --
-ALTER TABLE `products`
-  ADD CONSTRAINT `Product categories` FOREIGN KEY (`product_id`) REFERENCES `product_categories` (`category_id`);
+ALTER TABLE `product_categories`
+  ADD CONSTRAINT `products to categories relationships` FOREIGN KEY (`product_id`) REFERENCES `products` (`product_id`);
 
 --
 -- Constraints for table `pr_dp_allrisks`
