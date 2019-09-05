@@ -103,9 +103,6 @@ $(document).ready(function () {
                         risk_amount: risk_amount,
                         domestic_amount: domestic_amount,
                         liability_amount: liability_amount
-                    },
-                    success: function (response) {
-
                     }
                 });
                 $('html,body').animate({
