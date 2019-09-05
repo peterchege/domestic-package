@@ -1,12 +1,8 @@
 $(document).ready(function () {
     $.ajaxSetup({
-
         headers: {
-
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-
         }
-
     });
 
     $('.total').html('<p> 0 /year</p>');
@@ -76,17 +72,12 @@ $(document).ready(function () {
                 var phone = $('#phone').val();
                 var email = $('#email').val();
                 var location = $('#location').val();
-
-
                 var property = $('#property').find(':selected').val();
-
                 var building_amount = numeral($('#building_amount').val()).value();
                 var content_amount = numeral($('#content_amount').val()).value();
                 var risk_amount = numeral($('#risk_amount').val()).value();
                 var domestic_amount = numeral($('#domestic_amount').val()).value();
                 var liability_amount = numeral($('#liability_amount').val()).value();
-
-
 
                 $.ajax({
                     type: "POST",
@@ -114,7 +105,7 @@ $(document).ready(function () {
             }
         }
 
-        $('.total').html('<p>' + numeral(total).format('0,0') + '/year</p>');
+        $('.total').html('<p class="total_amount">' + numeral(total).format('0,0') + '/year</p>');
 
     }
 
@@ -159,37 +150,44 @@ $(document).ready(function () {
     });
 
     //adding to session storage
-    $('#save_quote, #buy_now').click(function () {
-        // get values
-        var name = $('#name').val();
-        var phone = $('#phone').val();
-        var email = $('#email').val();
-        var location = $('#location').val();
+    $('#save_quote, #buy_now').click(function (e) {
+        e.preventDefault();
+        if ($('.total>.total_amount').length == 0) {
+            swal.fire('Warning', 'Please perform a calculation!', 'info');
+        } else {
+            // get values
+            var name = $('#name').val();
+            var phone = $('#phone').val();
+            var email = $('#email').val();
+            var location = $('#location').val();
 
 
-        var property = $('#property').find(':selected').val();
+            var property = $('#property').find(':selected').val();
 
-        var building_amount = numeral($('#building_amount').val()).value();
-        var content_amount = numeral($('#content_amount').val()).value();
-        var risk_amount = numeral($('#risk_amount').val()).value();
-        var domestic_amount = numeral($('#domestic_amount').val()).value();
-        var liability_amount = numeral($('#liability_amount').val()).value();
+            var building_amount = numeral($('#building_amount').val()).value();
+            var content_amount = numeral($('#content_amount').val()).value();
+            var risk_amount = numeral($('#risk_amount').val()).value();
+            var domestic_amount = numeral($('#domestic_amount').val()).value();
+            var liability_amount = numeral($('#liability_amount').val()).value();
 
 
-        //store to session storage
-        sessionStorage.clear();
-        sessionStorage.setItem('name', name);
-        sessionStorage.setItem('phone', phone);
-        sessionStorage.setItem('email', email);
-        sessionStorage.setItem('location', location);
-        sessionStorage.setItem('property', property);
-        sessionStorage.setItem('building_amount', building_amount);
-        sessionStorage.setItem('content_amount', content_amount);
-        sessionStorage.setItem('risk_amount', risk_amount);
-        sessionStorage.setItem('domestic_amount', domestic_amount);
-        sessionStorage.setItem('liability_amount', liability_amount);
-        sessionStorage.setItem('property', property);
-        console.log(sessionStorage);
+            //store to session storage
+            sessionStorage.clear();
+            sessionStorage.setItem('name', name);
+            sessionStorage.setItem('phone', phone);
+            sessionStorage.setItem('email', email);
+            sessionStorage.setItem('location', location);
+            sessionStorage.setItem('property', property);
+            sessionStorage.setItem('building_amount', building_amount);
+            sessionStorage.setItem('content_amount', content_amount);
+            sessionStorage.setItem('risk_amount', risk_amount);
+            sessionStorage.setItem('domestic_amount', domestic_amount);
+            sessionStorage.setItem('liability_amount', liability_amount);
+            sessionStorage.setItem('property', property);
+            console.log(sessionStorage);
+
+            window.location = this.href;
+        }
     });
 
 });

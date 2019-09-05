@@ -38,6 +38,6 @@ class CalculatorController extends Controller
         $feed->save();
 
         $input = $request->all();
-        return response()->json(['success' => $input]);
+        //return response()->json(['success' => $input]);
     }
 }

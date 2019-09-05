@@ -388,8 +388,8 @@
 
                 <div class="row text-center pos-btn">
                     <div class="col-6 btn-assist">
-                        <a href="http://apatest.dev">
-                            <button id="save_quote" class="btn btn-quote">
+                        <a id="save_quote" href="http://apatest.dev">
+                            <button class="btn btn-quote">
                                 Save Quote
                             </button>
                         </a>
@@ -403,8 +403,8 @@
 
                 <div class="row text-center">
                     <div class="col-12 btn-red">
-                        <a href="{{ route('login') }}">
-                            <button id="buy_now" class="btn">
+                        <a id="buy_now" href="{{ route('login') }}">
+                            <button class="btn">
                                 BUY NOW
                             </button>
                         </a>

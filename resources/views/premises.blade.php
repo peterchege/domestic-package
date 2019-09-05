@@ -15,7 +15,7 @@
                     <div class="build-head">
                         <h2> PREMISES INFORMATION </h2>
                         <div class="page-title-subheading">
-                            The purpose of this form is to provide the comany with all the
+                            The purpose of this form is to provide the company with all the
                             material information<br> that is likely to influence the assessment of your cover.
                         </div>
                     </div>
