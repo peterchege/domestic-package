@@ -41,6 +41,8 @@ Route::get('/general-information', 'MainController@general_information')->name('
 
 Route::get('/calculator', 'CalculatorController@calculator')->name('calculator');
 
+Route::post('ajaxRequest', 'CalculatorController@ajaxRequestPost');
+
 //dictates the path to be taken
 Route::post('/premises-submit', 'PremisesController@start')->name('premisesSubmit');
 

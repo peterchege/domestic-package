@@ -58,7 +58,8 @@
 
     <!-- chatbot -->
 
-
+    <!-- csrf     -->
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
 
 </head>
 
@@ -655,7 +656,7 @@
     <script src="{{ asset('calc/js/numeral.js') }}"></script>
 
     <!--Start of Tawk.to Script-->
-    <script type="text/javascript">
+    <!-- <script type="text/javascript">
         var Tawk_API = Tawk_API || {},
             Tawk_LoadStart = new Date();
         (function () {
@@ -668,7 +669,7 @@
             s0.parentNode.insertBefore(s1, s0);
         })();
 
-    </script>
+    </script> -->
     <!--End of Tawk.to Script-->
     <script src="{{ asset('calc/js/selectFilter.min.js') }}"></script>
     <script src="{{ asset('calc/js/parsley.min.js') }}"></script>

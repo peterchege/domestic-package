@@ -1,4 +1,14 @@
 $(document).ready(function () {
+    $.ajaxSetup({
+
+        headers: {
+
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+
+        }
+
+    });
+
     $('.total').html('<p> 0 /year</p>');
     $('#form').parsley();
     $('#form').on('submit', refreshTotal);
@@ -64,7 +74,7 @@ $(document).ready(function () {
             if (total) {
                 $.ajax({
                     type: "POST",
-                    url: "ajax/processor.php?mode=insert",
+                    url: "/ajaxRequest",
                     data: $('#form').serialize(),
                     success: function (response) {
 
@@ -141,7 +151,7 @@ $(document).ready(function () {
         var liability_amount = numeral($('#liability_amount').val()).value();
 
 
-        //store to cache
+        //store to session storage
         sessionStorage.clear();
         sessionStorage.setItem('name', name);
         sessionStorage.setItem('phone', phone);
