@@ -54,23 +54,23 @@
             </div>
             <div class="app-header__menu">
                 <span>
-                    <button type="button"
+                    <!-- <button type="button"
                         class="btn-icon btn-icon-only btn btn-primary btn-sm mobile-toggle-header-nav">
                         <span class="btn-icon-wrapper">
                             <i class="fa fa-ellipsis-v fa-w-6"></i>
                         </span>
-                    </button>
+                    </button> -->
                 </span>
             </div>
             <div class="app-header__content">
                 <div class="app-header-left">
-                    <div class="search-wrapper">
+                    <!-- <div class="search-wrapper">
                         <div class="input-holder">
                             <input type="text" class="search-input" placeholder="Type to search">
                             <button class="search-icon"><span></span></button>
                         </div>
                         <button class="close"></button>
-                    </div>
+                    </div> -->
                     <!-- <ul class="header-menu nav">
                         <li class="nav-item">
                             <a href="javascript:void(0);" class="nav-link">
@@ -170,12 +170,12 @@
                 </div>
                 <div class="app-header__menu">
                     <span>
-                        <button type="button"
+                        <!-- <button type="button"
                             class="btn-icon btn-icon-only btn btn-primary btn-sm mobile-toggle-header-nav">
                             <span class="btn-icon-wrapper">
                                 <i class="fa fa-ellipsis-v fa-w-6"></i>
                             </span>
-                        </button>
+                        </button> -->
                     </span>
                 </div>
 
