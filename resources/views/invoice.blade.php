@@ -117,6 +117,9 @@
                             <h4>PACKAGE : <small>DOMESTIC PACKAGE</small></h4><br>
                         </div>
                     </div>
+
+                    <!-- SECTION  A -->
+
                     <div class="col-md-11 table-algn">
                         <div class="invoce-style ">
                             <h5>SECTION : <small>A - BUILDING COVER</small></h5>
@@ -154,12 +157,187 @@
                             </div>
                         </div>
                     </div>
+
+                    <!-- SECTION  B -->
+
+                    <div class="col-md-11 table-algn">
+                        <div class="invoce-style ">
+                            <h5>SECTION : <small> B - CONTENTS</small></h5>
+                        </div>
+
+                        <!-- TABLE SECTION -->
+                        <div class="section-table">
+                            <div class="main-card mb-3 card">
+                                <div class="card-body">
+                                    <table class="mb-0 table table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th>#</th>
+                                                <th>Description</th>
+                                                <th>Sum Insured (KShs)</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <th scope="row">1</th>
+                                                <td>Household contents ( Single Article Limit- 5% of the Sum Insured)
+                                                </td>
+                                                <td>400,000</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row"></th>
+                                                <th class="text-center">Total Sum Insured </th>
+                                                <th>4000,000</th>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SECTION  C -->
+
+                    <div class="col-md-11 table-algn">
+                        <div class="invoce-style ">
+                            <h5>SECTION : <small> C - ALLRISK</small></h5>
+                        </div>
+
+                        <!-- TABLE SECTION -->
+                        <div class="section-table">
+                            <div class="main-card mb-3 card">
+                                <div class="card-body">
+                                    <table class="mb-0 table table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th>#</th>
+                                                <th>Description</th>
+                                                <th>Sum Insured (KShs)</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <th scope="row">1</th>
+                                                <td>I Phone X - IMEI NO. 353040097139611
+                                                </td>
+                                                <td>122,000</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">2</th>
+                                                <td>IPHONE XS 256 S/N 357225092369588 
+                                                </td>
+                                                <td>128,000.00 </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row"></th>
+                                                <th class="text-center">Total Sum Insured </th>
+                                                <th>250,000</th>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SECTION  D -->
+
+                    <div class="col-md-11 table-algn">
+                        <div class="invoce-style ">
+                            <h5>SECTION : <small> D - DOMESTIC EMPLOYEE</small></h5>
+                        </div>
+
+                        <!-- TABLE SECTION -->
+                        <div class="section-table">
+                            <div class="main-card mb-3 card">
+                                <div class="card-body">
+                                    <table class="mb-0 table table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th>#</th>
+                                                <th>Description/Occupation</th>
+                                                 <th>No Of Employees</th>
+                                                <th>Wages/Salaries </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <th scope="row">1</th>
+                                                <td>1 Gardener & 2 domestic servants 
+                                                </td>
+                                                 <td>3
+                                                </td>
+                                                <td>1,500,000</td>
+                                            </tr>
+                                            {{-- <tr>
+                                                <th scope="row"></th>
+                                                <th class="text-center">Total Sum Insured </th>
+                                                <th>4000,000</th>
+                                            </tr> --}}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SECTION  E -->
+
+                    <div class="col-md-11 table-algn">
+                        <div class="invoce-style ">
+                            <h5>SECTION : <small> E - LIABILITY</small></h5>
+                        </div>
+
+                        <!-- TABLE SECTION -->
+                        <div class="section-table">
+                            <div class="main-card mb-3 card">
+                                <div class="card-body">
+                                    <table class="mb-0 table table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th>#</th>
+                                                <th>Description</th>
+                                                <th>Limit of liability</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <th scope="row">1</th>
+                                                <td>SEC E-OWNERS LIABILITY 
+                                                </td>
+                                                <td>1,000,000</td>
+                                            </tr>
+                                            {{-- <tr>
+                                                <th scope="row"></th>
+                                                <th class="text-center">Total Sum Insured </th>
+                                                <th>4000,000</th>
+                                            </tr> --}}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
                 </div>
+
+                <!-- END OF SECTION -->
+
+                <!-- PAYMENT OPTIONS AND TOATAL COST -->
+
+                <div class="row">
+
+                    <!-- PAYMENT METHORD OPTION -->
+                     <div class="col-md-6">
+                        <div class="row">
+                            <h2>WE ACCEPT THE FOLLOWING PAYMENT OPTION</h2>
+                        </div>
+
+                    </div>
 
                 <!-- TAXATION AND DEDUCTIONS -->
 
-                <div class="row">
-                    <div class="col-md-6 offset-md-6">
+                    <div class="col-md-6 ">
                         <div class="tax-style">
                             <ul>
                                 <hr>
