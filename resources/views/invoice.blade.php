@@ -330,7 +330,10 @@
                     <!-- PAYMENT METHORD OPTION -->
                      <div class="col-md-6">
                         <div class="row">
-                            <h2>WE ACCEPT THE FOLLOWING PAYMENT OPTION</h2>
+                            <h5 class="text-center">WE ACCEPT THE FOLLOWING PAYMENT OPTION</h5>
+                                <div class="col-3">
+                                    <img src="img/.png" alt="">
+                                </div>
                         </div>
 
                     </div>
