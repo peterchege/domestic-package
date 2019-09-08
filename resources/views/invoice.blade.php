@@ -55,9 +55,9 @@
             </div>
         </div>
         @if(session('message_name'))
-            <div class="alert alert-success">
-                {{session('message_name')}}
-            </div>
+        <div class="alert alert-success">
+            {{session('message_name')}}
+        </div>
         @endif
         <div class="main-card mb-3 card">
             <div class="card-body build-h5">
@@ -224,7 +224,7 @@
                                             </tr>
                                             <tr>
                                                 <th scope="row">2</th>
-                                                <td>IPHONE XS 256 S/N 357225092369588 
+                                                <td>IPHONE XS 256 S/N 357225092369588
                                                 </td>
                                                 <td>128,000.00 </td>
                                             </tr>
@@ -256,16 +256,16 @@
                                             <tr>
                                                 <th>#</th>
                                                 <th>Description/Occupation</th>
-                                                 <th>No Of Employees</th>
+                                                <th>No Of Employees</th>
                                                 <th>Wages/Salaries </th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr>
                                                 <th scope="row">1</th>
-                                                <td>1 Gardener & 2 domestic servants 
+                                                <td>1 Gardener & 2 domestic servants
                                                 </td>
-                                                 <td>3
+                                                <td>3
                                                 </td>
                                                 <td>1,500,000</td>
                                             </tr>
@@ -303,7 +303,7 @@
                                         <tbody>
                                             <tr>
                                                 <th scope="row">1</th>
-                                                <td>SEC E-OWNERS LIABILITY 
+                                                <td>SEC E-OWNERS LIABILITY
                                                 </td>
                                                 <td>1,000,000</td>
                                             </tr>
@@ -318,7 +318,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                 </div>
 
                 <!-- END OF SECTION -->
@@ -328,17 +328,17 @@
                 <div class="row">
 
                     <!-- PAYMENT METHORD OPTION -->
-                     <div class="col-md-6">
+                    <div class="col-md-6">
                         <div class="row">
                             <h5 class="text-center">WE ACCEPT THE FOLLOWING PAYMENT OPTION</h5>
-                                <div class="col-3">
-                                    <img src="img/.png" alt="">
-                                </div>
+                            <div class="col-3">
+                                <img src="img/.png" alt="">
+                            </div>
                         </div>
 
                     </div>
 
-                <!-- TAXATION AND DEDUCTIONS -->
+                    <!-- TAXATION AND DEDUCTIONS -->
 
                     <div class="col-md-6 ">
                         <div class="tax-style">
