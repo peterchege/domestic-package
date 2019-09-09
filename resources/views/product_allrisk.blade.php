@@ -57,9 +57,9 @@
             </div>
         </div>
         @if(session('message_name'))
-            <div class="alert alert-success">
-                {{session('message_name')}}
-            </div>
+        <div class="alert alert-success">
+            {{session('message_name')}}
+        </div>
         @endif
         <div class="main-card mb-3 card">
             <div class="card-body build-h5">
