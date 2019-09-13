@@ -343,7 +343,7 @@ class PremisesController extends Controller
     }
 
     /**
-     * Updating user details from billing details form.
+     * fetching user invoice form
      *
      * @return \Illuminate\Http\Response
      */
