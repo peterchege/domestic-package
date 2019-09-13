@@ -39,17 +39,17 @@ class PremisesController extends Controller
         //storing premises form data
         $this->validate($request, [
             'physical_location' => 'required|unique:pr_dp_premises,location',
-            'premises_value' => 'required',
-            'wall_material' => 'required',
-            'roof_material' => 'required',
+            'premises_value' => 'numeric',
+            'wall_material' => 'numeric|required',
+            'roof_material' => 'numeric|required',
             'building_height' => 'required',
             'rad' => 'required|in:1,0',
             'dwelling' => 'required|in:private,self-contained,room-not-self-contained',
             'dwelling_occupation' => 'required|in:1,0',
-            'thirty_day' => 'required|in:1,0',
-            'repair_state' => 'required|in:1,0',
-            'thirty_day' => 'required|in:1,0',
-            'burglar_proof' => 'required|in:1,0'
+            'thirty_day' => 'numeric|required|in:1,0',
+            'repair_state' => 'numeric|required|in:1,0',
+            'thirty_day' => 'numeric|required|in:1,0',
+            'burglar_proof' => 'numeric|required|in:1,0'
         ]);
 
         $customer_role = $request->input('customer_role');
@@ -250,11 +250,11 @@ class PremisesController extends Controller
         //
         //storing premises form data
         $this->validate($request, [
-            'insurer_decline' => 'required',
-            'special_terms' => 'required',
-            'cancelled_refused_cover' => 'required',
-            'increased_premium' => 'required',
-            'sustained_loss_from_mentioned_perils' => 'required',
+            'insurer_decline' => 'numeric|required',
+            'special_terms' => 'numeric|required',
+            'cancelled_refused_cover' => 'numeric|required',
+            'increased_premium' => 'numeric|required',
+            'sustained_loss_from_mentioned_perils' => 'numeric|required',
         ]);
 
         $user_id = Auth::user()->user_id;
