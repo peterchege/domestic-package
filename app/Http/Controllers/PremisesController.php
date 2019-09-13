@@ -350,7 +350,16 @@ class PremisesController extends Controller
     public function invoiceDetailsFetch()
     {
         $invoiceDetails = User::where('user_id', Auth::user()->user_id)->get();
-        return view('invoice', compact('invoiceDetails'));
+
+        $buildingCovers = Pr_dp_premise::where('user_id', Auth::user()->user_id)->get();
+
+        $buildingContents = Pr_dp_content::where('user_id', Auth::user()->user_id)->get();
+
+        $buildingRisks = Pr_dp_allrisk::where('user_id', Auth::user()->user_id)->get();
+
+        $buildingEmployees = Pr_dp_domestic::where('user_id', Auth::user()->user_id)->get();
+        // $user_id = Auth::user()->user_id;
+        return view('invoice', compact('invoiceDetails', 'buildingCovers', 'buildingContents', 'buildingRisks', 'buildingEmployees'));
     }
 
     /**
