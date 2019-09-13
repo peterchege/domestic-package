@@ -75,9 +75,9 @@
             </div>
         </div>
         @if(session('message_name'))
-            <div class="alert alert-success">
-                {{session('message_name')}}
-            </div>
+        <div class="alert alert-success">
+            {{session('message_name')}}
+        </div>
         @endif
         <div class="main-card mb-3 card">
             <div class="card-body">
@@ -253,7 +253,7 @@
                     <div class="form-row">
                         <div class="col-md-4 mb-3">
                             <label for="validationCustom03">Postal Address (P.O.BOX)</label>
-                            <input name="postal_address" type="text"
+                            <input name="postal_address" type="number"
                                 class="form-control @error('postal_address') is-invalid @enderror "
                                 id="validationCustom03"
                                 value="<?= (($userDetail->postal_address)?$userDetail->postal_address:old('postal_address')); ?>"
