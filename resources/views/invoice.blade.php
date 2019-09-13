@@ -156,7 +156,7 @@
                                             <tr>
                                                 <th scope="row"></th>
                                                 <th class="text-center">Total Sum Insured </th>
-                                            <th>{{ $buildingCovers->sum('premises_value') }}</th>
+                                                <th>{{ $buildingCovers->sum('premises_value') }}</th>
                                             </tr>
 
                                         </tbody>
@@ -203,7 +203,7 @@
                                             <tr>
                                                 <th scope="row"></th>
                                                 <th class="text-center">Total Sum Insured </th>
-                                            <th>{{ $buildingContents->sum('item_value') }}</th>
+                                                <th>{{ $buildingContents->sum('item_value') }}</th>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -281,7 +281,7 @@
                                         <tbody>
 
                                             <tr>
-                                                <th scope="row">1</th>
+                                                <th scope="row">-</th>
                                                 {{-- <td>1 Gardener & 2 domestic servants</td> --}}
                                                 <td>
                                                     @foreach ($buildingEmployees as $buildingEmployee)
@@ -326,7 +326,7 @@
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <th scope="row">1</th>
+                                                <th scope="row">-</th>
                                                 <td>SEC E-OWNERS LIABILITY
                                                 </td>
                                                 <td>1,000,000</td>
