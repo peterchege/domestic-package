@@ -138,19 +138,27 @@
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            @foreach ($buildingCovers as $buildingCover)
                                             <tr>
-                                                <th scope="row">1</th>
-                                                <td>Residential Building of First Class Construction
+                                                <th scope="row">-</th>
+                                                {{-- <td>Residential Building of First Class Construction
                                                     situated at PLOT NO. 1870/VI/209
                                                     MVULI ROAD WESTLANDS, NAIROBI
+                                                </td> --}}
+                                                <td>Residential Building of First Class Construction
+                                                    situated at {{ $buildingCover->location }}
                                                 </td>
-                                                <td>10,000,000</td>
+                                                <td>{{ $buildingCover->premises_value }}</td>
+
                                             </tr>
+                                            @endforeach
+
                                             <tr>
                                                 <th scope="row"></th>
                                                 <th class="text-center">Total Sum Insured </th>
-                                                <th>10,0000,000</th>
+                                            <th>{{ $buildingCovers->sum('premises_value') }}</th>
                                             </tr>
+
                                         </tbody>
                                     </table>
                                 </div>
@@ -178,16 +186,24 @@
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            @foreach ($buildingContents as $buildingContent)
                                             <tr>
-                                                <th scope="row">1</th>
-                                                <td>Household contents ( Single Article Limit- 5% of the Sum Insured)
-                                                </td>
-                                                <td>400,000</td>
+                                                <th scope="row">-</th>
+
+                                                {{-- <td>Household contents ( Single Article Limit- 5% of the Sum Insured)
+                                                </td> --}}
+                                                <td>{{ $buildingContent->item_description }}</td>
+                                                <td>{{ $buildingContent->item_value }}</td>
+
+
                                             </tr>
+
+                                            @endforeach
+
                                             <tr>
                                                 <th scope="row"></th>
                                                 <th class="text-center">Total Sum Insured </th>
-                                                <th>4000,000</th>
+                                            <th>{{ $buildingContents->sum('item_value') }}</th>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -216,22 +232,24 @@
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            @foreach ($buildingRisks as $buildingRisk)
                                             <tr>
-                                                <th scope="row">1</th>
-                                                <td>I Phone X - IMEI NO. 353040097139611
+                                                <th scope="row">-</th>
+                                                <td>{{ $buildingRisk->make_model.' '.$buildingRisk->item_description.' S/N '.$buildingRisk->serial_number }}
                                                 </td>
-                                                <td>122,000</td>
+                                                <td>{{ $buildingRisk->value }}</td>
                                             </tr>
-                                            <tr>
+                                            @endforeach
+                                            {{-- <tr>
                                                 <th scope="row">2</th>
                                                 <td>IPHONE XS 256 S/N 357225092369588
                                                 </td>
                                                 <td>128,000.00 </td>
-                                            </tr>
+                                            </tr> --}}
                                             <tr>
                                                 <th scope="row"></th>
                                                 <th class="text-center">Total Sum Insured </th>
-                                                <th>250,000</th>
+                                                <th>{{ $buildingRisks->sum('value') }}</th>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -261,14 +279,20 @@
                                             </tr>
                                         </thead>
                                         <tbody>
+
                                             <tr>
                                                 <th scope="row">1</th>
-                                                <td>1 Gardener & 2 domestic servants
+                                                {{-- <td>1 Gardener & 2 domestic servants</td> --}}
+                                                <td>
+                                                    @foreach ($buildingEmployees as $buildingEmployee)
+                                                    {{ $buildingEmployee->number_of_employees.' '.$buildingEmployee->employee_type.', ' }}
+                                                    @endforeach
                                                 </td>
-                                                <td>3
-                                                </td>
-                                                <td>1,500,000</td>
+
+                                                <td>{{ $buildingEmployees->sum('number_of_employees') }}</td>
+                                                <td>{{ $buildingEmployees->sum('annual_salary') }}</td>
                                             </tr>
+
                                             {{-- <tr>
                                                 <th scope="row"></th>
                                                 <th class="text-center">Total Sum Insured </th>
