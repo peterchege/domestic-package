@@ -157,6 +157,7 @@
                                                 <th scope="row"></th>
                                                 <th class="text-center">Total Sum Insured </th>
                                                 <th>{{ $buildingCovers->sum('premises_value') }}</th>
+                                                <?php $coverPrem = (0.15/100)*($buildingCovers->sum('premises_value')) ?>
                                             </tr>
 
                                         </tbody>
@@ -204,6 +205,7 @@
                                                 <th scope="row"></th>
                                                 <th class="text-center">Total Sum Insured </th>
                                                 <th>{{ $buildingContents->sum('item_value') }}</th>
+                                                <?php $contentPrem = (1/100)*($buildingContents->sum('item_value')) ?>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -250,6 +252,7 @@
                                                 <th scope="row"></th>
                                                 <th class="text-center">Total Sum Insured </th>
                                                 <th>{{ $buildingRisks->sum('value') }}</th>
+                                                <?php $riskPrem = (1.5/100)*($buildingRisks->sum('value')) ?>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -291,6 +294,7 @@
 
                                                 <td>{{ $buildingEmployees->sum('number_of_employees') }}</td>
                                                 <td>{{ $buildingEmployees->sum('annual_salary') }}</td>
+                                                <?php $employeePrem = (2.253/100)*($buildingEmployees->sum('annual_salary')) ?>
                                             </tr>
 
                                             {{-- <tr>
@@ -370,16 +374,20 @@
                                 <hr>
                                 <li>Currency : Kshs</li>
                                 <hr>
-                                <li>Premium : 60,000</li>
+                                <?php $premium = $employeePrem + $riskPrem + $contentPrem + $coverPrem ?>
+                                <li>Premium : {{ $premium }}</li>
                                 <hr>
-                                <li>Training Levy: 54.00</li>
+                                <?php $training = (0.2/100)*$premium ?>
+                                <li>Training Levy: {{ $training }}</li>
                                 <hr>
                                 <li>Stamp Duty: 40.00</li>
                                 <hr>
-                                <li> PHFunds: 57.00</li>
+                                <?php $ph = (0.25/100)*$premium ?>
+                                <li> PHFunds: {{ $ph }}</li>
                                 <hr>
                                 <br>
-                                <li class="total-amount">Total Premium : 60,251.00</li>
+                                <?php $totalPremium = $premium + $training + 40 + $ph ?>
+                                <li class="total-amount">Total Premium : {{ $totalPremium }}</li>
                                 <hr>
                             </ul>
                         </div>
