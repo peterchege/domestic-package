@@ -58,9 +58,9 @@
             </div>
         </div>
         @if(session('message_name'))
-            <div class="alert alert-success">
-                {{session('message_name')}}
-            </div>
+        <div class="alert alert-success">
+            {{session('message_name')}}
+        </div>
         @endif
         <div class="main-card mb-3 card">
             <div class="card-body build-h5">
@@ -77,23 +77,23 @@
                     <div class="row cont-row container">
                         <div class="col-md-2 offset-2">
                             <label>Employee</label><br>
-                            <input name="employee_id[]" value="1" type="checkbox"
+                            <input name="employee_id[]" value="Indoors Staff" type="checkbox"
                                 class="form-check-input check indoor_staff" id="indoor_staff">
                             <p>Indoor Staff</p>
                             <br>
-                            <input name="employee_id[]" value="2" type="checkbox"
+                            <input name="employee_id[]" value="Gardener" type="checkbox"
                                 class="form-check-input check gardener" id="gardener">
                             <p>Gardener</p>
                             <br>
-                            <input name="employee_id[]" value="3" type="checkbox"
+                            <input name="employee_id[]" value="Stablemen" type="checkbox"
                                 class="form-check-input check stablemen" id="stablemen">
                             <p>Stablemen</p>
                             <br>
-                            <input name="employee_id[]" value="4" type="checkbox" type="checkbox"
+                            <input name="employee_id[]" value="Chauffeurs" type="checkbox" type="checkbox"
                                 class="form-check-input check chauffeurs" id="chauffeurs">
                             <p>Chauffeurs</p>
                             <br>
-                            <input name="employee_id[]" value="5" type="checkbox"
+                            <input name="employee_id[]" value="Watchmen" type="checkbox"
                                 class="form-check-input check watchmen" id="watchmen">
                             <p>Watchmen</p>
                         </div>
